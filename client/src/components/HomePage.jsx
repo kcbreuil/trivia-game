@@ -13,11 +13,11 @@ const HomePage = () => {
     setUser,
   } = useContext(AppContext);
 
-  const registerUser = async (e) => {
+  const signUp = async (firstName, lastName, email, e) => {
     e.preventDefault();
     await axios({
       method: "POST",
-      url: `${process.env.REACT_APP_SERVER_URL}/users`,
+      url: `http://localhost:8080/users`,
       data: {
         firstName,
         lastName,
@@ -25,13 +25,8 @@ const HomePage = () => {
       },
     })
       .then(({ data }) => {
-        console.log(data);
         setUser(data.user);
-        setFirstName("");
-        setLastName("");
-        setEmail("");
         localStorage.setItem("token", data.token);
-        // history.push("/account");
       })
       .catch((e) => console.log(e.message.toString()));
   };
@@ -43,10 +38,11 @@ const HomePage = () => {
       to win the grand prize: 1 of 10 tickets to the NetApp summer concert and 1
       backstage pass. Business email required to play NEXT Tech Trivia with
       NetApp
-      <form onSubmit={(e) => registerUser(firstName, lastName, email, e)}>
+      <form onSubmit={(e) => signUp(firstName, lastName, email, e)}>
         <input
           type="text"
-          name="firstName"
+          name="firstname"
+          id="firstname"
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -54,7 +50,8 @@ const HomePage = () => {
         />
         <input
           type="text"
-          name="lastName"
+          name="lastname"
+          id="lastname"
           placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
@@ -63,18 +60,16 @@ const HomePage = () => {
         <input
           type="text"
           name="email"
-          placeholder="Email"
+          id="email"
+          placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        <button type="submit" className="btn btn-primary">
+          Sign up!
+        </button>
       </form>
-      <button
-        type="submit"
-        onClick={(e) => registerUser(firstName, lastName, email, e)}
-      >
-        Let's Play!
-      </button>
       <div>
         Please read and understand the NetApp privacy policy and understand that
         you can unsubscribe from NetApp communications at any time or manage my
