@@ -8,10 +8,13 @@ const app = express();
 
 const User = require("./models/user");
 const UserRoutes = require("./routes/user");
+const Question = require("./models/question");
+const QuestionRoutes = require("./routes/question");
 
 app.use(cors());
 app.use(express.json());
 app.use(UserRoutes);
+app.use(QuestionRoutes);
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
+  heading: {
+    type: String,
+  },
   question: {
     type: String,
     required: true,
@@ -15,7 +18,6 @@ const questionSchema = new mongoose.Schema({
     type: Array,
     required: true,
     trim: true,
-    lowercase: true,
   },
 });
 

@@ -9,20 +9,12 @@ const Trivia = () => {
   const [score, setScore] = useState(0);
   const [disabled, setDisabled] = useState(true);
 
-  //   const loadQuiz = () => {
-  //     const questions = quizData.map((question) => {
-  //       return question.question;
-  //     });
-  //     if (currentIndex === 0) {
-  //       console.log(questions);
-  //       return {
-  //         question: QuizData[currentIndex].question,
-  //         options: QuizData[currentIndex].options,
-  //         answer: QuizData[currentIndex].answer,
-  //       };
-  //     }
-  //   };
-  //   loadQuiz();
+  useEffect(() => {
+    axios.get(`/questions`).then((res) => {
+      setTotalQuestions(res.data.results.length);
+      setQuestions(res.data.results);
+    });
+  }, []);
 
   return (
     <div>
