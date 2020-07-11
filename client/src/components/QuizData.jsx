@@ -28,7 +28,7 @@ const QuizData = () => {
     },
   ];
 
-  return <div>{quizData.forEach((question) => question.question)}</div>;
+  return <div>{quizData.map((quiz) => quiz.question)}</div>;
 };
 
 export default QuizData;
