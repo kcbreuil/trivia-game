@@ -3,6 +3,7 @@ import { AppContextProvider } from "./context/AppContext";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage.jsx";
 import Trivia from "./pages/Trivia.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/trivia" component={Trivia} />
+          <Footer />
         </Switch>
       </AppContextProvider>
     </Router>

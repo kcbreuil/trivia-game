@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
@@ -27,6 +28,9 @@ const HomePage = () => {
       .then(({ data }) => {
         setUser(data.user);
         localStorage.setItem("token", data.token);
+        setEmail("");
+        setFirstName("");
+        setLastName("");
       })
       .catch((e) => console.log(e.message.toString()));
   };
