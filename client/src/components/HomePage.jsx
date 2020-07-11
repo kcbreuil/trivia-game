@@ -67,7 +67,7 @@ const HomePage = () => {
           required
         />
         <button type="submit" className="btn btn-primary">
-          Sign up!
+          Lets Play!
         </button>
       </form>
       <div>
