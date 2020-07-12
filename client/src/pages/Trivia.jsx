@@ -14,8 +14,6 @@ const Trivia = () => {
     axios.get(`http://localhost:8080/questions`).then((res) => {
       setQuestions(res.data);
       setTotalQuestions(res.data.length);
-      console.log(res.data);
-      console.log(res.data.length);
     });
   }, []);
   const proceed = (e) => {

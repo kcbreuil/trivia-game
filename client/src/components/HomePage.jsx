@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
 const HomePage = () => {
+  const history = useHistory();
   const {
     firstName,
     setFirstName,
@@ -36,45 +38,55 @@ const HomePage = () => {
   };
   return (
     <div className="content">
-      Hi! Welcome to NEXT Tech Trivia with NetApp. Answer 5 fun questions, and
-      if you get 4 out of 5 correct, you’ll “spin for a chance to win” Google
-      gift cards. All players will also be entered into a drawing for the chance
-      to win the grand prize: 1 of 10 tickets to the NetApp summer concert and 1
-      backstage pass. Business email required to play NEXT Tech Trivia with
-      NetApp
-      <form onSubmit={(e) => signUp(firstName, lastName, email, e)}>
+      <h1>Hi!</h1> <br></br>
+      <h1>Welcome to NEXT Tech Trivia with NetApp.</h1>
+      <p>
+        Answer 5 fun questions, and if you get 4 out of 5 correct, you’ll “spin
+        for a chance to win” Google gift cards. All players will also be entered
+        into a drawing for the chance to win the grand prize: 1 of 10 tickets to
+        the NetApp summer concert and 1 backstage pass. Business email required
+        to play NEXT Tech Trivia with NetApp
+      </p>
+      <form
+        className="signUpForm"
+        onSubmit={(e) => signUp(firstName, lastName, email, e)}
+      >
+        <label>First name</label>
         <input
           type="text"
           name="firstname"
           id="firstname"
-          placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
         />
+        <label>Last name</label>
         <input
           type="text"
           name="lastname"
           id="lastname"
-          placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
         />
+        <label>Email</label>
         <input
           type="text"
           name="email"
           id="email"
-          placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn-primary"
+          onClick={() => history.push(`/trivia`)}
+        >
           Lets Play!
         </button>
       </form>
-      <div>
+      <div className="privacy">
         Please read and understand the NetApp privacy policy and understand that
         you can unsubscribe from NetApp communications at any time or manage my
         preferences. Trivia Terms and Conditions.

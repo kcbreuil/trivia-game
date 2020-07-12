@@ -16,3 +16,25 @@
   bottom: 0;
   width: 100%;
 }
+
+input {
+  border: none;
+}
+
+.privacy {
+  margin: 0;
+  position: bottom;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-primary {
+  border-radius: 50px;
+  width: 200px;
+  background: #fbbc04;
+  border: none;
+  color: white;
+}
