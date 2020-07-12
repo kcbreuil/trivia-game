@@ -35,7 +35,7 @@ const HomePage = () => {
       .catch((e) => console.log(e.message.toString()));
   };
   return (
-    <div>
+    <div className="content">
       Hi! Welcome to NEXT Tech Trivia with NetApp. Answer 5 fun questions, and
       if you get 4 out of 5 correct, you’ll “spin for a chance to win” Google
       gift cards. All players will also be entered into a drawing for the chance

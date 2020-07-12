@@ -102,6 +102,7 @@ const Trivia = () => {
           You got {totalCorrectAnswers} out of {totalQuestions}
         </p>
       )}
+      <div></div>
     </div>
   );
 };
