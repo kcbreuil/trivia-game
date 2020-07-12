@@ -12,8 +12,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/trivia" component={Trivia} />
-          <Footer />
         </Switch>
+        <Footer />
       </AppContextProvider>
     </Router>
   );
