@@ -8,6 +8,7 @@ const AppContextProvider = ({ children }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
+  //
   //   const token = localStorage.getItem("token");
 
   //   useEffect(() => {

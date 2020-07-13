@@ -33,6 +33,7 @@ const HomePage = () => {
         setEmail("");
         setFirstName("");
         setLastName("");
+        history.push(`/trivia`);
       })
       .catch((e) => console.log(e.message.toString()));
   };
@@ -78,11 +79,7 @@ const HomePage = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button
-          type="submit"
-          className="btn-primary"
-          onClick={() => history.push(`/trivia`)}
-        >
+        <button type="submit" className="btn-primary">
           Lets Play!
         </button>
       </form>

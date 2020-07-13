@@ -3,12 +3,15 @@ import axios from "axios";
 import Question from "../components/Question.jsx";
 import "../styling/homepage.css";
 
+import Wheel from "../components/Wheel.jsx";
+
 const Trivia = () => {
   const [questions, setQuestions] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [spinwheel, setSpinWheel] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:8080/questions`).then((res) => {
@@ -24,6 +27,22 @@ const Trivia = () => {
     e.preventDefault();
     setActiveQuestion(activeQuestion - 1);
   };
+
+  const readyToSpin = () => {
+    setSpinWheel(true);
+    showWheel();
+  };
+
+  const showWheel = (e) => {
+    if (totalCorrectAnswers > 1) {
+      return (
+        <div>
+          <Wheel />
+        </div>
+      );
+    }
+  };
+
   const addAnswers = (formData) => {
     const values = {};
     let totalValue = 0;
@@ -49,6 +68,7 @@ const Trivia = () => {
     const formData = new FormData(e.target);
     addAnswers(formData);
     setShowResults(true);
+    readyToSpin();
   };
 
   return (
@@ -94,12 +114,13 @@ const Trivia = () => {
           )}
         </form>
       )}
-
       {showResults && (
-        <p>
-          You got {totalCorrectAnswers} out of {totalQuestions}
-        </p>
-      )}
+          <p>
+            You got {totalCorrectAnswers} out of {totalQuestions}
+          </p>
+        ) &&
+        showWheel()}
+
       <div></div>
     </div>
   );
