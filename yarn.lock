@@ -1317,6 +1317,11 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-random-selection-wheel@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-random-selection-wheel/-/react-random-selection-wheel-0.1.2.tgz#248fbab100381c9ddf8173fabaca11d510c91b09"
+  integrity sha512-NDvNzh3mn7ZEV3b18CIP/bmEgCJ2gV4TQQw8Y+Le71MV97r7f+EsQBh6bM/G7etouZhr6G27eFSxht/INad9Sg==
+
 readable-stream@^2.0.6, readable-stream@^2.3.5:
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
