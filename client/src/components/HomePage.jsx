@@ -35,7 +35,7 @@ const HomePage = () => {
         setLastName("");
         history.push(`/trivia`);
       })
-      .catch((e) => console.log(e.message.toString()));
+      .catch((e) => alert(e.message.toString()));
   };
   return (
     <div className="content">
@@ -84,9 +84,18 @@ const HomePage = () => {
         </button>
       </form>
       <div className="privacy">
-        Please read and understand the NetApp privacy policy and understand that
-        you can unsubscribe from NetApp communications at any time or manage my
-        preferences. Trivia Terms and Conditions.
+        Please read and understand the{" "}
+        <a
+          href={() =>
+            history.push(
+              "https://www.netapp.com/us/legal/privacypolicy/index.aspx"
+            )
+          }
+        >
+          NetApp privacy policy{" "}
+        </a>{" "}
+        and understand that you can unsubscribe from NetApp communications at
+        any time or manage my preferences. Trivia Terms and Conditions.
       </div>
     </div>
   );
