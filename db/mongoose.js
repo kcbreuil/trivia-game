@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 try {
   mongoose.connect(
-    "mongodb+srv://kcbreuil:Grammy32685!!@cluster0.ev7uy.mongodb.net/trivia-game?retryWrites=true&w=majority",
+    `${process.env.MONGODB_URL}`,
     {
       useNewUrlParser: true,
       useCreateIndex: true,

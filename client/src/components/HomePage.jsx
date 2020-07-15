@@ -20,7 +20,7 @@ const HomePage = () => {
     e.preventDefault();
     await axios({
       method: "POST",
-      url: `http://localhost:8080/users`,
+      url: `/users`,
       data: {
         firstName,
         lastName,
@@ -35,7 +35,7 @@ const HomePage = () => {
         setLastName("");
         history.push(`/trivia`);
       })
-      .catch((e) => alert(e.message.toString()));
+      .catch((e) => alert(e.message.toString() + ' Invalid email')); 
   };
   return (
     <div className="content">
