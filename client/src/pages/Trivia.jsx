@@ -14,7 +14,7 @@ const Trivia = () => {
   const [spinwheel, setSpinWheel] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/questions`).then((res) => {
+    axios.get(`/questions`).then((res) => {
       setQuestions(res.data);
       setTotalQuestions(res.data.length);
     });
