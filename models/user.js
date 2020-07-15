@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
       if (!validator.isEmail(value)) {
         throw new Error("Email is invalid");
       }
+      if (value.includes("gmail")) {
+        throw new Error("Invalid email selection, please use a business email");
+      }
     },
   },
   tokens: [
