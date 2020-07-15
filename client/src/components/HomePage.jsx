@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
@@ -85,17 +85,14 @@ const HomePage = () => {
       </form>
       <div className="privacy">
         Please read and understand the{" "}
-        <a
-          href={() =>
-            history.push(
-              "https://www.netapp.com/us/legal/privacypolicy/index.aspx"
-            )
-          }
-        >
-          NetApp privacy policy{" "}
-        </a>{" "}
+        <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
+          NetApp privacy policy
+        </a>
         and understand that you can unsubscribe from NetApp communications at
-        any time or manage my preferences. Trivia Terms and Conditions.
+        any time or manage my preferences.{" "}
+        <a href="https://www.netapp.com/us/subscriptions/index.aspx">
+          Trivia Terms and Conditions.
+        </a>
       </div>
     </div>
   );
