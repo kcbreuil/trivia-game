@@ -2,6 +2,8 @@ require("./db/mongoose");
 const express = require("express"),
   cors = require("cors"),
   path = require("path");
+
+const request = require("request");
 //library from node.js to grab file paths
 
 const app = express();

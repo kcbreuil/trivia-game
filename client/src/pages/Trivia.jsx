@@ -34,7 +34,7 @@ const Trivia = () => {
   };
 
   const showWheel = (e) => {
-    if (totalCorrectAnswers > 1) {
+    if (totalCorrectAnswers > 4) {
       return (
         <div>
           <Wheel />
@@ -120,8 +120,6 @@ const Trivia = () => {
           </p>
         ) &&
         showWheel()}
-
-      <div></div>
     </div>
   );
 };

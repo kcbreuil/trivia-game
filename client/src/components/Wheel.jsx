@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import Wheel_function from "../utils/wheel";
@@ -6,7 +6,7 @@ import Wheel_function from "../utils/wheel";
 export class Wheel extends React.Component {
   constructor() {
     super();
-    this.places = [":(", "10","50", "100", "150"];
+    this.places = [":(", "10", "50", "100", "150"];
   }
 
   render() {
@@ -20,4 +20,3 @@ export class Wheel extends React.Component {
 }
 
 export default Wheel;
-
