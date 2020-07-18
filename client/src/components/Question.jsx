@@ -5,6 +5,7 @@ import decode from "./../utils/decode";
 export default (data) => {
   const fieldset = data.visible ? "fieldset" : "fieldset u-hidden";
   const questionNo = data.name;
+
   return (
     <div className={fieldset}>
       <h1>{decode(data.heading)}</h1>
