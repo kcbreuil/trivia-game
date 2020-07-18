@@ -10,6 +10,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
     "cords": "^1.0.4",
     "cors": "^2.8.5",

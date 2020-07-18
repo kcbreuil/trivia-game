@@ -8670,6 +8670,11 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-random-selection-wheel@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-random-selection-wheel/-/react-random-selection-wheel-0.1.2.tgz#248fbab100381c9ddf8173fabaca11d510c91b09"
+  integrity sha512-NDvNzh3mn7ZEV3b18CIP/bmEgCJ2gV4TQQw8Y+Le71MV97r7f+EsQBh6bM/G7etouZhr6G27eFSxht/INad9Sg==
+
 react-router-dom@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
