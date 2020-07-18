@@ -7,6 +7,7 @@ const express = require("express"),
 
 const app = express();
 
+const Reward = require("./models/reward");
 const User = require("./models/user");
 const UserRoutes = require("./routes/user");
 const Question = require("./models/question");
