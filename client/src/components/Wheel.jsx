@@ -13,6 +13,7 @@ export class Wheel extends React.Component {
     return (
       <div className="App">
         <h1>Spin to win! </h1>
+
         <WheelFunction items={this.places} />
       </div>
     );
