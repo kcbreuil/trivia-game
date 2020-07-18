@@ -8,6 +8,7 @@ const express = require("express"),
 const app = express();
 
 const Reward = require("./models/reward");
+const Campaign = require("./models/campaign");
 const User = require("./models/user");
 const UserRoutes = require("./routes/user");
 const Question = require("./models/question");

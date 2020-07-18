@@ -7,6 +7,7 @@ const AppContextProvider = ({ children }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [userSelection, setUserSelection] = useState(false);
 
   //
   //   const token = localStorage.getItem("token");
@@ -33,6 +34,8 @@ const AppContextProvider = ({ children }) => {
         setLastName,
         user,
         setUser,
+        userSelection,
+        setUserSelection,
       }}
     >
       {children}

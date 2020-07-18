@@ -2,11 +2,11 @@ import React from "react";
 
 import "../styling/wheel.css";
 
-export default class Wheel_function extends React.Component {
+export default class WheelFunction extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedItem: null
+      selectedItem: null,
     };
     this.selectItem = this.selectItem.bind(this);
   }
@@ -30,7 +30,7 @@ export default class Wheel_function extends React.Component {
 
     const wheelVars = {
       "--nb-item": items.length,
-      "--selected-item": selectedItem
+      "--selected-item": selectedItem,
     };
     const spinning = selectedItem !== null ? "spinning" : "";
 
