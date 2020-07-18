@@ -14,6 +14,7 @@ export class Wheel extends React.Component {
       <div className="App">
         <h1>Spin to win! </h1>
         <Wheel_function items={this.places} />
+        
       </div>
     );
   }
