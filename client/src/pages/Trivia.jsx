@@ -42,6 +42,12 @@ const Trivia = () => {
       );
     }
   };
+  // const updateCorrectAnswers = () => {
+  //   if (userSelection === correctAnswer) {
+  //     setTotalCorrectAnswers + 1
+  //   }
+  //   setTotalInCorrectAnswers + 1
+  // }
 
   const addAnswers = (formData) => {
     const values = {};
