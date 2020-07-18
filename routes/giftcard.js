@@ -1,32 +1,20 @@
 const express = require("express");
-const axios = require("axios");
-const { response } = require("express");
 const router = new express.Router();
+const axios = require("axios");
 
-// const getGiftCard = async () => {
-//   return axios.get(`https://api-testbed.giftbit.com/papi/v1/ping`, {
-//     headers: { Authorization: `Bearer ${process.env.APIKEY}` },
-//   });
-// };
-// router.get("/", async (request, response) => {
-//   axios
-//     .get("https://api-testbed.giftbit.com/papi/v1/ping")
-//     .then((response) => {
-//       console.log(response.data);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
-
-router.get("/", async (req, res) => {
-  let { data } = await axios.get(
-    `https://api-testbed.giftbit.com/papi/v1/ping`,
-    {
-      headers: { Authorization: `Bearer ${process.env.APIKEY}` },
-    }
-  );
-  res.send(data);
+const getGiftCards = async () => {
+  return axios.get(`https://api-testbed.giftbit.com/papi/v1/brands`, {
+    headers: { Authorization: `Bearer ${process.env.API_KEY}` },
+  });
+};
+router.get("/", async (request, response) => {
+  try {
+    const resp = await getGiftCards();
+    response.send(resp.data);
+  } catch (e) {
+    console.error(e);
+    response.status(500).send({ error: e.message });
+  }
 });
 
 module.exports = router;
