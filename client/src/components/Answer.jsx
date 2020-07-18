@@ -5,8 +5,9 @@ export default (data) => {
   return (
     <div>
       <label>
-        <input type="radio" name={data.name} value={data.correct} />
-        {decode(data.answer)}
+        <button type="button" name={data.name} value={data.correct}>
+          {decode(data.answer)}
+        </button>
       </label>
     </div>
   );
