@@ -48,7 +48,7 @@ const Trivia = () => {
   };
 
   const showWheel = (e) => {
-    if (totalCorrectAnswers > 4) {
+    if (totalCorrectAnswers >= 4) {
       return (
         <div>
           <Wheel />

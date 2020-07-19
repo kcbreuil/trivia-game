@@ -3,7 +3,7 @@ import React from "react";
 const Losing = () => {
   return (
     <div>
-      Awe Snap!{" "}
+      Awe Snap!
       <img
         src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png"
         alt=""
