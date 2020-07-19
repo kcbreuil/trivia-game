@@ -98,6 +98,11 @@ const HomePage = () => {
             required
           />
         </div>
+        <div className="button-flex">
+          <button type="submit" className="btn-primary">
+            Lets Play!
+          </button>
+        </div>
       </form>
       <br></br>
       <div className="privacy">
@@ -116,11 +121,6 @@ const HomePage = () => {
         </a>
         <br></br>
         <br></br>
-        <div className="button-flex">
-          <button type="submit" className="btn-primary">
-            Lets Play!
-          </button>
-        </div>
       </div>
     </div>
   );
