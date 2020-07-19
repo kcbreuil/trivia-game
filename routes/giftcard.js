@@ -20,31 +20,18 @@ router.get("/", async (request, response) => {
 });
 
 const makeCampaign = async () => {
-  return axios.get(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
+  return axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
     headers: { Authorization: `Bearer ${process.env.API_KEY}` },
   });
 };
 
-// router.post("/", async (request, response) => {
-//   try {
-//     const resp = await makeCampaign();
-//     response.send(resp.data);
-//   } catch (e) {
-//     console.log(e);
-//     response.status(500).send({ error: e.message });
-//   }
-// });
-
-router.post("/", async (req, res) => {
-  const campaign = new Campaign({
-    ...req.body,
-  });
+router.post("/", async (request, response) => {
   try {
-    campaign.save();
-    res.status(201).send(campaign);
+    const resp = await makeCampaign();
+    response.send(resp.data);
   } catch (e) {
-    console.log("is it me?");
-    res.status(400).send(e);
+    console.log(e);
+    response.status(500).send({ error: e.message });
   }
 });
 

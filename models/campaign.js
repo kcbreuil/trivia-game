@@ -1,14 +1,24 @@
 const mongoose = require("mongoose");
+const { ObjectID } = require("mongodb");
 
 const campaignSchema = new mongoose.Schema({
   gift_template: {
     type: String,
   },
   contacts: {
-    type: String,
+    type: Array,
+    required: true,
   },
-  prince_in_cents: {
+  price_in_cents: {
     type: Number,
+    required: true,
+  },
+  brand_codes: {
+    type: Array,
+    required: true,
+  },
+  expiry: {
+    type: Date,
     required: true,
   },
 });
