@@ -7,8 +7,8 @@ const auth = async (req, res, next) => {
     const decoded = jwt.verify(token, "neverstoplearning");
     const user = await User.findOne({
       _id: decoded._id,
-      "tokens.token": token,
     });
+
     if (!user) {
       throw new Error();
     }
@@ -20,4 +20,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = {auth};
+module.exports = { auth };
