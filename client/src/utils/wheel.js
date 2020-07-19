@@ -1,8 +1,6 @@
 import React from "react";
 
 import "../styling/wheel.css";
-import Losing from "../components/Losing";
-import Winning from "../components/Winning";
 
 export default class WheelFunction extends React.Component {
   constructor(props) {
@@ -50,7 +48,7 @@ export default class WheelFunction extends React.Component {
               key={index}
               style={{ "--item-nb": index }}
             >
-              {item && winning ? console.log("hi") : console.log("no")}
+              {item}
             </div>
           ))}
         </div>

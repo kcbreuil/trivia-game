@@ -1,8 +1,8 @@
 import React from "react";
 
-const Losing = () => {
+const LostWheel = () => {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       Awe Snap!
       <img
         src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png"
@@ -14,4 +14,4 @@ const Losing = () => {
   );
 };
 
-export default Losing;
+export default LostWheel;
