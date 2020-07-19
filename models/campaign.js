@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+const { ObjectID } = require("mongodb");
 
 const campaignSchema = new mongoose.Schema({
+
     gift_template: {
       type: String
     },
@@ -25,6 +27,8 @@ const campaignSchema = new mongoose.Schema({
       required: true
     }
   });
+
+
 
 const Campaign = mongoose.model("campaign", campaignSchema);
 module.exports = Campaign;

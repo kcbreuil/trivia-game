@@ -1,17 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Question from "../components/Question.jsx";
+import $ from "jquery";
 import "../styling/homepage.css";
+import { AppContext } from "../context/AppContext";
 
 import Wheel from "../components/Wheel.jsx";
 
 const Trivia = () => {
+  const { totalCorrectAnswers, setTotalCorrectAnswers } = useContext(
+    AppContext
+  );
   const [questions, setQuestions] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
-  const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [spinwheel, setSpinWheel] = useState(false);
+  let input = document.getElementsByTagName("input");
+  let label = document.getElementsByTagName("label");
 
   useEffect(() => {
     axios.get(`/questions`).then((res) => {
@@ -22,6 +28,14 @@ const Trivia = () => {
   const proceed = (e) => {
     e.preventDefault();
     setActiveQuestion(activeQuestion + 1);
+    //Once the next button is clicked the class "disable" is added to the label tags
+    $("label").removeClass("disable");
+    //To prevent answers being shown on next question, the class "correct" is removed from all label tags.
+    for (let i = 0; i < 20; i++) {
+      if (input[i].value == 1) {
+        $(label[i]).removeClass("correct");
+      }
+    }
   };
   const back = (e) => {
     e.preventDefault();
@@ -42,12 +56,6 @@ const Trivia = () => {
       );
     }
   };
-  // const updateCorrectAnswers = () => {
-  //   if (userSelection === correctAnswer) {
-  //     setTotalCorrectAnswers + 1
-  //   }
-  //   setTotalInCorrectAnswers + 1
-  // }
 
   const addAnswers = (formData) => {
     const values = {};
@@ -107,14 +115,12 @@ const Trivia = () => {
               />
             );
           })}
-          {activeQuestion > 0 && activeQuestion + 1 !== totalQuestions && (
-            <button onClick={back}>Previous</button>
-          )}
           {activeQuestion + 1 < totalQuestions &&
             activeQuestion + 1 !== totalQuestions && (
-              <button onClick={proceed}>Next</button>
+              <button onClick={proceed} className="nextButton">
+                Next {`>`}
+              </button>
             )}
-
           {activeQuestion + 1 === totalQuestions && (
             <button type="submit">Submit</button>
           )}

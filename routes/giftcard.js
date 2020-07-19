@@ -20,6 +20,20 @@ router.get("/", async (request, response) => {
   }
 });
 
+// const makeCampaign = async () => {
+//   return axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
+//     headers: { Authorization: `Bearer ${process.env.API_KEY}` },
+//   });
+// };
+
+// router.post("/", async (request, response) => {
+//   try {
+//     const resp = await makeCampaign();
+//     response.send(resp.data);
+//   } catch (e) {
+//     console.log(e);
+//     response.status(500).send({ error: e.message });
+
 /* to add the campaign in to our DB */
 
 router.post('/campaign', async (req, res) => {
@@ -31,8 +45,7 @@ router.post('/campaign', async (req, res) => {
     res.status(201).send(campaign);
   } catch (error) {
     res.status(402).send(error);
-  }
-});
+
 
 /* to get specific campaign from our DB */
 
