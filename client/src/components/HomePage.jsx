@@ -38,22 +38,29 @@ const HomePage = () => {
       .catch((e) => alert(e.message.toString() + " Invalid email"));
   };
   return (
-    <div className="content">
-      <h1>Hi!</h1> <br></br>
-      <h1>Welcome to Next Tech Trivia with NetApp.</h1>
+    <div className="container">
+      <div>
+        <h1 style={{ textAlign: "center" }}>Next Tech Trivia with NetApp</h1>
+      </div>
+
+      <h2>Hi!</h2>
+      <h2>Welcome to Next Tech Trivia with NetApp.</h2>
       <p>
         Answer 5 fun questions, and if you get 4 out of 5 correct, you’ll “spin
         for a chance to win” Google gift cards. All players will also be entered
         into a drawing for the chance to win the grand prize: 1 of 10 tickets to
         the NetApp summer concert and 1 backstage pass.
-        <br></br>Business email required to play NEXT Tech Trivia with NetApp
+        <br></br>
+        <i style={{ fontSize: "14px" }}>
+          Business email required to play NEXT Tech Trivia with NetApp
+        </i>
       </p>
       <form
         className="signUpForm"
         onSubmit={(e) => signUp(firstName, lastName, email, e)}
       >
         <div className="form-div">
-          <label className="form">First name</label>
+          <label className="form">First name:</label>
           <input
             type="text"
             name="firstname"
@@ -64,7 +71,7 @@ const HomePage = () => {
           />
         </div>
         <div className="form-div">
-          <label className="form">Last name</label>
+          <label className="form">Last name:</label>
           <input
             type="text"
             name="lastname"
@@ -75,7 +82,7 @@ const HomePage = () => {
           />
         </div>
         <div className="form-div">
-          <label className="form">Email</label>
+          <label className="form">Email:</label>
           <input
             type="text"
             name="email"
@@ -85,10 +92,6 @@ const HomePage = () => {
             required
           />
         </div>
-
-        <button type="submit" className="btn-primary">
-          Lets Play!
-        </button>
       </form>
       <br></br>
       <div className="privacy">
@@ -101,10 +104,15 @@ const HomePage = () => {
         <a href="https://www.netapp.com/us/subscriptions/index.aspx">
           preferences
         </a>
-        .<br></br>
+        .&nbsp;
         <a href="https://cloud.netapp.com/google-next-onair-2020-tc">
           Trivia Terms and Conditions.
         </a>
+        <br></br>
+        <br></br>
+        <button type="submit" className="btn-primary">
+          Lets Play!
+        </button>
       </div>
     </div>
   );

@@ -25,7 +25,10 @@ input {
 .privacy {
   margin: 0;
   position: bottom;
-  text-align: center;
+  font-style: italic;
+}
+.privacy a {
+  color: blue;
 }
 
 .signUpForm {
@@ -42,6 +45,10 @@ input {
   height: 50px;
 }
 .form {
-  font-size: 25px;
+  font-size: 20px;
   margin: 10px;
+}
+
+.container {
+  margin: auto;
 }
