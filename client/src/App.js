@@ -7,6 +7,7 @@ import Footer from "./components/Footer.jsx";
 import Winning from "./components/LostTrivia.jsx";
 
 import LostTrivia from "./components/LostTrivia.jsx";
+import WonWheel from "./components/WonWheel";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/trivia" component={Trivia} />
-          <Route exact path="/winning" component={Winning} />
+          <Route exact path="/winning" component={WonWheel} />
           <Route exact path="/losing" component={LostTrivia} />
         </Switch>
         <Footer />

@@ -7,7 +7,7 @@ const LostTrivia = () => {
   const { totalCorrectAnswers } = useContext(AppContext);
   const history = useHistory();
   return (
-    <div className="winning-background">
+    <div className="lost-trivia">
       <div>
         <h1 style={{ textAlign: "center" }}>
           Next Tech Trivia <br></br>
