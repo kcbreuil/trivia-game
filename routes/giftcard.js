@@ -65,51 +65,51 @@ router.get("/campaign/:_id", async (req, res) => {
   }
 });
 
-const body = {
-  gift_template: "NZUESQJYOYVG",
-  contacts: [
-    {
-      firstname: "Lady",
-      lastname: "Gaga",
-      email: "mothermonster1@gaga.com",
-    },
-  ],
-  price_in_cents: 2500,
-  brand_codes: ["amazonus"],
-  expiry: "2020-11-01",
-  id: "my2_client",
-};
+// const body = {
+//   gift_template: "NZUESQJYOYVG",
+//   contacts: [
+//     {
+//       firstname: "Lady",
+//       lastname: "Gaga",
+//       email: "mothermonster1@gaga.com",
+//     },
+//   ],
+//   price_in_cents: 2500,
+//   brand_codes: ["amazonus"],
+//   expiry: "2020-11-01",
+//   id: "my2_client",
+// };
 
-/*Sending a new campaign to giftbit*/
-const createCampaign = async () => {
-  /*axios.get('/campaign/:_id', async (req, res) => {
-  // somehow I have to bring campaign data in here and send this data using axios below
-  });*/
-  try {
-    const { data } = await axios.post(
-      "https://api-testbed.giftbit.com/papi/v1/campaign",
-      data,
-      {
-        headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=`,
-        },
-      }
-    );
-    console.log(`Status: ${res.status}`);
-  } catch (err) {
-    console.error(err);
-  }
-};
-// axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
-//   headers: { Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=` },
-//   body:
-// })
-// .then( (res)=>{
-//   console.log(`Status: ${res.status}`);
-//   console.log('Body: ', res.body);
-// }).catch((err) => {
-//   console.error(err);
-// });
+// /*Sending a new campaign to giftbit*/
+// const createCampaign = async () => {
+//   /*axios.get('/campaign/:_id', async (req, res) => {
+//   // somehow I have to bring campaign data in here and send this data using axios below
+//   });*/
+//   try {
+//     const { data } = await axios.post(
+//       "https://api-testbed.giftbit.com/papi/v1/campaign",
+//       data,
+//       {
+//         headers: {
+//           Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=`,
+//         },
+//       }
+//     );
+//     console.log(`Status: ${res.status}`);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+// // axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
+// //   headers: { Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=` },
+// //   body:
+// // })
+// // .then( (res)=>{
+// //   console.log(`Status: ${res.status}`);
+// //   console.log('Body: ', res.body);
+// // }).catch((err) => {
+// //   console.error(err);
+// // });
 
-createCampaign();
+// createCampaign();
 module.exports = router;
