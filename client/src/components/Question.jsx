@@ -5,8 +5,7 @@ import decode from "./../utils/decode";
 export default (data) => {
   const fieldset = data.visible ? "fieldset" : "fieldset u-hidden";
   const questionNo = data.name;
-  const answers = data.answers;
-
+  let answers = data.answers;
   function shuffle(array) {
     var currentIndex = array.length,
       temporaryValue,
@@ -23,27 +22,26 @@ export default (data) => {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
-
-  shuffle(answers);
 
   return (
     <div className={fieldset}>
       <h1>{decode(data.heading)}</h1>
       <h3>{decode(data.question)}</h3>
       {answers &&
-        answers.map((data, i) => {
-          return (
-            <Answer
-              key={i}
-              name={questionNo}
-              answer={data.answer}
-              correct={data.correct}
-            />
-          );
-        })}
+        shuffle(
+          answers.map((data, i) => {
+            return (
+              <Answer
+                key={i}
+                name={questionNo}
+                answer={data.answer}
+                correct={data.correct}
+              />
+            );
+          })
+        )}
     </div>
   );
 };
