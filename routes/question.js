@@ -1,7 +1,8 @@
 const express = require("express");
 const router = new express.Router();
 const Question = require("../models/question");
-const auth = require("../middleware/auth.js");
+const {auth} = require("../middleware/auth.js");
+const Campaign = require("../models/campaign");
 
 router.get("/questions", async (req, res) => {
   Question.find({})
