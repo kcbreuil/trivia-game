@@ -9,6 +9,7 @@ const campaignSchema = new mongoose.Schema({
   },
   prince_in_cents: {
     type: Number,
+    required: true,
   },
 });
 

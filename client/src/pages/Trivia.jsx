@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Question from "../components/Question.jsx";
 import "../styling/homepage.css";
+import { AppContext } from "../context/AppContext";
 
 import Wheel from "../components/Wheel.jsx";
 
 const Trivia = () => {
+  const { totalCorrectAnswers, setTotalCorrectAnswers } = useContext(
+    AppContext
+  );
   const [questions, setQuestions] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
-  const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [spinwheel, setSpinWheel] = useState(false);
 
@@ -22,6 +25,7 @@ const Trivia = () => {
   const proceed = (e) => {
     e.preventDefault();
     setActiveQuestion(activeQuestion + 1);
+    setTotalCorrectAnswers(totalCorrectAnswers + 1);
   };
   const back = (e) => {
     e.preventDefault();
@@ -42,6 +46,7 @@ const Trivia = () => {
       );
     }
   };
+
   // const updateCorrectAnswers = () => {
   //   if (userSelection === correctAnswer) {
   //     setTotalCorrectAnswers + 1

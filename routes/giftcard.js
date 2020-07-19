@@ -41,8 +41,6 @@ router.post("/", async (req, res) => {
   });
   try {
     campaign.save();
-    const resp = await makeCampaign();
-    console.log("hello?");
     res.status(201).send(campaign);
   } catch (e) {
     console.log("is it me?");

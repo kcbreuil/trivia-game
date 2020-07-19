@@ -3,6 +3,7 @@ import decode from "./../utils/decode";
 import "../styling/answers.css";
 
 export default (data) => {
+  const { userSelection, setUserSelection } = useContext(AppContext);
   return (
     <div>
       <input
