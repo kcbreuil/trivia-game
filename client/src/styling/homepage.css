@@ -26,6 +26,7 @@ input {
   margin: 0;
   position: bottom;
   font-style: italic;
+  font-size: 12px;
 }
 .privacy a {
   color: blue;
@@ -38,17 +39,30 @@ input {
 
 .btn-primary {
   border-radius: 50px;
-  width: 200px;
+  width: 125px;
   background: #fbbc04;
   border: none;
   color: white;
-  height: 50px;
+  height: 25px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
 }
 .form {
   font-size: 20px;
   margin: 10px;
+  font-weight: bold;
 }
 
 .container {
-  margin: auto;
+  margin: 50px;
+}
+
+.form-div {
+  padding-bottom: 15px;
+}
+
+.button-flex {
+  display: flex;
+  justify-content: center;
 }

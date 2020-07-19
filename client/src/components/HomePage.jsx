@@ -40,7 +40,12 @@ const HomePage = () => {
   return (
     <div className="container">
       <div>
-        <h1 style={{ textAlign: "center" }}>Next Tech Trivia with NetApp</h1>
+        <h1 style={{ textAlign: "center" }}>
+          Next Tech Trivia <br></br>
+          <span style={{ fontSize: "16px", fontWeight: "lighter" }}>with</span>
+          &nbsp;
+          <span style={{ color: "#0072bc", font: "bold" }}>NetApp</span>
+        </h1>
       </div>
 
       <h2>Hi!</h2>
@@ -51,7 +56,8 @@ const HomePage = () => {
         into a drawing for the chance to win the grand prize: 1 of 10 tickets to
         the NetApp summer concert and 1 backstage pass.
         <br></br>
-        <i style={{ fontSize: "14px" }}>
+        <br></br>
+        <i style={{ fontSize: "12px" }}>
           Business email required to play NEXT Tech Trivia with NetApp
         </i>
       </p>
@@ -110,9 +116,11 @@ const HomePage = () => {
         </a>
         <br></br>
         <br></br>
-        <button type="submit" className="btn-primary">
-          Lets Play!
-        </button>
+        <div className="button-flex">
+          <button type="submit" className="btn-primary">
+            Lets Play!
+          </button>
+        </div>
       </div>
     </div>
   );
