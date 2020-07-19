@@ -5,16 +5,19 @@ const Footer = () => {
   return (
     <div>
       <div className="footer">
-        <div style={{ margin: "auto" }}>
+        <div style={{ display: "inline-grid" }}>
           <img
-            src="https://res.cloudinary.com/farmersmarket/image/upload/v1595122911/Asset_69_yeyo71.png"
+            src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185287/Asset_63_id5hkc.png"
             alt="net-app-logo"
+            className="footer-img"
+            style={{ height: "25px", margin: "auto" }}
           />
         </div>
         <div>
           <img
             src="https://res.cloudinary.com/farmersmarket/image/upload/v1595122843/Asset_68_y7rxcp.png"
             alt="google-logo"
+            className="footer-img"
           />
         </div>
       </div>

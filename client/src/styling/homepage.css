@@ -66,3 +66,7 @@ input {
   display: flex;
   justify-content: center;
 }
+
+.footer-img {
+  height: 55px;
+}
