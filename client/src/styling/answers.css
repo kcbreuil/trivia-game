@@ -1,0 +1,17 @@
+.answerInput {
+  visibility: hidden;
+}
+.answerLabel {
+  cursor: pointer;
+  color: white;
+  background-color: #5184eb;
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.answerInput:checked + .answerLabel {
+  background: lightblue;
+}
