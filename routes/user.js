@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const mongoose = require("mongoose");
 // const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth.js");
+const {auth} = require("../middleware/auth.js");
 
 const User = require("../models/user");
 
@@ -36,7 +36,7 @@ router.post("/users/login", async (req, res) => {
 
 // Get current user //
 
-router.get("/users/me", auth, async (req, res) => {
+router.get("/users/me", async (req, res) => {
   try {
     res.send(req.user);
   } catch (e) {
