@@ -20,19 +20,6 @@ router.get("/", async (request, response) => {
   }
 });
 
-// const makeCampaign = async () => {
-//   return axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
-//     headers: { Authorization: `Bearer ${process.env.API_KEY}` },
-//   });
-// };
-
-// router.post("/", async (request, response) => {
-//   try {
-//     const resp = await makeCampaign();
-//     response.send(resp.data);
-//   } catch (e) {
-//     console.log(e);
-//     response.status(500).send({ error: e.message });
 
 /* to add the campaign in to our DB */
 
@@ -45,7 +32,8 @@ router.post('/campaign', async (req, res) => {
     res.status(201).send(campaign);
   } catch (error) {
     res.status(402).send(error);
-
+  }
+});
 
 /* to get specific campaign from our DB */
 
@@ -67,46 +55,76 @@ router.get('/campaign/:_id', async (req, res) => {
   } 
 );
 
-const data = {
-  gift_template: "NZUESQJYOYVG",
-  contacts: [
-      {
-          firstname:"Lady",
-          lastname:"Gaga",
-          email:"mothermonster1@gaga.com"
-      }
-  ],
-  price_in_cents:2500,
-  brand_codes: ["amazonus"],
-  expiry:"2020-11-01",
-  id:"my2_client"
-}
+
+//=======================================//
 /*Sending a new campaign to giftbit*/
+
+
+
+router.post('/campaigngb', (req, res) => {
 const createCampaign = async () => {
-/*axios.get('/campaign/:_id', async (req, res) => {
-  // somehow I have to bring campaign data in here and send this data using axios below
-  });*/
-  
+  const body = {
+    "gift_template": "QPWCWUJJCDUT",//pre defined first? how does this works?
+    "contacts": [
+      {
+        "firstname":`${req.user.firstName}`,
+        "lastname":`${req.user.lastName}`,
+        "email":`${req.user.email}`
+      }
+    ],
+    "price_in_cents":req.body.result, //data from the frontend
+    "brand_codes": ["amazonus"],// pre defined first
+    "expiry":`${expiryDate.yyyymmdd()}`,
+    "id":`${Math.random().toString(36).substring(2)}`
+  }
   try{
-    const res = await axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
-    headers: { Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=` },
-    data
+    const { data } = await axios.post('https://api-testbed.giftbit.com/papi/v1/campaign', body, {
+    headers: { "Content-Type": 'application/json', 
+    Authorization: `Bearer ${process.env.API_KEY}` }
     });
-    console.log(`Status: ${res.status}`);
+    console.log('Data sent successfully.')
+    console.log('Body: ', body)
   } catch (err) {
     console.error(err);
   }};
-  // axios.post(`https://api-testbed.giftbit.com/papi/v1/campaign`, {
-  //   headers: { Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ==.bjFCdEVmWEpMbGVSamd1RzVKdGd0bXJnbXNSQkpOMFlnSXd0d29xQmR2blUrNGYyd0J1MGJ4dk1zZ2orU3JDL1FjQ1VVczNBOXlZdi9IUXhBOGQzM0c1cGQ1UjZtNk1VbzBwTmNZOHhGMnFWTHU3STQrTjFHQ1ppT2FpMWpIKzI=.5bKyBiGbuoiuGMfhoVEMKyUkUDI+KTdKn8zeHtX62PU=` },
-  //   body:
-  // }).then( (res)=>{
-  //   console.log(`Status: ${res.status}`);
-  //   console.log('Body: ', res.body);
-  // }).catch((err) => {
-  //   console.error(err);
-  // });
-  // };
- createCampaign() ;
+
+  createCampaign();
+});
+
+// TEST 1 - API POST REQ WITH FAKE DATA
+
+// const body = {
+//   "gift_template": "QPWCWUJJCDUT",
+//   "contacts": [
+//     {
+//       "firstname":`Lady`,
+//       "lastname":"Gaga",
+//       "email":"mothermonster1@gaga100.com"
+//     }
+//   ],
+//   "price_in_cents":2500,
+//   "brand_codes": ["amazonus"],
+//   "expiry":"2020-11-02",
+//   "id":"my45_client"
+// }
+
+// const createCampaign = async () => {
+//   try{
+//     const { data } = await axios.post('https://api-testbed.giftbit.com/papi/v1/campaign', body, {
+//     headers: { "Content-Type": 'application/json', Authorization: `Bearer ${process.env.API_KEY}` }
+//     });
+//     console.log('Data sent successfully.')
+//     console.log('Body: ', body)
+//   } catch (err) {
+//     console.error(err);
+//   }};
+
+
+ 
+
+
+
+
 
 
 module.exports = router;
