@@ -4,7 +4,7 @@ const Question = require("../models/question");
 const {auth} = require("../middleware/auth.js");
 const Campaign = require("../models/campaign");
 
-router.get("/questions", async (req, res) => {
+router.get("/questions", auth, async (req, res) => {
   Question.find({})
     .then((questions) => {
       res.send(questions);

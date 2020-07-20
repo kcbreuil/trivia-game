@@ -24,7 +24,11 @@ const Trivia = () => {
   let label = document.getElementsByTagName("label");
 
   useEffect(() => {
-    axios.get(`/questions`).then((res) => {
+    axios.get(`/questions`, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    }).then((res) => {
       setQuestions(res.data);
       setTotalQuestions(res.data.length);
     });
