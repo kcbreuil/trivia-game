@@ -6,14 +6,18 @@ import "../styling/homepage.css";
 import { AppContext } from "../context/AppContext";
 
 import Wheel from "../components/Wheel.jsx";
+import LostTrivia from "../components/LostTrivia.jsx";
+import ChanceSpin from "../components/ChanceSpin.jsx";
 
 const Trivia = () => {
-  const { totalCorrectAnswers, setTotalCorrectAnswers } = useContext(
-    AppContext
-  );
+  const {
+    totalCorrectAnswers,
+    setTotalCorrectAnswers,
+    totalQuestions,
+    setTotalQuestions,
+  } = useContext(AppContext);
   const [questions, setQuestions] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [spinwheel, setSpinWheel] = useState(false);
   let input = document.getElementsByTagName("input");
@@ -84,6 +88,21 @@ const Trivia = () => {
     setShowResults(true);
     readyToSpin();
   };
+  const triviaResults = () => {
+    if (totalCorrectAnswers <= 3) {
+      return (
+        <div>
+          <LostTrivia />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <ChanceSpin />
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="App">
@@ -122,16 +141,19 @@ const Trivia = () => {
               </button>
             )}
           {activeQuestion + 1 === totalQuestions && (
-            <button type="submit">Submit</button>
+            <button className="nextButton" type="submit">
+              Submit
+            </button>
           )}
         </form>
       )}
+
       {showResults && (
           <p>
             You got {totalCorrectAnswers} out of {totalQuestions}
           </p>
         ) &&
-        showWheel()}
+        triviaResults()}
     </div>
   );
 };

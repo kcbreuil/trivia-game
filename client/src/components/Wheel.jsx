@@ -2,7 +2,6 @@ import React from "react";
 // import ReactDOM from "react-dom";
 // import { Link } from "react-router-dom";
 import WheelFunction from "../utils/wheel";
-import Losing from "./LostWheel";
 
 export class Wheel extends React.Component {
   constructor() {
@@ -13,7 +12,7 @@ export class Wheel extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Spin to win! </h1>
+        <h1>SPIN TO WIN!</h1>
 
         <WheelFunction items={this.places} />
       </div>

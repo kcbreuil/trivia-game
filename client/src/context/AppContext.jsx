@@ -9,6 +9,7 @@ const AppContextProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [userSelection, setUserSelection] = useState(false);
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
 
   //
   //   const token = localStorage.getItem("token");
@@ -39,6 +40,8 @@ const AppContextProvider = ({ children }) => {
         setUserSelection,
         totalCorrectAnswers,
         setTotalCorrectAnswers,
+        totalQuestions,
+        setTotalQuestions,
       }}
     >
       {children}
