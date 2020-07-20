@@ -1,5 +1,6 @@
 import React from "react";
-
+import LostWheel from "../components/LostWheel.jsx";
+import WonWheel from "../components/WonWheel.jsx";
 import "../styling/wheel.css";
 
 export default class WheelFunction extends React.Component {
@@ -34,9 +35,23 @@ export default class WheelFunction extends React.Component {
     };
     const spinning = selectedItem !== null ? "spinning" : "";
 
-    let winning;
+    const winningResults = (item) => {
+      setTimeout(() => {
+        if (selectedItem !== null) {
+          if (item === 0) {
+            console.log(`you lost ${item}`);
+            return <LostWheel />;
+          } else {
+            console.log(`You won ${item}`);
+            return <WonWheel />;
+          }
+        }
+      }, 5000);
+    };
+
     return (
       <div className="wheel-container">
+        {winningResults(selectedItem)}
         <div
           className={`wheel ${spinning}`}
           style={wheelVars}
