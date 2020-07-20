@@ -24,7 +24,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "react-scripts build",
+    "heroku-postbuild": "cd client && yarn && yarn run build",
     "test": "jest --watchAll --runInBand  --setupFiles dotenv/config"
   },
   "engines": {
