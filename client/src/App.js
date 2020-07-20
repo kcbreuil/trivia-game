@@ -15,10 +15,10 @@ function App() {
       <AppContextProvider>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/trivia" component={Trivia} />
-          <Route exact path="/wheel" component={Wheel} />
-          <Route exact path="/winning" component={WonWheel} />
-          <Route exact path="/losing" component={LostTrivia} />
+          <Route  path="/trivia" component={Trivia} />
+          <Route  path="/wheel" component={Wheel} />
+          <Route  path="/winning" component={WonWheel} />
+          <Route  path="/losing" component={LostTrivia} />
         </Switch>
         <Footer />
       </AppContextProvider>
