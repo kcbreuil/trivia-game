@@ -27,7 +27,7 @@ export default (data) => {
 
   return (
     <div className={fieldset}>
-      <h1>{decode(data.heading)}</h1>
+      <h2>{decode(data.heading)}</h2>
       <h3>{decode(data.question)}</h3>
       {answers &&
         shuffle(

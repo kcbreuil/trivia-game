@@ -28,7 +28,7 @@ export default class WheelFunction extends React.Component {
   render() {
     const { selectedItem } = this.state;
     const { items } = this.props;
-
+    let result;
     const wheelVars = {
       "--nb-item": items.length,
       "--selected-item": selectedItem,
@@ -51,7 +51,6 @@ export default class WheelFunction extends React.Component {
 
     return (
       <div className="wheel-container">
-        {winningResults(selectedItem)}
         <div
           className={`wheel ${spinning}`}
           style={wheelVars}
@@ -67,6 +66,8 @@ export default class WheelFunction extends React.Component {
             </div>
           ))}
         </div>
+
+        {winningResults(selectedItem)}
       </div>
     );
   }

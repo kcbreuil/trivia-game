@@ -28,7 +28,8 @@ const Trivia = () => {
       setQuestions(res.data);
       setTotalQuestions(res.data.length);
     });
-  }, []);
+  }, [setTotalQuestions]);
+
   const proceed = (e) => {
     e.preventDefault();
     setActiveQuestion(activeQuestion + 1);
@@ -36,15 +37,15 @@ const Trivia = () => {
     $("label").removeClass("disable");
     //To prevent answers being shown on next question, the class "correct" is removed from all label tags.
     for (let i = 0; i < 20; i++) {
-      if (input[i].value == 1) {
+      if (input[i].value === 1) {
         $(label[i]).removeClass("correct");
       }
     }
   };
-  const back = (e) => {
-    e.preventDefault();
-    setActiveQuestion(activeQuestion - 1);
-  };
+  // const back = (e) => {
+  //   e.preventDefault();
+  //   setActiveQuestion(activeQuestion - 1);
+  // };
 
   const readyToSpin = () => {
     setSpinWheel(true);

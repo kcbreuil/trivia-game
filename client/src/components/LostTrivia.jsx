@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import "../styling/winning.css";
 
 const LostTrivia = () => {
   const { totalCorrectAnswers } = useContext(AppContext);
-  const history = useHistory();
+
   return (
     <div className="lost-trivia">
       <div>
@@ -27,7 +26,29 @@ const LostTrivia = () => {
         <h2>Thanks for playing!</h2>
         <h2>Now, let's get back to Google Next OnAir.</h2>
       </div>
-      <button onClick={() => history.push(`www.google.com`)}>Close</button>
+
+      <div>
+        <a href="http://google.com">
+          <input
+            style={{
+              border: "none",
+              cursor: "pointer",
+              color: "white",
+              backgroundColor: "#f1bd42",
+              padding: "10px",
+              borderRadius: "20px",
+              display: "inline-block",
+              marginRight: "15px",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+              width: "100px",
+              fontWeight: "bold",
+            }}
+            type="button"
+            value="Close"
+          />
+        </a>
+      </div>
     </div>
   );
 };

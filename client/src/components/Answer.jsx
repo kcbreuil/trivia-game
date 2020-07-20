@@ -19,7 +19,7 @@ export default (data) => {
     } else {
       $(`.${id}`).addClass("incorrect");
       for (let i = 0; i < 20; i++) {
-        if (input[i].value == 1) {
+        if (input[i].value === 1) {
           $(label[i]).addClass("correct");
         }
       }
