@@ -15,6 +15,7 @@
     "cords": "^1.0.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.22",
@@ -26,8 +27,5 @@
     "dev": "nodemon server.js",
     "heroku-postbuild": "cd client && yarn && yarn run build",
     "test": "jest --watchAll --runInBand  --setupFiles dotenv/config"
-  },
-  "engines": {
-    "node": "14.5.0"
   }
 }
