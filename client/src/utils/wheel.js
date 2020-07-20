@@ -34,6 +34,7 @@ export default class WheelFunction extends React.Component {
     };
     const spinning = selectedItem !== null ? "spinning" : "";
 
+    let winning;
     return (
       <div className="wheel-container">
         <div

@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const axios = require("axios");
 const Campaign = require("../models/campaign");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const getGiftCards = async () => {
   return axios.get(`https://api-testbed.giftbit.com/papi/v1/brands`, {
@@ -23,7 +23,7 @@ router.get("/", async (request, response) => {
 
 /* to add the campaign in to our DB */
 
-router.post('/campaign', async (req, res) => {
+router.post("/campaign", async (req, res) => {
   const campaign = new Campaign({
     ...req.body,
   });
@@ -37,23 +37,21 @@ router.post('/campaign', async (req, res) => {
 
 /* to get specific campaign from our DB */
 
-router.get('/campaign/:_id', async (req, res) => {
-
+router.get("/campaign/:_id", async (req, res) => {
   const { _id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
-    return res.status(400).send('Not a valid id');
+    return res.status(400).send("Not a valid id");
   }
-    try {
-      const campaign = await Campaign.findById(_id);
-      if (!campaign) {
-        return res.status(404).send();
-      }
-      res.send(campaign);
-    } catch (e) {
-      res.status(500).send();
+  try {
+    const campaign = await Campaign.findById(_id);
+    if (!campaign) {
+      return res.status(404).send();
     }
-  } 
-);
+    res.send(campaign);
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
 
 //=======================================//
@@ -118,13 +116,6 @@ const createCampaign = async () => {
 //   } catch (err) {
 //     console.error(err);
 //   }};
-
-
- 
-
-
-
-
 
 
 module.exports = router;

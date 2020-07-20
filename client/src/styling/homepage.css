@@ -10,7 +10,7 @@
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   position: fixed;
   left: 0;
@@ -65,4 +65,8 @@ input {
 .button-flex {
   display: flex;
   justify-content: center;
+}
+
+.footer-img {
+  height: 55px;
 }

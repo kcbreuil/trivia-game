@@ -2,6 +2,7 @@ import React from "react";
 // import ReactDOM from "react-dom";
 // import { Link } from "react-router-dom";
 import WheelFunction from "../utils/wheel";
+import Losing from "./LostWheel";
 
 export class Wheel extends React.Component {
   constructor() {
