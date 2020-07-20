@@ -8,6 +8,7 @@ import Wheel from "./components/Wheel";
 
 import LostTrivia from "./components/LostTrivia.jsx";
 import WonWheel from "./components/WonWheel";
+import LostWheel from "./components/LostWheel.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/wheel" component={Wheel} />
           <Route exact path="/winning" component={WonWheel} />
           <Route exact path="/losing" component={LostTrivia} />
+          <Route exact path="/lostwheel" component={LostWheel} />
         </Switch>
         <Footer />
       </AppContextProvider>

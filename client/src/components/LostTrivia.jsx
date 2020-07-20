@@ -27,7 +27,7 @@ const LostTrivia = () => {
         <h2>Now, let's get back to Google Next OnAir.</h2>
       </div>
 
-      <div>
+      <div className="button-flex">
         <a href="http://google.com">
           <input
             style={{
@@ -43,6 +43,7 @@ const LostTrivia = () => {
               marginBottom: "5vh",
               width: "100px",
               fontWeight: "bold",
+              textAlign: "center",
             }}
             type="button"
             value="Close"
