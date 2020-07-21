@@ -15,14 +15,20 @@ function WonWheel() {
         </h1>
       </div>
       <div style={{ textAlign: "center" }}>
-        <h1>CONGRATULATIONS!!!</h1>
-        <h2>
-          You have won a ${"amount"} gift card to buy a coveted Google item of
-          your choice.
+        <h1 style={{ fontSize: "48px" }}>CONGRATULATIONS!!!</h1>
+        <h2 style={{ fontSize: "30px" }}>
+          You have won a <span stylee={{ color: "4285f4" }}>${"X"}</span> gift
+          card to buy a coveted Google item of your choice.
         </h2>
-        <p>Check your inbox for an email with your gift card information.</p>
-        <h3>Thanks for playing!</h3>
-        <h3>Now, let’s get back to Google Next OnAir.</h3>
+        <p style={{ fontSize: "20px" }}>
+          Check your inbox for an email with your gift card information.
+        </p>
+        <p style={{ fontSize: "24px" }}>
+          Thanks for playing!
+          <br></br>
+          <br></br>
+          Now, let’s get back to Google Next OnAir.
+        </p>
         <button
           style={{
             border: "none",
@@ -39,7 +45,7 @@ function WonWheel() {
             fontWeight: "bold",
           }}
         >
-          Close
+          CLOSE {"X"}
         </button>
       </div>
     </div>

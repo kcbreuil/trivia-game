@@ -50,7 +50,7 @@ const ChanceSpin = () => {
         }}
         onClick={() => history.push("/wheel")}
       >
-        Spin
+        SPIN
       </button>
     </div>
   );
