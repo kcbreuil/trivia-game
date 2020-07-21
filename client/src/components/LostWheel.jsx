@@ -31,11 +31,23 @@ const LostWheel = () => {
           <p>
             <b>Now, let’s get back to Google Cloud Next ’20: On Air.</b>
           </p>
-          <i>
-            Please read and understand the NetApp Privacy Policy and Trivia
-            Terms and Conditions, and understand that you can unsubscribe from
-            NetApp communications at any time or manage your preferences.
-          </i>
+          <div className="privacy">
+            <p>
+              Please read and understand the &nbsp;
+              <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
+                NetApp Privacy Policy
+              </a>
+              &nbsp;and{" "}
+              <a href="https://cloud.netapp.com/google-next-onair-2020-tc">
+                Trivia Terms and Conditions
+              </a>
+              , and understand that you can unsubscribe from NetApp&nbsp;
+              <a href="https://www.netapp.com/us/subscriptions/index.aspx">
+                communications &nbsp;
+              </a>
+              at any time or manage your preferences.
+            </p>
+          </div>
         </p>
       </div>
       <button

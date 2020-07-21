@@ -4,6 +4,7 @@ import LostWheel from "../components/LostWheel";
 import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
 import pointer from "../images/pointer.png";
+import { useHistory } from "react-router-dom";
 
 export default class WheelFunction extends React.Component {
   state = {
@@ -220,6 +221,7 @@ export default class WheelFunction extends React.Component {
         {this.state.spinning ? null : (
           <button
             type="button"
+            className="wheel-buttons"
             id="spin"
             onClick={() => {
               this.spin({});
@@ -228,14 +230,21 @@ export default class WheelFunction extends React.Component {
               }, 2000);
             }}
           >
-            spin
+            SPIN
           </button>
         )}
+
         <div class="display">
           <span id="readout">
             YOU WON:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
+          <button
+            className="wheel-buttons"
+            // onClick={() => history.push("/winning")}
+          >
+            NEXT
+          </button>
         </div>
       </div>
     );

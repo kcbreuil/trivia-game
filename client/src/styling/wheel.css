@@ -50,3 +50,16 @@
     border:none;
     border-bottom: 1px solid black
   } */
+
+.wheel-buttons {
+  border-radius: 50px;
+  width: 125px;
+  background: #fbbc04;
+  border: none;
+  color: white;
+  height: 25px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 200p;
+}
