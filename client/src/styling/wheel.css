@@ -6,9 +6,8 @@
 }
 
 #spin:hover {
-  color: rgb(0, 180, 120);
-  border-color: rgb(0, 180, 120);
-}
+ cursor: pointer;
+} 
 
 #spin:focus,
 #reset:focus {

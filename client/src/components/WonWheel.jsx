@@ -3,13 +3,20 @@ import React from "react";
 function WonWheel() {
   return (
     <div className="winning-background">
-      <div>
-        <h1 style={{ textAlign: "center", fontSize: "42px" }}>
+     <div>
+        <h1 style={{ textAlign: "center", fontSize: "55px" }}>
           <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span style={{ fontSize: "27px", fontWeight: "lighter" }}>with</span>
+          <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold", fontSize: "42px" }}>
+          <span
+            style={{
+              color: "#0072bc",
+              font: "bold",
+              fontSize: "55px",
+              lineHeight: "6rem",
+            }}
+          >
             NetApp
           </span>
         </h1>
@@ -22,14 +29,14 @@ function WonWheel() {
           You have won a <span style={{ color: "#0072bc" }}>${"X"}</span> gift
           card to buy a coveted Google item of your choice.
         </h2>
-        <p style={{ fontSize: "20px" }}>
+        <p style={{ fontSize: "25px" }}>
           Check your inbox for an email with your gift card information.
         </p>
         <p style={{ fontSize: "24px", fontWeight: "800" }}>
           Thanks for playing!
           <br></br>
           <br></br>
-          Now, let’s get back to Google Next OnAir.
+          Now, let’s get back to Google Cloud Next '20 OnAir.
         </p>
         <button
           style={{
