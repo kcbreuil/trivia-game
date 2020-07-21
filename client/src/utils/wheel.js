@@ -3,10 +3,11 @@ import { render } from "react-dom";
 import LostWheel from "../components/LostWheel";
 import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
+import pointer from "../images/pointer.png";
 
 export default class WheelFunction extends React.Component {
   state = {
-    list: ["$0 😞", "$10", "$50", "$100", "$150"],
+    list: ["😞", "$10", "$50", "$100", "$150"],
 
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
@@ -92,7 +93,7 @@ export default class WheelFunction extends React.Component {
     ctx.strokeStyle = color;
 
     ctx.font = "17px Arial";
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.stroke();
 
     ctx.save();
@@ -178,17 +179,43 @@ export default class WheelFunction extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Spinning Prize Wheel React</h1>
-        <span id="selector">&#9660;</span>
-        <canvas
-          id="wheel"
-          width="500"
-          height="500"
-          style={{
-            WebkitTransform: `rotate(${this.state.rotate}deg)`,
-            WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
-          }}
-        />
+        <div style={{ display: "grid", columnCount: "3" }}>
+          <canvas
+            id="wheel"
+            width="500"
+            height="500"
+            style={{
+              WebkitTransform: `rotate(${this.state.rotate}deg)`,
+              WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
+              backgroundColor: "transparent",
+              gridColumn: "2",
+              gridRow: "1",
+              zIndex: "0",
+            }}
+          ></canvas>
+          <div
+            style={{
+              backgroundColor: "transparent",
+              borderColor: "#D7503F",
+              borderWidth: "25px",
+              borderStyle: "solid",
+              borderRadius: "50%",
+              gridColumn: "2",
+              gridRow: "1",
+              width: "300px",
+              height: "300px",
+              marginTop: "75px",
+              marginLeft: "75px",
+              boxShadow: "inset 0.5px 0.5px 20px 3px black",
+              zIndex: "200",
+            }}
+          >
+            <img
+              src={pointer}
+              style={{ marginTop: "60px", height: "140px", width: "auto" }}
+            />
+          </div>
+        </div>
 
         {this.state.spinning ? null : (
           <button
