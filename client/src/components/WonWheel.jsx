@@ -50,8 +50,9 @@ function WonWheel() {
             marginRight: "15px",
             marginTop: "5vh",
             marginBottom: "5vh",
-            width: "100px",
+            width: "113px",
             fontWeight: "bold",
+            fontSize: "20px",
           }}
         >
           CLOSE {"X"}

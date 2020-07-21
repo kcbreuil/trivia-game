@@ -29,15 +29,21 @@ export default (data) => {
     <div className={fieldset}>
       <p
         style={{
-          fontSize: "24px",
-          fontWeight: "bold",
+          fontSize: "30px",
+          fontWeight: "800",
           textAlign: "start",
-          marginLeft: "55px",
+          marginLeft: "10vw",
         }}
       >
         {decode(data.heading)}
       </p>
-      <p style={{ fontSize: "20px", marginBottom: "50px" }}>
+      <p style={{ 
+          fontSize: "25px", 
+          marginBottom: "50px", 
+          textAlign: "start",
+          marginLeft: "10vw",
+          marginRight: "8vw"
+          }}>
         {decode(data.question)}
       </p>
       {answers &&

@@ -59,6 +59,7 @@ const ChanceSpin = () => {
           marginBottom: "5vh",
           width: "100px",
           fontWeight: "bold",
+          fontSize: "20px"
         }}
         onClick={() => history.push("/wheel")}
       >
