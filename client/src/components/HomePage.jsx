@@ -125,7 +125,6 @@ const HomePage = () => {
           </button>
         </div>
       </form>
-      <br></br>
     </div>
   );
 };

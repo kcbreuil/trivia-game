@@ -45,6 +45,7 @@ const ChanceSpin = () => {
           </p>
         </div>
       </div>
+
       <button
         style={{
           border: "none",
@@ -59,9 +60,8 @@ const ChanceSpin = () => {
           marginBottom: "5vh",
           width: "100px",
           fontWeight: "bold",
-          fontSize: "20px"
+          fontSize: "20px",
         }}
-        onClick={() => history.push("/wheel")}
       >
         SPIN {">"}
       </button>

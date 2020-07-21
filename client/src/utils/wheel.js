@@ -8,6 +8,9 @@ import pointer from "../images/pointer.png";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
+import { Link } from "react-router-dom";
+
+
 
 class WheelFunction extends React.Component {
   state = {
@@ -256,6 +259,7 @@ class WheelFunction extends React.Component {
         >
           NEXT
         </button>
+
       </div>
     );
   }
