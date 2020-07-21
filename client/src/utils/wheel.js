@@ -99,7 +99,7 @@ class WheelFunction extends React.Component {
     ctx.lineWidth = radius * 2;
     ctx.strokeStyle = color;
 
-    ctx.font = "17px Arial";
+    ctx.font = "35px Arial";
     ctx.fillStyle = "white";
     ctx.stroke();
 
