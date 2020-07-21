@@ -9,7 +9,7 @@ const LostTrivia = () => {
     <div className="lost-trivia">
       <div>
         <h1 style={{ textAlign: "center", fontSize: "55px" }}>
-          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+          <span style={{ fontWeight: "lighter" }}>NEXT</span>&nbsp;Tech Trivia
           <br></br>
           <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
           &nbsp;
