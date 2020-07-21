@@ -248,9 +248,7 @@ class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
         </div> */}
-        <button className="wheel-buttons" onClick={this.redirectPage}>
-          NEXT {`>`}
-        </button>
+        <button className="nextButton" onClick={this.redirectPage}>NEXT {'>'}</button>
       </div>
     );
   }
