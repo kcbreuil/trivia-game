@@ -6,13 +6,13 @@ import WheelFunction from "../utils/wheel";
 export class Wheel extends React.Component {
   constructor() {
     super();
-    this.places = [":(", "10", "50", "100", "150"];
+    //this.places = [":(", "10", "50", "100", "150"];
   }
 
   render() {
     return (
       <div className="App">
-        <h1>SPIN TO WIN!</h1>
+        <h1 style={{ fontWeight: "800", marginTop: "5vh", fontSize: "42px" }}>SPIN TO WIN!</h1>
 
         <WheelFunction items={this.places} />
       </div>

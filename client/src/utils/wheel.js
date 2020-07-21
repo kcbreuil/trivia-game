@@ -1,12 +1,15 @@
 import React from "react";
-import { render } from "react-dom";
+import { render, Redirect } from "react-dom";
+import { withRouter } from 'react-router-dom';
 import LostWheel from "../components/LostWheel";
 import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
 import pointer from "../images/pointer.png";
 import { useHistory } from "react-router-dom";
+import Axios from "axios";
 
-export default class WheelFunction extends React.Component {
+
+class WheelFunction extends React.Component {
   state = {
     list: ["😞", "$10", "$50", "$100", "$150"],
 
@@ -177,7 +180,13 @@ export default class WheelFunction extends React.Component {
     }
   };
 
+  redirectPage = () => {
+    const { history } = this.props;
+    if(history) history.push('/winning');
+   }
+
   render() {
+    const { history } = this.props;
     return (
       <div className="App">
         <div style={{ display: "grid", columnCount: "3" }}>
@@ -240,9 +249,10 @@ export default class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
         </div>
+        
         <button
           className="wheel-buttons"
-          // onClick={() => history.push("/winning")}
+          onClick={this.redirectPage}>
         >
           NEXT
         </button>
@@ -250,3 +260,4 @@ export default class WheelFunction extends React.Component {
     );
   }
 }
+export default withRouter(WheelFunction);
