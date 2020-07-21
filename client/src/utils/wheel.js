@@ -1,6 +1,6 @@
 import React from "react";
 import { render, Redirect } from "react-dom";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import LostWheel from "../components/LostWheel";
 import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
@@ -9,8 +9,6 @@ import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
 import { Link } from "react-router-dom";
-
-
 
 class WheelFunction extends React.Component {
   state = {
@@ -184,16 +182,15 @@ class WheelFunction extends React.Component {
   // };
 
   redirectPage = () => {
-    //we have to create a condition in here, 
+    //we have to create a condition in here,
     //if result == list[0] the "/lostwheel", else "/winning"
     const { history } = this.props;
-    if(this.state.list[this.state.result] == this.state.list[0]){
-      if(history) history.push('/lostwheel')
-    }else{
-      if(history) history.push('/winning');
+    if (this.state.list[this.state.result] == this.state.list[0]) {
+      if (history) history.push("/lostwheel");
+    } else {
+      if (history) history.push("/winning");
     }
-    
-   }
+  };
 
   render() {
     return (
@@ -236,21 +233,24 @@ class WheelFunction extends React.Component {
           </div>
         </div>
 
-        {this.state.spinning ? null : (
-          this.spin({}) 
-          // &&
-          // setTimeout(() => {
-          //   this.prize(this.state.result)
-          // }, 1000)
-        )}
-{/* 
+        {this.state.spinning
+          ? null
+          : this.spin({})
+            // &&
+            // setTimeout(() => {
+            //   this.prize(this.state.result)
+            // }, 1000)
+        }
+        {/* 
         <div className="display">
           <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
         </div> */}
-        <button className="wheel-buttons" onClick={this.redirectPage}>NEXT ></button>
+        <button className="wheel-buttons" onClick={this.redirectPage}>
+          NEXT {`>`}
+        </button>
       </div>
     );
   }
