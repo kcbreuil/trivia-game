@@ -14,12 +14,12 @@ export default (data) => {
     //once answer is clicked, all answers will be unclickable
     $("label").addClass("disable");
     //if answer value is equal to "1" add the correct class, else add the incorrect class
-    if (value === 1) {
+    if (value == 1) {
       $(`.${id}`).addClass("correct");
     } else {
       $(`.${id}`).addClass("incorrect");
       for (let i = 0; i < 20; i++) {
-        if (input[i].value === 1) {
+        if (input[i].value == 1) {
           $(label[i]).addClass("correct");
         }
       }

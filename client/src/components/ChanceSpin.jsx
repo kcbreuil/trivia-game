@@ -7,13 +7,20 @@ const ChanceSpin = () => {
   const { totalCorrectAnswers, totalQuestions } = useContext(AppContext);
   return (
     <div>
-       <div>
+      <div>
         <h1 style={{ textAlign: "center", fontSize: "55px" }}>
-          <span style={{ fontWeight: "lighter" }}>NEXT</span>&nbsp;Tech Trivia
+          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
           <br></br>
           <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold", fontSize: "55px", lineHeight: "6rem"}}>
+          <span
+            style={{
+              color: "#0072bc",
+              font: "bold",
+              fontSize: "55px",
+              lineHeight: "6rem",
+            }}
+          >
             NetApp
           </span>
         </h1>
@@ -21,16 +28,21 @@ const ChanceSpin = () => {
       <br></br>
       <br></br>
       <div>
-        <h2 style={{fontWeight: "800", margin:"4vh auto", fontSize: "30px"}}>Thank you for playing Next Tech Trivia with NetApp.</h2>
-        <h2 style={{fontWeight: "800" , fontSize: "30px"}}>
+        <h2 style={{ fontWeight: "800", margin: "4vh auto", fontSize: "30px" }}>
+          Thank you for playing Next Tech Trivia with NetApp.
+        </h2>
+        <h2 style={{ fontWeight: "800", fontSize: "30px" }}>
           You answered&nbsp;
-          <span style={{color:"#0072bc" }}>{totalCorrectAnswers}</span> of {totalQuestions}&nbsp; Questions Correctly –
-          nice work!
+          <span style={{ color: "#0072bc" }}>
+            {totalCorrectAnswers}
+          </span> of {totalQuestions}&nbsp; Questions Correctly – nice work!
         </h2>
         <div>
-        <p style={{ lineHeight: "4rem", fontSize: "25px", margin:"8vh 18vw"}}>
-          You’ve won a chance to <b>“spin the wheel”</b> for a prize!
-        </p>
+          <p
+            style={{ lineHeight: "4rem", fontSize: "25px", margin: "8vh 18vw" }}
+          >
+            You’ve won a chance to <b>“spin the wheel”</b> for a prize!
+          </p>
         </div>
       </div>
       <button
@@ -50,7 +62,7 @@ const ChanceSpin = () => {
         }}
         onClick={() => history.push("/wheel")}
       >
-        SPIN
+        SPIN {">"}
       </button>
     </div>
   );
