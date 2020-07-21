@@ -53,7 +53,7 @@ const HomePage = () => {
 
       <h2>Hi!</h2>
       <p style={{ lineHeight: "2rem", fontSize: "16px" }}>
-        Welcome to NEXT Tech Trivia with NetApp. Answer 5 fun questions, and if
+        Welcome to Next Tech Trivia with NetApp. Answer 5 fun questions, and if
         you get 4 out of 5 correct, you’ll <b>“spin for a chance to win”</b>
         &nbsp; Google gift cards. All players will also be entered into a
         drawing for the chance to win access to an exclusive, invitation-only
@@ -125,7 +125,6 @@ const HomePage = () => {
           </button>
         </div>
       </form>
-      <br></br>
     </div>
   );
 };
