@@ -116,7 +116,7 @@ class WheelFunction extends React.Component {
   spin = () => {
     // set random spin degree and ease out time
     // set state variables to initiate animation
-    let randomSpin = Math.floor(Math.random() * 900) + 500;
+    let randomSpin = Math.floor(Math.random() * 2000) + 500;
     this.setState({
       rotate: randomSpin,
       easeOut: 2,
@@ -165,31 +165,37 @@ class WheelFunction extends React.Component {
     });
   };
 
-  prize = (item) => {
-    if (item === 0) {
-      console.log(`you lose ${item}`);
-      return (
-        <div>
-          <LostWheel />
-        </div>
-      );
-    } else {
-      console.log(`you win ${item}`);
-      return (
-        <div>
-          <WonWheel />
-        </div>
-      );
-    }
-  };
+  // prize = (item) => {
+  //   if (item === 0) {
+  //     console.log(`you lose ${item}`);
+  //     return (
+  //       <div>
+  //         <LostWheel />
+  //       </div>
+  //     );
+  //   } else {
+  //     console.log(`you win ${item}`);
+  //     return (
+  //       <div>
+  //         <WonWheel />
+  //       </div>
+  //     );
+  //   }
+  // };
 
   redirectPage = () => {
+    //we have to create a condition in here, 
+    //if result == list[0] the "/lostwheel", else "/winning"
     const { history } = this.props;
-    if(history) history.push('/winning');
+    if(this.state.list[this.state.result] == this.state.list[0]){
+      if(history) history.push('/lostwheel')
+    }else{
+      if(history) history.push('/winning');
+    }
+    
    }
 
   render() {
-    const { history } = this.props;
     return (
       <div className="App">
         <div style={{ display: "grid", columnCount: "3" }}>
@@ -203,7 +209,7 @@ class WheelFunction extends React.Component {
               backgroundColor: "transparent",
               gridColumn: "2",
               gridRow: "1",
-              zIndex: "0",
+              zIndex: "-4",
             }}
           ></canvas>
           <div
@@ -231,26 +237,20 @@ class WheelFunction extends React.Component {
         </div>
 
         {this.state.spinning ? null : (
-          this.spin({}) &&
-          setTimeout(() => {
-            this.prize(this.state.result)
-          }, 4000)
+          this.spin({}) 
+          // &&
+          // setTimeout(() => {
+          //   this.prize(this.state.result)
+          // }, 1000)
         )}
-
-        <div class="display">
+{/* 
+        <div className="display">
           <span id="readout">
-            YOU WON:{"  "}
+            YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
-        </div>
-        
-        <button
-          className="wheel-buttons"
-          onClick={this.redirectPage}>
-        >
-          NEXT
-        </button>
-
+        </div> */}
+        <button className="wheel-buttons" onClick={this.redirectPage}>NEXT ></button>
       </div>
     );
   }
