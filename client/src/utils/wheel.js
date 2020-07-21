@@ -231,19 +231,10 @@ class WheelFunction extends React.Component {
         </div>
 
         {this.state.spinning ? null : (
-          <button
-            type="button"
-            className="wheel-buttons"
-            id="spin"
-            onClick={() => {
-              this.spin({});
-              setTimeout(() => {
-                this.prize(this.state.result);
-              }, 2000);
-            }}
-          >
-            SPIN
-          </button>
+          this.spin({}) &&
+          setTimeout(() => {
+            this.prize(this.state.result)
+          }, 4000)
         )}
 
         <div class="display">
