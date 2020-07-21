@@ -44,27 +44,27 @@ const ChanceSpin = () => {
             You’ve won a chance to <b>“spin the wheel”</b> for a prize!
           </p>
         </div>
+        <button
+          style={{
+            border: "none",
+            cursor: "pointer",
+            color: "white",
+            backgroundColor: "#f1bd42",
+            padding: "10px",
+            borderRadius: "20px",
+            display: "inline-block",
+            marginRight: "15px",
+            marginTop: "5vh",
+            marginBottom: "5vh",
+            width: "100px",
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+          onClick={() => history.push("/wheel")}
+        >
+          SPIN {">"}
+        </button>
       </div>
-
-      <button
-        style={{
-          border: "none",
-          cursor: "pointer",
-          color: "white",
-          backgroundColor: "#f1bd42",
-          padding: "10px",
-          borderRadius: "20px",
-          display: "inline-block",
-          marginRight: "15px",
-          marginTop: "5vh",
-          marginBottom: "5vh",
-          width: "100px",
-          fontWeight: "bold",
-          fontSize: "20px",
-        }}
-      >
-        SPIN {">"}
-      </button>
     </div>
   );
 };
