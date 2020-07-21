@@ -17,11 +17,11 @@
 }
 
 .correct {
-  background-color: green !important;
+  background-color: #0f9d58 !important;
 }
 
 .incorrect {
-  background-color: red !important;
+  background-color: #db4437 !important;
 }
 .disable {
   pointer-events: none;

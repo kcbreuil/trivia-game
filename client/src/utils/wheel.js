@@ -239,13 +239,13 @@ export default class WheelFunction extends React.Component {
             YOU WON:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
-          <button
-            className="wheel-buttons"
-            // onClick={() => history.push("/winning")}
-          >
-            NEXT
-          </button>
         </div>
+        <button
+          className="wheel-buttons"
+          // onClick={() => history.push("/winning")}
+        >
+          NEXT
+        </button>
       </div>
     );
   }

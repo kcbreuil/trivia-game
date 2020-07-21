@@ -32,7 +32,7 @@ export default (data) => {
           fontSize: "24px",
           fontWeight: "bold",
           textAlign: "start",
-          marginLeft: "55px",
+          marginLeft: "80px",
         }}
       >
         {decode(data.heading)}
