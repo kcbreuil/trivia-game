@@ -7,24 +7,27 @@ const LostTrivia = () => {
 
   return (
     <div className="lost-trivia">
-      <div>
-        <h1 style={{ textAlign: "center" }}>
-          Next Tech Trivia <br></br>
-          <span style={{ fontSize: "16px", fontWeight: "lighter" }}>with</span>
+       <div>
+        <h1 style={{ textAlign: "center", fontSize: "55px" }}>
+          <span style={{ fontWeight: "lighter" }}>NEXT</span>&nbsp;Tech Trivia
+          <br></br>
+          <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold" }}>NetApp</span>
+          <span style={{ color: "#0072bc", font: "bold", fontSize: "55px", lineHeight: "6rem"}}>
+            NetApp
+          </span>
         </h1>
       </div>
       <div style={{ textAlign: "center" }}>
-        <h2>
-          You answered {totalCorrectAnswers} out of 5 questions correctly.
+        <h2 style={{fontWeight: "800" , marginTop:"9vh", fontSize: "30px"}}>
+          You answered <span style={{color:"#0072bc" }}>{totalCorrectAnswers}</span> out of 5 questions correctly.
         </h2>
-        <h5>
+        <p style={{ lineHeight: "4rem", fontSize: "25px", margin:"auto 18vw"}}>
           You need 4 or more correct answers in order to "spin to win" a gift
-          card, but you're still in the running for our grand price drawing.
-        </h5>
-        <h2>Thanks for playing!</h2>
-        <h2>Now, let's get back to Google Next OnAir.</h2>
+          card, but you're still in the running for our grand prize drawing.
+        </p>
+        <h2 style={{fontWeight: "800", margin:"4vh auto", fontSize: "30px"}}>Thanks for playing!</h2>
+        <h2 style={{fontWeight: "800", fontSize: "30px", margin:"4vh auto"}}>Now, let's get back to Google Cloud Next '20 OnAir.</h2>
       </div>
 
       <div className="button-flex">
@@ -46,7 +49,7 @@ const LostTrivia = () => {
               textAlign: "center",
             }}
             type="button"
-            value="Close"
+            value="CLOSE X"
           />
         </a>
       </div>
