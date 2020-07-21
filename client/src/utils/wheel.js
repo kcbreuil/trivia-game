@@ -5,14 +5,8 @@ import "../styling/wheel.css";
 
 export default class WheelFunction extends React.Component {
   state = {
-    list: [
-      "$0 😞",
-      "$10",
-      "$50",
-      "$100",
-      "$150",
-    ],
-   
+    list: ["$0 😞", "$10", "$50", "$100", "$150"],
+
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
     easeOut: 0, // SECONDS
@@ -21,7 +15,7 @@ export default class WheelFunction extends React.Component {
     offset: null, // RADIANS
     net: null, // RADIANS
     result: null, // INDEX
-    spinning: false
+    spinning: false,
   };
 
   componentDidMount() {
@@ -34,7 +28,7 @@ export default class WheelFunction extends React.Component {
     let numOptions = this.state.list.length;
     let arcSize = (2 * Math.PI) / numOptions;
     this.setState({
-      angle: arcSize
+      angle: arcSize,
     });
 
     // get index of starting position of selector
@@ -42,14 +36,16 @@ export default class WheelFunction extends React.Component {
 
     // dynamically generate sectors from state list
     let angle = 0;
-    const colors = [ '#dedfde','#33a752', '#4185f4', '#f9bb04', '#757575']
+    const colors = ["#dedfde", "#33a752", "#4185f4", "#f9bb04", "#757575"];
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
       for (let j = 0; j < colors.length; j++) {
-       let color = colors[j];
-    this.renderSector(i + 1, text, angle, arcSize, color);
-    angle += arcSize;
-  }}}
+        let color = colors[j];
+        this.renderSector(i + 1, text, angle, arcSize, color);
+        angle += arcSize;
+      }
+    }
+  }
 
   topPosition = (num, angle) => {
     // set starting index and angle offset based on list length
@@ -75,7 +71,7 @@ export default class WheelFunction extends React.Component {
 
     this.setState({
       top: topSpot - 1,
-      offset: degreesOff
+      offset: degreesOff,
     });
   };
 
@@ -109,7 +105,6 @@ export default class WheelFunction extends React.Component {
     ctx.rotate(angle - arc / 2 + Math.PI / 2);
     ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
     ctx.restore();
-
   }
 
   // getColor() {
@@ -118,7 +113,7 @@ export default class WheelFunction extends React.Component {
   //    let g = Math.floor(Math.random() * 255);
   //   let b = Math.floor(Math.random() * 255);//
   //    return `rgba(${r},${g},${b},0.4)`;
-  // }  
+  // }
 
   spin = () => {
     // set random spin degree and ease out time
@@ -127,7 +122,7 @@ export default class WheelFunction extends React.Component {
     this.setState({
       rotate: randomSpin,
       easeOut: 2,
-      spinning: true
+      spinning: true,
     });
 
     // calcalute result after wheel stops spinning
@@ -136,7 +131,7 @@ export default class WheelFunction extends React.Component {
     }, 2000);
   };
 
-  getResult = spin => {
+  getResult = (spin) => {
     // find net rotation and add to offset angle
     // repeat substraction of inner angle amount from total distance traversed
     // use count as an index to find value of result from state list
@@ -158,7 +153,7 @@ export default class WheelFunction extends React.Component {
     // set state variable to display result
     this.setState({
       net: netRotation,
-      result: result
+      result: result,
     });
   };
 
@@ -168,14 +163,14 @@ export default class WheelFunction extends React.Component {
       rotate: 0,
       easeOut: 0,
       result: null,
-      spinning: false
+      spinning: false,
     });
   };
 
   render() {
     return (
       <div className="App">
-        <h1>Spinning Prize Wheel React</h1>
+        {/* <h1>Spinning Prize Wheel React</h1> */}
         <span id="selector">&#9660;</span>
         <canvas
           id="wheel"
@@ -183,15 +178,11 @@ export default class WheelFunction extends React.Component {
           height="500"
           style={{
             WebkitTransform: `rotate(${this.state.rotate}deg)`,
-            WebkitTransition: `-webkit-transform ${
-              this.state.easeOut
-            }s ease-out`,
+            WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
           }}
         />
 
-        {this.state.spinning ? (
-          null
-        ) : (
+        {this.state.spinning ? null : (
           <button type="button" id="spin" onClick={this.spin}>
             spin
           </button>

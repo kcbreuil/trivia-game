@@ -1,3 +1,7 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -14,20 +18,15 @@
   flex-wrap: wrap;
   position: fixed;
   left: 0;
-  position: relative;
   width: 100%;
-  margin-top: 100px;
-}
-
-input {
-  border: none;
+  bottom: 0;
 }
 
 .privacy {
   margin: 0;
   position: bottom;
   font-style: italic;
-  font-size: 12px;
+  font-size: 10px;
 }
 .privacy a {
   color: blue;
@@ -48,10 +47,10 @@ input {
   font-size: 17px;
   font-weight: bold;
   text-align: center;
+  margin-top: 200px;
 }
 .form {
   font-size: 20px;
-  margin: 10px;
   font-weight: bold;
 }
 
@@ -60,7 +59,9 @@ input {
 }
 
 .form-div {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  font-style: 20px;
+  padding-top: 10px;
 }
 
 .button-flex {

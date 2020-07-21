@@ -24,14 +24,16 @@ const Trivia = () => {
   let label = document.getElementsByTagName("label");
 
   useEffect(() => {
-    axios.get(`/questions`, {
-      headers: {
-        authorization: localStorage.getItem('token')
-      }
-    }).then((res) => {
-      setQuestions(res.data);
-      setTotalQuestions(res.data.length);
-    });
+    axios
+      .get(`/questions`, {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setQuestions(res.data);
+        setTotalQuestions(res.data.length);
+      });
   }, [setTotalQuestions]);
 
   const proceed = (e) => {
@@ -142,7 +144,7 @@ const Trivia = () => {
           {activeQuestion + 1 < totalQuestions &&
             activeQuestion + 1 !== totalQuestions && (
               <button onClick={proceed} className="nextButton">
-                Next {`>`}
+                NEXT {`>`}
               </button>
             )}
           {activeQuestion + 1 === totalQuestions && (

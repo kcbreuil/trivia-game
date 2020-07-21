@@ -27,8 +27,19 @@ export default (data) => {
 
   return (
     <div className={fieldset}>
-      <h2>{decode(data.heading)}</h2>
-      <h3>{decode(data.question)}</h3>
+      <p
+        style={{
+          fontSize: "24px",
+          fontWeight: "bold",
+          textAlign: "start",
+          marginLeft: "55px",
+        }}
+      >
+        {decode(data.heading)}
+      </p>
+      <p style={{ fontSize: "20px", marginBottom: "50px" }}>
+        {decode(data.question)}
+      </p>
       {answers &&
         shuffle(
           answers.map((data, i) => {

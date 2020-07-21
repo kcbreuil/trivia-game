@@ -40,26 +40,25 @@ const HomePage = () => {
   return (
     <div className="container">
       <div>
-        <h1 style={{ textAlign: "center" }}>
-          Next Tech Trivia <br></br>
-          <span style={{ fontSize: "16px", fontWeight: "lighter" }}>with</span>
+        <h1 style={{ textAlign: "center", fontSize: "42px" }}>
+          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+          <br></br>
+          <span style={{ fontSize: "27px", fontWeight: "lighter" }}>with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold" }}>NetApp</span>
+          <span style={{ color: "#0072bc", font: "bold", fontSize: "42px" }}>
+            NetApp
+          </span>
         </h1>
       </div>
 
       <h2>Hi!</h2>
-      <h2>Welcome to Next Tech Trivia with NetApp.</h2>
-      <p>
-        Answer 5 fun questions, and if you get 4 out of 5 correct, you’ll “spin
-        for a chance to win” Google gift cards. All players will also be entered
-        into a drawing for the chance to win the grand prize: 1 of 10 tickets to
-        the NetApp summer concert and 1 backstage pass.
+      <p style={{ lineHeight: "2rem", fontSize: "16px" }}>
+        Welcome to NEXT Tech Trivia with NetApp. Answer 5 fun questions, and if
+        you get 4 out of 5 correct, you’ll <b>“spin for a chance to win”</b>
+        &nbsp; Google gift cards. All players will also be entered into a
+        drawing for the chance to win access to an exclusive, invitation-only
+        virtual concert in September with a world-renown artist!
         <br></br>
-        <br></br>
-        <i style={{ fontSize: "12px" }}>
-          Business email required to play NEXT Tech Trivia with NetApp
-        </i>
       </p>
       <form
         className="signUpForm"
@@ -98,30 +97,35 @@ const HomePage = () => {
             required
           />
         </div>
+        <i style={{ fontSize: "10px", marginTop: "20px" }}>
+          Business email required to play Next Tech Trivia with NetApp
+        </i>
+        <div className="privacy">
+          <p>
+            Please read and understand the &nbsp;
+            <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
+              NetApp Privacy Policy
+            </a>
+            &nbsp;and{" "}
+            <a href="https://cloud.netapp.com/google-next-onair-2020-tc">
+              Trivia Terms and Conditions
+            </a>
+            , and understand that you can unsubscribe from NetApp&nbsp;
+            <a href="https://www.netapp.com/us/subscriptions/index.aspx">
+              communications &nbsp;
+            </a>
+            at any time or manage your preferences. Gift cards available for US
+            based redemption only. Grand Prize drawing available for both US{" "}
+            {"&"} Canada participants
+          </p>
+        </div>
         <div className="button-flex">
           <button type="submit" className="btn-primary">
-            Lets Play!
+            LETS PLAY!
           </button>
         </div>
       </form>
       <br></br>
-      <div className="privacy">
-        Please read and understand the&nbsp;
-        <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
-          NetApp privacy policy
-        </a>
-        &nbsp;and understand that you can unsubscribe from NetApp communications
-        at any time or manage my&nbsp;
-        <a href="https://www.netapp.com/us/subscriptions/index.aspx">
-          preferences
-        </a>
-        .&nbsp;
-        <a href="https://cloud.netapp.com/google-next-onair-2020-tc">
-          Trivia Terms and Conditions.
-        </a>
-        <br></br>
-        <br></br>
-      </div>
     </div>
   );
 };

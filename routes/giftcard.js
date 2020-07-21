@@ -21,7 +21,6 @@
 //   }
 // });
 
-
 // /* to add the campaign in to our DB */
 
 // router.post("/campaign", async (req, res) => {
@@ -54,11 +53,8 @@
 //   }
 // });
 
-
 // //=======================================//
 // /*Sending a new campaign to giftbit*/
-
-
 
 // router.post('/campaigngb', (req, res) => {
 // const createCampaign = async () => {
@@ -81,7 +77,7 @@
 //   }
 //   try{
 //     const { data } = await axios.post('https://api-testbed.giftbit.com/papi/v1/campaign', body, {
-//     headers: { "Content-Type": 'application/json', 
+//     headers: { "Content-Type": 'application/json',
 //     Authorization: `Bearer ${process.env.API_KEY}` }
 //     });
 //     console.log('Data sent successfully.')
@@ -121,5 +117,4 @@
 // //     console.error(err);
 // //   }};
 
-
-module.exports = router;
+// module.exports = router;
