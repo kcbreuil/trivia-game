@@ -121,7 +121,7 @@ const HomePage = () => {
         </div>
         <div className="button-flex">
           <button type="submit" className="btn-primary">
-            LETS PLAY!
+            LET'S PLAY!
           </button>
         </div>
       </form>
