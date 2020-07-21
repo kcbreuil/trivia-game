@@ -10,6 +10,7 @@ const AppContextProvider = ({ children }) => {
   const [userSelection, setUserSelection] = useState(false);
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
+  const [result, setResult] = useState(0);
 
   //
   //   const token = localStorage.getItem("token");
@@ -42,6 +43,8 @@ const AppContextProvider = ({ children }) => {
         setTotalCorrectAnswers,
         totalQuestions,
         setTotalQuestions,
+        result,
+        setResult,
       }}
     >
       {children}
