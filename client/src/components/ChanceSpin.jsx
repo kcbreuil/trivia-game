@@ -8,11 +8,14 @@ const ChanceSpin = () => {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>
-          Next Tech Trivia <br></br>
-          <span style={{ fontSize: "16px", fontWeight: "lighter" }}>with</span>
+        <h1 style={{ textAlign: "center", fontSize: "42px" }}>
+          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+          <br></br>
+          <span style={{ fontSize: "27px", fontWeight: "lighter" }}>with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold" }}>NetApp</span>
+          <span style={{ color: "#0072bc", font: "bold", fontSize: "42px" }}>
+            NetApp
+          </span>
         </h1>
       </div>
       <br></br>
