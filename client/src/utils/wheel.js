@@ -1,11 +1,13 @@
 import React from "react";
-import LostWheel from "../components/LostWheel.jsx";
-import WonWheel from "../components/WonWheel.jsx";
+import { render } from "react-dom";
+import LostWheel from "../components/LostWheel";
+import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
+import pointer from "../images/pointer.png";
 
 export default class WheelFunction extends React.Component {
   state = {
-    list: ["$0 😞", "$10", "$50", "$100", "$150"],
+    list: ["😞", "$10", "$50", "$100", "$150"],
 
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
@@ -39,11 +41,8 @@ export default class WheelFunction extends React.Component {
     const colors = ["#dedfde", "#33a752", "#4185f4", "#f9bb04", "#757575"];
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
-      for (let j = 0; j < colors.length; j++) {
-        let color = colors[j];
-        this.renderSector(i + 1, text, angle, arcSize, color);
-        angle += arcSize;
-      }
+      this.renderSector(i + 1, text, angle, arcSize, colors[i]);
+      angle += arcSize;
     }
   }
 
@@ -93,8 +92,8 @@ export default class WheelFunction extends React.Component {
     ctx.lineWidth = radius * 2;
     ctx.strokeStyle = color;
 
-    ctx.font = "17px Arial black";
-    ctx.fillStyle = "black";
+    ctx.font = "17px Arial";
+    ctx.fillStyle = "white";
     ctx.stroke();
 
     ctx.save();
@@ -106,14 +105,6 @@ export default class WheelFunction extends React.Component {
     ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
     ctx.restore();
   }
-
-  // getColor() {
-  // //   randomly generate rbg values for wheel sectors
-  //   let r = Math.floor(Math.random() * 255);
-  //    let g = Math.floor(Math.random() * 255);
-  //   let b = Math.floor(Math.random() * 255);//
-  //    return `rgba(${r},${g},${b},0.4)`;
-  // }
 
   spin = () => {
     // set random spin degree and ease out time
@@ -167,23 +158,76 @@ export default class WheelFunction extends React.Component {
     });
   };
 
+  prize = (item) => {
+    if (item === 0) {
+      console.log(`you lose ${item}`);
+      return (
+        <div>
+          <LostWheel />
+        </div>
+      );
+    } else {
+      console.log(`you win ${item}`);
+      return (
+        <div>
+          <WonWheel />
+        </div>
+      );
+    }
+  };
+
   render() {
     return (
       <div className="App">
-        {/* <h1>Spinning Prize Wheel React</h1> */}
-        <span id="selector">&#9660;</span>
-        <canvas
-          id="wheel"
-          width="500"
-          height="500"
-          style={{
-            WebkitTransform: `rotate(${this.state.rotate}deg)`,
-            WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
-          }}
-        />
+        <div style={{ display: "grid", columnCount: "3" }}>
+          <canvas
+            id="wheel"
+            width="500"
+            height="500"
+            style={{
+              WebkitTransform: `rotate(${this.state.rotate}deg)`,
+              WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
+              backgroundColor: "transparent",
+              gridColumn: "2",
+              gridRow: "1",
+              zIndex: "0",
+            }}
+          ></canvas>
+          <div
+            style={{
+              backgroundColor: "transparent",
+              borderColor: "#D7503F",
+              borderWidth: "25px",
+              borderStyle: "solid",
+              borderRadius: "50%",
+              gridColumn: "2",
+              gridRow: "1",
+              width: "300px",
+              height: "300px",
+              marginTop: "75px",
+              marginLeft: "75px",
+              boxShadow: "inset 0.5px 0.5px 20px 3px black",
+              zIndex: "200",
+            }}
+          >
+            <img
+              src={pointer}
+              style={{ marginTop: "60px", height: "140px", width: "auto" }}
+            />
+          </div>
+        </div>
 
         {this.state.spinning ? null : (
-          <button type="button" id="spin" onClick={this.spin}>
+          <button
+            type="button"
+            id="spin"
+            onClick={() => {
+              this.spin({});
+              setTimeout(() => {
+                this.prize(this.state.result);
+              }, 2000);
+            }}
+          >
             spin
           </button>
         )}
