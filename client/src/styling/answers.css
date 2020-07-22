@@ -42,3 +42,15 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.answerFlex {
+  display: flex;
+}
+
+.letter {
+  font-weight: bold;
+}
+
+.answerSelection {
+  margin-left: 100px;
+}
