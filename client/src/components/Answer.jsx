@@ -25,10 +25,9 @@ export default (data) => {
       }
     }
   };
+
   let arr = ["A", "B", "C", "D"];
-  arr.forEach(function (item) {
-    console.log(item);
-  });
+  let letter = arr.forEach((item) => console.log(item));
 
   return (
     <div className="answers">
@@ -41,7 +40,12 @@ export default (data) => {
         onClick={() => answerCheck(data.correct)}
       />
       <label for={data.answer} className={id}>
-        {} {decode(data.answer)}
+        {
+          <div className="answerFlex">
+            <div className="letter">{"A"}</div>
+            <div className="answerSelection">{decode(data.answer)}</div>
+          </div>
+        }
       </label>
     </div>
   );
