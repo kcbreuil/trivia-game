@@ -26,6 +26,9 @@ export default (data) => {
     }
   };
   let arr = ["A", "B", "C", "D"];
+  arr.forEach(function (item) {
+    console.log(item);
+  });
 
   return (
     <div className="answers">
