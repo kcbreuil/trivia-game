@@ -6,21 +6,41 @@ export default (data) => {
   const fieldset = data.visible ? "fieldset" : "fieldset u-hidden";
   const questionNo = data.name;
   let answers = data.answers;
+
   function shuffle(array) {
-    var currentIndex = array.length,
+    var currentIndex = 3,
       temporaryValue,
-      randomIndex;
+      newIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+    if (data.name === "q-1") {
+      while (0 <= currentIndex) {
+        currentIndex -= 1;
+        newIndex = [0, 0, 2, 3];
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[newIndex[currentIndex]];
+        array[newIndex[currentIndex]] = temporaryValue;
+      }
+    }
+    if (data.name === "q-3") {
+      while (0 <= currentIndex) {
+        currentIndex -= 1;
+        newIndex = [3, 3, 3, 0];
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[newIndex[currentIndex]];
+        array[newIndex[currentIndex]] = temporaryValue;
+      }
+    }
+    if (data.name === "q-4") {
+      while (0 <= currentIndex) {
+        currentIndex -= 1;
+        newIndex = [0, 0, 2, 3];
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[newIndex[currentIndex]];
+        array[newIndex[currentIndex]] = temporaryValue;
+      }
     }
     return array;
   }
