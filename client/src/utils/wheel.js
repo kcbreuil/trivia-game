@@ -1,6 +1,6 @@
 import React from "react";
 import { render, Redirect } from "react-dom";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import LostWheel from "../components/LostWheel";
 import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
@@ -9,8 +9,6 @@ import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
 import { Link } from "react-router-dom";
-
-
 
 class WheelFunction extends React.Component {
   state = {
@@ -185,8 +183,8 @@ class WheelFunction extends React.Component {
 
   redirectPage = () => {
     const { history } = this.props;
-    if(history) history.push('/winning');
-   }
+    if (history) history.push("/winning");
+  };
 
   render() {
     const { history } = this.props;
@@ -230,12 +228,12 @@ class WheelFunction extends React.Component {
           </div>
         </div>
 
-        {this.state.spinning ? null : (
-          this.spin({}) &&
-          setTimeout(() => {
-            this.prize(this.state.result)
-          }, 4000)
-        )}
+        {this.state.spinning
+          ? null
+          : this.spin({}) &&
+            setTimeout(() => {
+              this.prize(this.state.result);
+            }, 4000)}
 
         <div class="display">
           <span id="readout">
@@ -243,14 +241,10 @@ class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
         </div>
-        
-        <button
-          className="wheel-buttons"
-          onClick={this.redirectPage}>
-        >
-          NEXT
-        </button>
 
+        <button className="wheel-buttons" onClick={this.redirectPage}>
+          NEXT {">"}
+        </button>
       </div>
     );
   }
