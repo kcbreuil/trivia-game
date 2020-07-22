@@ -17,6 +17,7 @@ const HomePage = () => {
   } = useContext(AppContext);
 
   const signUp = async (firstName, lastName, email, e) => {
+    console.log(lastName, email);
     e.preventDefault();
     await axios({
       method: "POST",
