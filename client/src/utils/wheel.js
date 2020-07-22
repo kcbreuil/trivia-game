@@ -185,11 +185,13 @@ class WheelFunction extends React.Component {
     //we have to create a condition in here,
     //if result == list[0] the "/lostwheel", else "/winning"
     const { history } = this.props;
+
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
     } else {
       if (history) history.push("/winning");
     }
+
   };
 
   render() {
@@ -243,12 +245,15 @@ class WheelFunction extends React.Component {
         }
         {/* 
         <div className="display">
+
           <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
           </span>
+
         </div> */}
         <button className="nextButton" onClick={this.redirectPage}>NEXT {'>'}</button>
+
       </div>
     );
   }

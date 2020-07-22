@@ -25,6 +25,11 @@ export default (data) => {
       }
     }
   };
+  let arr = ["A", "B", "C", "D"];
+  arr.forEach(function (item) {
+    console.log(item);
+  });
+
   return (
     <div className="answers">
       <input
@@ -36,7 +41,7 @@ export default (data) => {
         onClick={() => answerCheck(data.correct)}
       />
       <label for={data.answer} className={id}>
-        {decode(data.answer)}
+        {} {decode(data.answer)}
       </label>
     </div>
   );
