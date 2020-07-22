@@ -6,7 +6,7 @@ import WonWheel from "../components/WonWheel";
 import "../styling/wheel.css";
 import pointer from "../images/pointer.png";
 import { useHistory } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
@@ -163,36 +163,26 @@ class WheelFunction extends React.Component {
     });
   };
 
-  // prize = (item) => {
-  //   if (item === 0) {
-  //     console.log(`you lose ${item}`);
-  //     return (
-  //       <div>
-  //         <LostWheel />
-  //       </div>
-  //     );
-  //   } else {
-  //     console.log(`you win ${item}`);
-  //     return (
-  //       <div>
-  //         <WonWheel />
-  //       </div>
-  //     );
-  //   }
-  // };
 
-  redirectPage = () => {
-    //we have to create a condition in here,
-    //if result == list[0] the "/lostwheel", else "/winning"
+  redirectPage = async () => {
+
     const { history } = this.props;
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
     } else {
       if (history) history.push("/winning");
-    }
 
-  };
+      let resultState = Number((this.state.list[this.state.result]).substr(1)) * 100 //CONVERTING RESULT IN CENTS    
+      //console.log(localStorage.getItem("token"))
+      //console.log(resultState)
+      await axios.post('/campaign',{data: { result: resultState }}, {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        }}
+      ).then((response) => {
+        console.log(`estou funcionando?`)})
+    }};
 
   render() {
     return (
@@ -235,24 +225,24 @@ class WheelFunction extends React.Component {
           </div>
         </div>
 
-        {this.state.spinning
-          ? null
-          : this.spin({})
-            // &&
-            // setTimeout(() => {
-            //   this.prize(this.state.result)
-            // }, 1000)
+        {
+          this.state.spinning ? null : this.spin({})
+          // &&
+          // setTimeout(() => {
+          //   this.prize(this.state.result)
+          // }, 1000)
         }
-        {/* 
+
         <div className="display">
 
-          <span id="readout">
+          {/* <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
-          </span>
-
-        </div> */}
-        <button className="nextButton" onClick={this.redirectPage}>NEXT {'>'}</button>
+          </span> */}
+        </div>
+        <button className="nextButton" onClick={this.redirectPage}>
+          NEXT {">"}
+        </button>
 
       </div>
     );
