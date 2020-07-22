@@ -56,9 +56,10 @@ const HomePage = () => {
       <p style={{ lineHeight: "2rem", fontSize: "16px" }}>
         Welcome to Next Tech Trivia with NetApp. Answer 5 fun questions, and if
         you get 4 out of 5 correct, you’ll <b>“spin for a chance to win”</b>
-        &nbsp; Google gift cards. All players will also be entered into a
-        drawing for the chance to win access to an exclusive, invitation-only
-        virtual concert in September with a world-renown artist!
+        &nbsp; a gift card to buy a coveted Google item of your choice. All
+        players will also be entered into a drawing for the chance to win access
+        to an exclusive, invitation-only virtual concert in September with a
+        world-renown artist!
         <br></br>
       </p>
       <form
@@ -74,6 +75,7 @@ const HomePage = () => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            className="homepage-input"
           />
         </div>
         <div className="form-div">
@@ -85,6 +87,7 @@ const HomePage = () => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
+            className="homepage-input"
           />
         </div>
         <div className="form-div">
@@ -96,11 +99,17 @@ const HomePage = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="homepage-input"
           />
         </div>
-        <i style={{ fontSize: "10px", marginTop: "20px" }}>
+        <i style={{ fontSize: "10px" }}>
           Business email required to play Next Tech Trivia with NetApp
         </i>
+        <div className="button-flex">
+          <button type="submit" className="btn-primary">
+            LET'S PLAY!
+          </button>
+        </div>
         <div className="privacy">
           <p>
             Please read and understand the &nbsp;
@@ -111,19 +120,16 @@ const HomePage = () => {
             <a href="https://cloud.netapp.com/google-next-onair-2020-tc">
               Trivia Terms and Conditions
             </a>
-            , and understand that you can unsubscribe from NetApp&nbsp;
+            , and understand that you can{" "}
             <a href="https://www.netapp.com/us/subscriptions/index.aspx">
-              communications &nbsp;
-            </a>
-            at any time or manage your preferences. Gift cards available for US
-            based redemption only. Grand Prize drawing available for both US{" "}
-            {"&"} Canada participants
+              unsubscribe
+            </a>{" "}
+            from NetApp at any time or manage your preferences.
           </p>
-        </div>
-        <div className="button-flex">
-          <button type="submit" className="btn-primary">
-            LET'S PLAY!
-          </button>
+          <p>
+            Gift cards available for US based redemption only. Grand Prize
+            drawing available for both US {"&"} Canada participants
+          </p>
         </div>
       </form>
     </div>

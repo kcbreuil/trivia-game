@@ -167,10 +167,12 @@ class WheelFunction extends React.Component {
   redirectPage = async () => {
 
     const { history } = this.props;
+
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
     } else {
       if (history) history.push("/winning");
+
       let resultState = Number((this.state.list[this.state.result]).substr(1)) * 100 //CONVERTING RESULT IN CENTS    
       //console.log(localStorage.getItem("token"))
       //console.log(resultState)
@@ -232,6 +234,7 @@ class WheelFunction extends React.Component {
         }
 
         <div className="display">
+
           {/* <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
@@ -240,6 +243,7 @@ class WheelFunction extends React.Component {
         <button className="nextButton" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
+
       </div>
     );
   }
