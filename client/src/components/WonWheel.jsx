@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 function WonWheel() {
+  const { result } = useContext(AppContext);
   return (
     <div className="winning-background">
      <div>
@@ -22,11 +24,11 @@ function WonWheel() {
         </h1>
       </div>
       <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "48px", fontWeight: "800" }}>
+        <h1 style={{ fontSize: "52px", fontWeight: "800" }}>
           CONGRATULATIONS!!!
         </h1>
         <h2 style={{ fontSize: "30px" }}>
-          You have won a <span style={{ color: "#0072bc" }}>${"X"}</span> gift
+          You have won a <span style={{ color: "#0072bc" }}>${ result }</span> gift
           card to buy a coveted Google item of your choice.
         </h2>
         <p style={{ fontSize: "25px" }}>
