@@ -41,6 +41,7 @@ const Trivia = () => {
     setActiveQuestion(activeQuestion + 1);
     //Once the next button is clicked the class "disable" is added to the label tags
     $("label").removeClass("disable");
+    $("button").addClass("disable");
     //To prevent answers being shown on next question, the class "correct" is removed from all label tags.
     for (let i = 0; i < 20; i++) {
       if (input[i].value === "1") {
@@ -143,12 +144,12 @@ const Trivia = () => {
           })}
           {activeQuestion + 1 < totalQuestions &&
             activeQuestion + 1 !== totalQuestions && (
-              <button onClick={proceed} className="nextButton">
+              <button onClick={proceed} className="nextButton disable">
                 NEXT {`>`}
               </button>
             )}
           {activeQuestion + 1 === totalQuestions && (
-            <button className="nextButton" type="submit">
+            <button className="nextButton disable" type="submit">
               Submit
             </button>
           )}

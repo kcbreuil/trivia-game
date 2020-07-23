@@ -43,7 +43,7 @@ class WheelFunction extends React.Component {
 
     // dynamically generate sectors from state list
     let angle = 0;
-    const colors = ["#dedfde", "#33a752", "#4185f4", "#f9bb04", "#757575"];
+    const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
       this.renderSector(i + 1, text, angle, arcSize, colors[i]);
@@ -97,7 +97,7 @@ class WheelFunction extends React.Component {
     ctx.lineWidth = radius * 2;
     ctx.strokeStyle = color;
 
-    ctx.font = "35px Arial";
+    ctx.font = "bold 35px Arial";
     ctx.fillStyle = "white";
     ctx.stroke();
 
@@ -163,9 +163,7 @@ class WheelFunction extends React.Component {
     });
   };
 
-
   redirectPage = async () => {
-
     const { history } = this.props;
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
@@ -173,16 +171,25 @@ class WheelFunction extends React.Component {
     } else {
       if (history) history.push("/winning");
 
-      let resultState = Number((this.state.list[this.state.result]).substr(1)) * 100 //CONVERTING RESULT IN CENTS    
+      let resultState =
+        Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
       //console.log(localStorage.getItem("token"))
       //console.log(resultState)
-      await axios.post('/campaign',{data: { result: resultState }}, {
-        headers: {
-          authorization: localStorage.getItem("token"),
-        }}
-      ).then((response) => {
-        console.log(`estou funcionando?`)})
-    }};
+      await axios
+        .post(
+          "/campaign",
+          { data: { result: resultState } },
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          console.log(`estou funcionando?`);
+        });
+    }
+  };
 
   render() {
     return (
@@ -234,7 +241,6 @@ class WheelFunction extends React.Component {
         }
 
         <div className="display">
-
           {/* <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
@@ -243,7 +249,6 @@ class WheelFunction extends React.Component {
         <button className="nextButton" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
-
       </div>
     );
   }

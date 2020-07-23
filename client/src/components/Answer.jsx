@@ -13,21 +13,19 @@ export default (data) => {
   const answerCheck = (value) => {
     //once answer is clicked, all answers will be unclickable
     $("label").addClass("disable");
+    $("button").removeClass("disable");
     //if answer value is equal to "1" add the correct class, else add the incorrect class
     if (value == 1) {
       $(`.${id}`).addClass("correct");
     } else {
       $(`.${id}`).addClass("incorrect");
       for (let i = 0; i < 20; i++) {
-        if (input[i].value == 1) {
+        if (input[i].value === "1") {
           $(label[i]).addClass("correct");
         }
       }
     }
   };
-
-  let arr = ["A", "B", "C", "D"];
-  let letter = arr.forEach((item) => console.log(item));
 
   return (
     <div className="answers">
@@ -42,7 +40,6 @@ export default (data) => {
       <label for={data.answer} className={id}>
         {
           <div className="answerFlex">
-            <div className="letter">{"A"}</div>
             <div className="answerSelection">{decode(data.answer)}</div>
           </div>
         }
