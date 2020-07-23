@@ -168,6 +168,7 @@ class WheelFunction extends React.Component {
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
+      // this is where we can send loser email in sendgrid :DDD //
     } else {
       if (history) history.push("/winning");
 

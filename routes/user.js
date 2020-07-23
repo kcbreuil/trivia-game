@@ -3,7 +3,7 @@ const router = new express.Router();
 const mongoose = require("mongoose");
 // const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth.js");
-
+const axios = require("axios");
 const User = require("../models/user");
 
 // Create a user //
@@ -18,6 +18,34 @@ router.post("/users", async (req, res) => {
     res.status(400).send(e);
   }
 });
+
+const sgMail = require("@sendgrid/mail");
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+
+const msg = {
+  to: "kcbreuil@gmail.com",
+  from: "kcbreuil@gmail.com",
+  subject: "Sending with Twilio SendGrid is Fun",
+  text: "and easy to do anywhere, even with Node.js",
+  html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+};
+sgMail.setApiKey(SENDGRID_API_KEY);
+
+const sendAnEmail = async () => {
+  try {
+    await axios.post("https://api.sendgrid.com/v3/mail/send", msg, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+      },
+    });
+    sgMail.setApiKey(SENDGRID_API_KEY);
+    sgMail.send(msg);
+  } catch (e) {
+    console.log(e);
+  }
+};
+sendAnEmail();
 
 // Login a user
 
