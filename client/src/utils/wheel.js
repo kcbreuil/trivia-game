@@ -43,7 +43,7 @@ class WheelFunction extends React.Component {
 
     // dynamically generate sectors from state list
     let angle = 0;
-    const colors = ["#dedfde", "#33a752", "#4185f4", "#f9bb04", "#757575"];
+    const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
       this.renderSector(i + 1, text, angle, arcSize, colors[i]);
@@ -97,7 +97,7 @@ class WheelFunction extends React.Component {
     ctx.lineWidth = radius * 2;
     ctx.strokeStyle = color;
 
-    ctx.font = "35px Arial";
+    ctx.font = "bold 35px Arial";
     ctx.fillStyle = "white";
     ctx.stroke();
 
@@ -174,7 +174,6 @@ class WheelFunction extends React.Component {
 
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
-
       //console.log(localStorage.getItem("token"))
       //console.log(resultState)
       await axios
@@ -188,7 +187,6 @@ class WheelFunction extends React.Component {
           }
         )
         .then((response) => {
-          alert("You won!");
           console.log(`estou funcionando?`);
         });
     }
