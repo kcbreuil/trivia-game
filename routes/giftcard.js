@@ -91,32 +91,5 @@ router.post("/campaign", auth, async (req, res) => {
     }
   });
 
-// TEST 1 - API POST REQ WITH FAKE DATA
-
-// const body = {
-//   "gift_template": "QPWCWUJJCDUT",
-//   "contacts": [
-//     {
-//       "firstname":`Lady`,
-//       "lastname":"Gaga",
-//       "email":"mothermonster1@gaga100.com"
-//     }
-//   ],
-//   "price_in_cents":2500,
-//   "brand_codes": ["amazonus"],
-//   "expiry":"2020-11-02",
-//   "id":"my45_client"
-// }
-
-// const createCampaign = async () => {
-//   try{
-//     const { data } = await axios.post('https://api-testbed.giftbit.com/papi/v1/campaign', body, {
-//     headers: { "Content-Type": 'application/json', Authorization: `Bearer ${process.env.API_KEY}` }
-//     });
-//     console.log('Data sent successfully.')
-//     console.log('Body: ', body)
-//   } catch (err) {
-//     console.error(err);
-//   }};
 
 module.exports = router;

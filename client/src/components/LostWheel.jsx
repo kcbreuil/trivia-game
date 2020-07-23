@@ -1,6 +1,8 @@
 import React from "react";
+import axios from "axios";
 
-const LostWheel = () => {
+const LostWheel =  () => {
+
   return (
     <div style={{ textAlign: "center" }}>
       <div>
@@ -21,7 +23,7 @@ const LostWheel = () => {
           </span>
         </h1>
       </div>
-      <h2 style={{ fontWeight: "800", marginTop: "7vh", fontSize: "30px" }}>Awe Snap!</h2>
+      <h2 style={{ fontWeight: "800", marginTop: "7vh", fontSize: "30px" }}>Aw, Snap!</h2>
       {/* <img
         src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png"
         alt=""

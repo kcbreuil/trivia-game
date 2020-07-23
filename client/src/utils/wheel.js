@@ -169,13 +169,24 @@ class WheelFunction extends React.Component {
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
       // this is where we can send loser email in sendgrid :DDD //
+      console.log(localStorage.getItem("token"))
+        await axios
+        .post(
+          "/sendemail",
+          { data: { data: "it doesn't matter but don't erase me" } },
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+        ) 
+
     } else {
       if (history) history.push("/winning");
 
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
-      //console.log(localStorage.getItem("token"))
-      //console.log(resultState)
+
       await axios
         .post(
           "/campaign",
@@ -186,9 +197,6 @@ class WheelFunction extends React.Component {
             },
           }
         )
-        .then((response) => {
-          console.log(`estou funcionando?`);
-        });
     }
   };
 
