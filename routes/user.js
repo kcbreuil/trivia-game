@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const auth = require("../middleware/auth.js");
 const axios = require("axios");
 const User = require("../models/user");
+//const {sendEmail} = require('../email/loserEmail');
 
 // Create a user //
 
@@ -19,33 +20,6 @@ router.post("/users", async (req, res) => {
   }
 });
 
-const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-
-const msg = {
-  to: "kcbreuil@gmail.com",
-  from: "kcbreuil@gmail.com",
-  subject: "Sending with Twilio SendGrid is Fun",
-  text: "and easy to do anywhere, even with Node.js",
-  html: "<strong>and easy to do anywhere, even with Node.js</strong>",
-};
-sgMail.setApiKey(SENDGRID_API_KEY);
-
-const sendAnEmail = async () => {
-  try {
-    await axios.post("https://api.sendgrid.com/v3/mail/send", msg, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-      },
-    });
-    sgMail.setApiKey(SENDGRID_API_KEY);
-    sgMail.send(msg);
-  } catch (e) {
-    console.log(e);
-  }
-};
-sendAnEmail();
 
 // Login a user
 
@@ -161,5 +135,27 @@ router.delete("/users/me", auth, async (req, res) => {
     res.status(500).send();
   }
 });
+
+router.post("/sendemail", auth, async (req, res) =>{
+  const sgMail = require('@sendgrid/mail');
+
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const msg ={
+    to: `${req.user.email}`,
+    from: {"email":"garcia.marcella@hotmail.com","name":"Next Tech Trivia"},
+    subject: 'Hello !',
+    text: `Test API call number 8`,
+    html: "<strong>testing testing route</strong>",
+  }
+  const sendEmail = () => {
+   try {
+      sgMail.send(msg);
+      console.log("Email has sent successfully!")
+    } catch (e) {
+      console.log(e);
+    }
+  }; 
+  sendEmail();
+});   
 
 module.exports = router;
