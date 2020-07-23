@@ -163,26 +163,36 @@ class WheelFunction extends React.Component {
     });
   };
 
-
   redirectPage = async () => {
-
     const { history } = this.props;
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
       if (history) history.push("/lostwheel");
+      // this is where we can send loser email in sendgrid :DDD //
     } else {
       if (history) history.push("/winning");
 
-      let resultState = Number((this.state.list[this.state.result]).substr(1)) * 100 //CONVERTING RESULT IN CENTS    
+      let resultState =
+        Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
+
       //console.log(localStorage.getItem("token"))
       //console.log(resultState)
-      await axios.post('/campaign',{data: { result: resultState }}, {
-        headers: {
-          authorization: localStorage.getItem("token"),
-        }}
-      ).then((response) => {
-        console.log(`estou funcionando?`)})
-    }};
+      await axios
+        .post(
+          "/campaign",
+          { data: { result: resultState } },
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          alert("You won!");
+          console.log(`estou funcionando?`);
+        });
+    }
+  };
 
   render() {
     return (
@@ -234,7 +244,6 @@ class WheelFunction extends React.Component {
         }
 
         <div className="display">
-
           {/* <span id="readout">
             YOUR RESULT:{"  "}
             <span id="result">{this.state.list[this.state.result]}</span>
@@ -243,7 +252,6 @@ class WheelFunction extends React.Component {
         <button className="nextButton" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
-
       </div>
     );
   }
