@@ -14,6 +14,7 @@ const HomePage = () => {
     email,
     setEmail,
     setUser,
+    setStep,
   } = useContext(AppContext);
 
   const signUp = async (firstName, lastName, email, e) => {
@@ -34,7 +35,7 @@ const HomePage = () => {
         setEmail("");
         setFirstName("");
         setLastName("");
-        history.push(`/trivia`);
+        setStep(1);
       })
       .catch((e) => alert(e.message.toString() + " Invalid email"));
   };

@@ -3,21 +3,16 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import WheelFunction from "../utils/wheel";
 
-export class Wheel extends React.Component {
-  constructor() {
-    super();
-    //this.places = [":(", "10", "50", "100", "150"];
-  }
+const Wheel = () => {
+  return (
+    <div className="App">
+      <h1 style={{ fontWeight: "800", marginTop: "5vh", fontSize: "42px" }}>
+        SPIN TO WIN!
+      </h1>
 
-  render() {
-    return (
-      <div className="App">
-        <h1 style={{ fontWeight: "800", marginTop: "5vh", fontSize: "42px" }}>SPIN TO WIN!</h1>
-
-        <WheelFunction items={this.places} />
-      </div>
-    );
-  }
-}
+      <WheelFunction />
+    </div>
+  );
+};
 
 export default Wheel;
