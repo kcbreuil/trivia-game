@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const ChanceSpin = () => {
-  const history = useHistory();
   const { totalCorrectAnswers, totalQuestions, setStep } = useContext(
     AppContext
   );

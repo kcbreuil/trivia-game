@@ -1,15 +1,7 @@
 import React from "react";
 import { AppContextProvider } from "./context/AppContext";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomePage from "./components/HomePage.jsx";
-import Trivia from "./pages/Trivia.jsx";
 import Footer from "./components/Footer.jsx";
-import Wheel from "./components/Wheel";
 import Page from "./pages/Page";
-
-import LostTrivia from "./components/LostTrivia.jsx";
-import WonWheel from "./components/WonWheel";
-import LostWheel from "./components/LostWheel.jsx";
 
 function App() {
   return (

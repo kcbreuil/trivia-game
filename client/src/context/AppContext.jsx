@@ -11,7 +11,7 @@ const AppContextProvider = ({ children }) => {
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [result, setResult] = useState(0);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(0);
   //
   //   const token = localStorage.getItem("token");
 

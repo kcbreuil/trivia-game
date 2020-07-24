@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
 const HomePage = () => {
-  const history = useHistory();
   const {
     firstName,
     setFirstName,
