@@ -35,7 +35,7 @@ const HomePage = () => {
         setLastName("");
         setStep(1);
       })
-      .catch((e) => alert(e.message.toString() + " Invalid email"));
+      .catch((e) => alert(e.message.toString() + " Not business email "));
   };
   return (
     <div className="container">
