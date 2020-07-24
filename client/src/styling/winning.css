@@ -3,3 +3,80 @@
   background-size: cover;
   height: 105vh;;
 }
+
+#button-wonwheel{
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-Color: #f1bd42;
+  padding: 10px;
+  border-Radius: 20px;
+  display: inline-block;
+  margin-Right: 15px;
+  margin-Top: 3vh;
+  /* margin-Bottom: 5vh; */
+  width: 113px;
+  font-Weight: bold;
+  font-Size: 20px;
+}
+
+#congrats{
+  font-Size: 52px;
+  font-Weight: 800
+}
+
+.h2-wontrivia{
+  font-weight: 800;
+  font-size: 24px
+}
+.won-trivia-text {
+  line-height: 3rem;
+  font-size: 25px;
+  margin: auto 12vw
+}
+
+@media  (min-width: 601px) and (max-width: 850px){
+    
+  .h2-wontrivia{
+      font-weight: 800;
+      margin:1vh 6vw;
+      font-size: 23px
+  }
+  .won-trivia-text {
+      line-height: 2rem;
+      font-size: 21px;
+      margin: auto 8vw
+  }
+  #congrats{
+    font-size: 42px;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .next-name, .tech-trivia-name {
+      font-size: 2.5rem
+  }
+  .with-name{
+      font-Size: 26px;
+      font-weight:lighter;
+  }
+  .netapp-name {
+      font-Size: 2.5rem;
+      line-Height: 5rem
+  }
+  .h2-wontrivia{
+      font-weight: 800;
+      margin:2vh 8vw;
+      font-size: 18px
+  }
+  .won-trivia-text {
+      line-height: 1.5rem;
+      font-size: 15px;
+      margin: auto 8vw
+  }
+  #congrats{
+    font-size: 32px;
+  }
+}
