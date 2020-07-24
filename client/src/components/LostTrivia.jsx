@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import "../styling/losttrivia.css";
+import "../styling/app.css";
 import axios from "axios";
 
 const LostTrivia = () => {
