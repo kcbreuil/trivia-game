@@ -3,9 +3,10 @@ import { AppContext } from "../context/AppContext";
 
 function WonWheel() {
   const { result } = useContext(AppContext);
+  const prize = [0, 10, 50, 100, 150];
   return (
     <div className="winning-background">
-     <div>
+      <div>
         <h1 style={{ textAlign: "center", fontSize: "55px" }}>
           <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
           <br></br>
@@ -28,8 +29,9 @@ function WonWheel() {
           CONGRATULATIONS!!!
         </h1>
         <h2 style={{ fontSize: "30px" }}>
-          You have won a <span style={{ color: "#0072bc" }}>${ result }</span> gift
-          card to buy a coveted Google item of your choice.
+          You have won a{" "}
+          <span style={{ color: "#0072bc" }}>${prize[result]}</span> gift card
+          to buy a coveted Google item of your choice.
         </h2>
         <p style={{ fontSize: "25px" }}>
           Check your inbox for an email with your gift card information.
