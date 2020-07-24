@@ -1,0 +1,90 @@
+.next-name {
+    font-Weight: lighter;
+    text-align: center;
+    font-size: 55px
+}
+
+.tech-trivia-name{
+    text-align: center;
+    font-size: 55px
+}
+.with-name{
+    font-Size: 33px;
+    font-Weight: "lighter"
+}
+.netapp-name {
+    color: #0072bc;
+    font: bold;
+    font-Size: 55px;
+    line-Height: 6rem
+}
+
+#lost-trivia-button{
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #f1bd42;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    /*margin-right: 15px;*/
+    margin-top: 2vh;
+    /* margin-Bottom: 5vh; */
+    width: 100px;
+    font-Weight: bold;
+    text-Align: center
+}
+
+.lost-trivia{
+    height: 100vh;
+}
+
+.h2-losttrivia{
+    font-weight: 800;
+    margin: 5vh auto;
+    font-size: 30px
+}
+.lost-trivia-text {
+    line-height: 3rem;
+    font-size: 25px;
+    margin: auto 12vw
+}
+@media  (min-width: 601px) and (max-width: 850px){
+    
+    .h2-losttrivia{
+        font-weight: 800;
+        margin:4vh 6vw;
+        font-size: 25px
+    }
+    .lost-trivia-text {
+        line-height: 2rem;
+        font-size: 18px;
+        margin: auto 8vw
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .next-name, .tech-trivia-name {
+        font-size: 2.5rem
+    }
+    .with-name{
+        font-Size: 26px;
+        font-weight:lighter;
+    }
+    .netapp-name {
+        font-Size: 2.5rem;
+        line-Height: 5rem
+    }
+    .h2-losttrivia{
+        font-weight: 800;
+        margin:2vh 8vw;
+        font-size: 18px
+    }
+    .lost-trivia-text {
+        line-height: 1.5rem;
+        font-size: 15px;
+        margin: auto 8vw
+    }
+}

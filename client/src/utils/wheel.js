@@ -164,7 +164,6 @@ class WheelFunction extends React.Component {
     if (this.state.list[this.state.result] == this.state.list[0]) {
       context.setStep(3);
       // this is where we can send loser email in sendgrid :DDD //
-      console.log(localStorage.getItem("token"));
       await axios.post(
         "/sendemail",
         { data: { data: "it doesn't matter but don't erase me" } },
