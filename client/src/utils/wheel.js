@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { render, Redirect } from "react-dom";
 import { withRouter } from "react-router-dom";
 import LostWheel from "../components/LostWheel";
@@ -10,10 +11,10 @@ import axios from "axios";
 
 import { Link } from "react-router-dom";
 
-class WheelFunction extends React.Component {
-  state = {
-    list: ["😞", "$10", "$50", "$100", "$150"],
-
+const WheelFunction = () => {
+  const { setStep } = useContext(AppContext);
+  const list = ["😞", "$10", "$50", "$100", "$150"];
+  const initialState = {
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
     easeOut: 0, // SECONDS
@@ -24,34 +25,14 @@ class WheelFunction extends React.Component {
     result: null, // INDEX
     spinning: false,
   };
+  const [state, setState] = useState(initialState);
 
-  componentDidMount() {
+  useEffect(() => {
     // generate canvas wheel on load
-    this.renderWheel();
-  }
+    renderWheel();
+  }, []);
 
-  renderWheel() {
-    // determine number/size of sectors that need to created
-    let numOptions = this.state.list.length;
-    let arcSize = (2 * Math.PI) / numOptions;
-    this.setState({
-      angle: arcSize,
-    });
-
-    // get index of starting position of selector
-    this.topPosition(numOptions, arcSize);
-
-    // dynamically generate sectors from state list
-    let angle = 0;
-    const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
-    for (let i = 0; i < numOptions; i++) {
-      let text = this.state.list[i];
-      this.renderSector(i + 1, text, angle, arcSize, colors[i]);
-      angle += arcSize;
-    }
-  }
-
-  topPosition = (num, angle) => {
+  const topPosition = (num, angle) => {
     // set starting index and angle offset based on list length
     // works upto 9 options
     let topSpot = null;
@@ -73,19 +54,19 @@ class WheelFunction extends React.Component {
       degreesOff = Math.PI / 2;
     }
 
-    this.setState({
+    setState({
       top: topSpot - 1,
       offset: degreesOff,
     });
   };
 
-  renderSector(index, text, start, arc, color) {
+  const renderSector = (index, text, start, arc, color) => {
     // create canvas arc for each list element
     let canvas = document.getElementById("wheel");
     let ctx = canvas.getContext("2d");
     let x = canvas.width / 2;
     let y = canvas.height / 2;
-    let radius = this.state.radius;
+    let radius = state.radius;
     let startAngle = start;
     let endAngle = start + arc;
     let angle = index * arc;
@@ -109,34 +90,56 @@ class WheelFunction extends React.Component {
     ctx.rotate(angle - arc / 2 + Math.PI / 2);
     ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
     ctx.restore();
-  }
+  };
 
-  spin = () => {
+  const renderWheel = () => {
+    // determine number/size of sectors that need to created
+    let numOptions = list.length;
+    let arcSize = (2 * Math.PI) / numOptions;
+    setState({
+      angle: arcSize,
+    });
+
+    // get index of starting position of selector
+    topPosition(numOptions, arcSize);
+
+    // dynamically generate sectors from state list
+    let angle = 0;
+    const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
+    for (let i = 0; i < numOptions; i++) {
+      let text = list[i];
+      renderSector(i + 1, text, angle, arcSize, colors[i]);
+      angle += arcSize;
+    }
+  };
+
+  const spin = () => {
     // set random spin degree and ease out time
     // set state variables to initiate animation
     let randomSpin = Math.floor(Math.random() * 2000) + 500;
-    this.setState({
+    setState({
+      ...state,
       rotate: randomSpin,
       easeOut: 2,
       spinning: true,
     });
 
     // calcalute result after wheel stops spinning
-    setTimeout(() => {
-      this.getResult(randomSpin);
-    }, 2000);
+    // setTimeout(() => {
+    //   getResult(randomSpin);
+    // }, 2000);
   };
 
-  getResult = (spin) => {
+  const getResult = (spun) => {
     // find net rotation and add to offset angle
     // repeat substraction of inner angle amount from total distance traversed
     // use count as an index to find value of result from state list
-    const { angle, top, offset, list } = this.state;
-    let netRotation = ((spin % 360) * Math.PI) / 180; // RADIANS
-    let travel = netRotation + offset;
-    let count = top + 1;
+
+    let netRotation = ((spun % 360) * Math.PI) / 180; // RADIANS
+    let travel = netRotation + state.offset;
+    let count = state.top + 1;
     while (travel > 0) {
-      travel = travel - angle;
+      travel = travel - state.angle;
       count--;
     }
     let result;
@@ -147,27 +150,28 @@ class WheelFunction extends React.Component {
     }
 
     // set state variable to display result
-    this.setState({
+    setState({
+      ...state,
       net: netRotation,
       result: result,
     });
   };
 
-  reset = () => {
-    // reset wheel and result
-    this.setState({
-      rotate: 0,
-      easeOut: 0,
-      result: null,
-      spinning: false,
-    });
-  };
+  // const reset = () => {
+  //   // reset wheel and result
+  //   setState({
+  //     ...state,
+  //     rotate: 0,
+  //     easeOut: 0,
+  //     result: null,
+  //     spinning: false,
+  //   });
+  // };
 
-  redirectPage = async () => {
-    const { history } = this.props;
 
-    if (this.state.list[this.state.result] == this.state.list[0]) {
-      if (history) history.push("/lostwheel");
+  const redirectPage = async () => {
+    if (list[state.result] == list[0]) {
+      setStep(3);
       // this is where we can send loser email in sendgrid :DDD //
       console.log(localStorage.getItem("token"))
         await axios
@@ -180,13 +184,11 @@ class WheelFunction extends React.Component {
           },
         }
         ) 
-
     } else {
-      if (history) history.push("/winning");
-
-      let resultState =
-        Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
-
+      setStep(4);
+      let resultState = Number(list[state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
+      //console.log(localStorage.getItem("token"))
+      //console.log(resultState)
       await axios
         .post(
           "/campaign",
@@ -200,66 +202,64 @@ class WheelFunction extends React.Component {
     }
   };
 
-  render() {
-    return (
-      <div className="App">
-        <div style={{ display: "grid", columnCount: "3" }}>
-          <canvas
-            id="wheel"
-            width="500"
-            height="500"
-            style={{
-              WebkitTransform: `rotate(${this.state.rotate}deg)`,
-              WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
-              backgroundColor: "transparent",
-              gridColumn: "2",
-              gridRow: "1",
-              zIndex: "-4",
-            }}
-          ></canvas>
-          <div
-            style={{
-              backgroundColor: "transparent",
-              borderColor: "#D7503F",
-              borderWidth: "25px",
-              borderStyle: "solid",
-              borderRadius: "50%",
-              gridColumn: "2",
-              gridRow: "1",
-              width: "300px",
-              height: "300px",
-              marginTop: "75px",
-              marginLeft: "75px",
-              boxShadow: "inset 0.5px 0.5px 20px 3px black",
-              zIndex: "200",
-            }}
-          >
-            <img
-              src={pointer}
-              style={{ marginTop: "60px", height: "140px", width: "auto" }}
-            />
-          </div>
+  return (
+    <div className="App">
+      <div style={{ display: "grid", columnCount: "3" }}>
+        <canvas
+          id="wheel"
+          width="500"
+          height="500"
+          style={{
+            WebkitTransform: `rotate(${state.rotate}deg)`,
+            WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
+            backgroundColor: "transparent",
+            gridColumn: "2",
+            gridRow: "1",
+            zIndex: "-4",
+          }}
+        ></canvas>
+        <div
+          style={{
+            backgroundColor: "transparent",
+            borderColor: "#D7503F",
+            borderWidth: "25px",
+            borderStyle: "solid",
+            borderRadius: "50%",
+            gridColumn: "2",
+            gridRow: "1",
+            width: "300px",
+            height: "300px",
+            marginTop: "75px",
+            marginLeft: "75px",
+            boxShadow: "inset 0.5px 0.5px 20px 3px black",
+            zIndex: "200",
+          }}
+        >
+          <img
+            src={pointer}
+            style={{ marginTop: "60px", height: "140px", width: "auto" }}
+          />
         </div>
-
-        {
-          this.state.spinning ? null : this.spin({})
-          // &&
-          // setTimeout(() => {
-          //   this.prize(this.state.result)
-          // }, 1000)
-        }
-
-        <div className="display">
-          {/* <span id="readout">
-            YOUR RESULT:{"  "}
-            <span id="result">{this.state.list[this.state.result]}</span>
-          </span> */}
-        </div>
-        <button className="nextButton" onClick={this.redirectPage}>
-          NEXT {">"}
-        </button>
       </div>
-    );
-  }
-}
-export default withRouter(WheelFunction);
+
+      {
+        state.spinning ? null : spin()
+        // &&
+        // setTimeout(() => {
+        //   prize(state.result)
+        // }, 1000)
+      }
+
+      <div className="display">
+        {/* <span id="readout">
+            YOUR RESULT:{"  "}
+            <span id="result">{list[state.result]}</span>
+          </span> */}
+      </div>
+      <button className="nextButton" onClick={redirectPage}>
+        NEXT {">"}
+      </button>
+    </div>
+  );
+};
+export default WheelFunction;

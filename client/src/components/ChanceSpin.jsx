@@ -4,7 +4,9 @@ import { AppContext } from "../context/AppContext";
 
 const ChanceSpin = () => {
   const history = useHistory();
-  const { totalCorrectAnswers, totalQuestions } = useContext(AppContext);
+  const { totalCorrectAnswers, totalQuestions, setStep } = useContext(
+    AppContext
+  );
   return (
     <div>
       <div>
@@ -60,7 +62,7 @@ const ChanceSpin = () => {
             fontWeight: "bold",
             fontSize: "20px",
           }}
-          onClick={() => history.push("/wheel")}
+          onClick={() => setStep(2)}
         >
           SPIN {">"}
         </button>
