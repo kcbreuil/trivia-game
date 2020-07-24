@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
+
+
+
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -23,11 +26,35 @@ const userSchema = new mongoose.Schema({
       if (!validator.isEmail(value)) {
         throw new Error("Email is invalid");
       }
-      if (value.includes("gmail")) {
-        throw new Error("Invalid email selection, please use a business email");
-      }
-    },
-  },
+      const notAllowedEmails = [
+        "gmail",
+        "outlook.com",
+        "yahoo",
+        "hotmail",
+        "aol",
+        "msn",
+        "microsoft",
+        "shaw.ca",
+        "att.net",
+        "verizon.net",
+        "live",
+        "me",
+        "netapp",
+        "amazon",
+        "dell",
+        "purestorage",
+        "hpe.com",
+        "hitachivantara",
+        "nutanix",
+        "ibm"
+      ]
+        notAllowedEmails.forEach(function(word){
+          if (value.includes(word)){
+            throw new Error("Invalid email selection, please use a business email");
+        }})
+    }
+    
+  },         
   tokens: [
     {
       token: {
