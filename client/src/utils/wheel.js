@@ -168,12 +168,24 @@ const WheelFunction = () => {
   //   });
   // };
 
+
   const redirectPage = async () => {
     if (list[state.result] == list[0]) {
       setStep(3);
+      // this is where we can send loser email in sendgrid :DDD //
+      console.log(localStorage.getItem("token"))
+        await axios
+        .post(
+          "/sendemail",
+          { data: { data: "it doesn't matter but don't erase me" } },
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+        ) 
     } else {
       setStep(4);
-
       let resultState = Number(list[state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
       //console.log(localStorage.getItem("token"))
       //console.log(resultState)
@@ -187,9 +199,6 @@ const WheelFunction = () => {
             },
           }
         )
-        .then((response) => {
-          console.log(`estou funcionando?`);
-        });
     }
   };
 
