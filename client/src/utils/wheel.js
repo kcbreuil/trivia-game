@@ -179,10 +179,24 @@ class WheelFunction extends React.Component {
 
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
-
+      
+      let template_code = ''  
+      if(resultState === 1000){
+        template_code = 'OLFXBPGMRETX';// change code when production
+      } else if (resultState === 5000){
+        template_code = 'HFCZAGMGGIHH';// change code when production
+      }else if (resultState === 10000){
+        template_code = 'HRUFIRCFDPRR';// change code when production
+      }else if (resultState === 15000){
+        template_code = 'JYAZYNEGORGN';// change code when production
+      }
+      
       await axios.post(
         "/campaign",
-        { data: { result: resultState } },
+        { data: { 
+          result: resultState,
+          template: template_code
+        }},
         {
           headers: {
             authorization: localStorage.getItem("token"),
