@@ -1,0 +1,33 @@
+.heading {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: start;
+  margin-left: 10vw;
+}
+
+.question {
+  font-size: 25px;
+  margin-bottom: 50px;
+  text-align: start;
+  margin-left: 10vw;
+  margin-right: 8vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .heading {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 10vh;
+    margin-left: 0;
+  }
+
+  .question {
+    font-size: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-left: 10vw;
+    margin-right: 8vw;
+    line-height: 1.5;
+  }
+}

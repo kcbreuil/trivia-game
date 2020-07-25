@@ -49,6 +49,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 150px;
+  cursor: pointer;
 }
 
 .form {
@@ -75,8 +76,18 @@ button:focus {
   justify-content: center;
 }
 
+.footer-grid {
+  display: inline-grid;
+}
+
 .footer-img {
   height: 55px;
+}
+
+.netApp {
+  height: 25px;
+  margin: auto;
+  padding-left: 20px;
 }
 
 .homepage-input {
@@ -85,4 +96,26 @@ button:focus {
 
 .disable {
   pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+  }
+  .footer-img {
+    height: 40px;
+  }
+
+  .netApp {
+    height: 15px;
+    margin: auto;
+    padding-left: 15px;
+  }
 }
