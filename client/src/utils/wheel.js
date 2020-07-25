@@ -210,7 +210,7 @@ class WheelFunction extends React.Component {
   render() {
     return (
       <div className="App">
-        <div style={{ display: "grid", columnCount: "3" }}>
+        <div className="fix-margin-left-wheel" style={{ display: "grid", columnCount: "3" }}>
           <canvas
             id="wheel"
             width="500"
@@ -262,7 +262,7 @@ class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span> */}
         </div>
-        <button className="nextButton" onClick={this.redirectPage}>
+        <button className="wheel-buttons" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
       </div>
