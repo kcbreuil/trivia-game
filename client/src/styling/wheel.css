@@ -14,12 +14,6 @@
   outline: none;
 }
 
-/* #reset {
-    position: absolute;
-    bottom: 20vh;
-    right: 35vw;
-  } */
-
 #reset:hover {
   color: red;
   border-color: red;
@@ -43,12 +37,6 @@
   font-size: 50px;
   color: rgb(0, 180, 120);
 }
-
-/* input {
-    font-size: 16px;
-    border:none;
-    border-bottom: 1px solid black
-  } */
 
 .wheel-buttons {
   border-radius: 50px;
