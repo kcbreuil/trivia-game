@@ -163,7 +163,7 @@ class WheelFunction extends React.Component {
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
       context.setStep(3);
-      // this is where we can send loser email in sendgrid :DDD //
+      // loser email in sendgrid //
       await axios.post(
         "/sendemail",
         { data: { data: "it doesn't matter but don't erase me" } },
@@ -177,6 +177,7 @@ class WheelFunction extends React.Component {
       context.setStep(4);
       context.setResult(this.state.result);
 
+      // sending data to backend to call GIFTBIT
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
       

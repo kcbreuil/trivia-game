@@ -1,6 +1,4 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-// import { Link } from "react-router-dom";
 import WheelFunction from "../utils/wheel";
 
 const Wheel = () => {
