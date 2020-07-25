@@ -6,21 +6,21 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const auth = require("../middleware/auth.js");
 
-const getGiftCards = async () => {
-  return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
-    headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
-  });
-};
+// const getGiftCards = async () => {
+//   return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
+//     headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
+//   });
+// };
 
-router.get("/", async (request, response) => {
-  try {
-    const resp = await getGiftCards();
-    response.send(resp.data);
-  } catch (e) {
-    console.error(e);
-    response.status(500).send({ error: e.message });
-  }
-});
+// router.get("/", async (request, response) => {
+//   try {
+//     const resp = await getGiftCards();
+//     response.send(resp.data);
+//   } catch (e) {
+//     console.error(e);
+//     response.status(500).send({ error: e.message });
+//   }
+// });
 
 /* to add the campaign in to our DB */
 
@@ -58,37 +58,37 @@ router.get("/", async (request, response) => {
 /*Sending a new campaign to giftbit*/
 
 router.post("/campaign", auth, async (req, res) => {
-    const expiryDate = "2020-09-28" 
-    const body = {
-      gift_template: `${req.body.data.template}`,
-      contacts: [
-        {
-          firstname: `${req.user.firstName}`,
-          lastname: `${req.user.lastName}`,
-          email: `${req.user.email}`,
+  const expiryDate = "2020-09-28";
+  const body = {
+    gift_template: `${req.body.data.template}`,
+    contacts: [
+      {
+        firstname: `${req.user.firstName}`,
+        lastname: `${req.user.lastName}`,
+        email: `${req.user.email}`,
+      },
+    ],
+    price_in_cents: req.body.data.result,
+    brand_codes: ["amazonus"], // when production change to ["bestbuy","googleplay"]
+    expiry: `${expiryDate}`,
+    id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
+  };
+  try {
+    const { data } = await axios.post(
+      "https://api-testbed.giftbit.com/papi/v1/campaign", // change when production
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.API_KEY}`, //Change key when production
         },
-      ],
-      price_in_cents: req.body.data.result, 
-      brand_codes: ["amazonus"], // when production change to ["bestbuy","googleplay"]
-      expiry: `${expiryDate}`,
-      id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
-    };
-    try {
-      const { data } = await axios.post(
-        "https://api-testbed.giftbit.com/papi/v1/campaign",// change when production
-        body,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.API_KEY}`, //Change key when production
-          },
-        }
-      );
-      console.log("Data sent successfully.");
-      console.log("Body: ", body);
-    } catch (err) {
-      console.error(err);
-    }
-  });
+      }
+    );
+    console.log("Data sent successfully.");
+    console.log("Body: ", body);
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 module.exports = router;
