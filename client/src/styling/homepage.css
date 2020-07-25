@@ -104,7 +104,7 @@ button:focus {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     bottom: 0;
