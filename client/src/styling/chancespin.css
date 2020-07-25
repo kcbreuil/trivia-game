@@ -1,0 +1,50 @@
+#button-chance-spin{
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-Color: #f1bd42;
+    padding: 10px;
+    border-Radius: 20px;
+    display: inline-block;
+    /* margin-Right: 15px; */
+    margin-Top: 3vh;
+    /* margin-Bottom: 5vh; */
+    width: 113px;
+    font-Weight: bold;
+    font-Size: 20px;
+  }
+  
+
+.h2-chancespin{
+    font-weight: 800;
+    font-size: 30px
+  }
+  .chance-spin-text {
+    font-size: 25px;
+    margin: 8vh 12vw
+  }
+
+  @media  (min-width: 601px) and (max-width: 850px){
+    .h2-chancespin{
+        font-weight: 800;
+        margin:4vh 4vw;
+        font-size: 24px
+      }
+      .chance-spin-text {
+        font-size: 18px;
+        margin: 6vh 8vw 3vh 8vw 
+      }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .h2-chancespin{
+        font-weight: 800;
+        margin:2vh 8vw;
+        font-size: 18px
+      }
+      .chance-spin-text {
+        line-height: 1.5rem;
+        font-size: 15px;
+        margin: auto 8vw
+      }
+  }
