@@ -49,6 +49,7 @@
   }
   #congrats{
     font-size: 42px;
+    margin:auto;
   }
 }
 
@@ -74,9 +75,10 @@
   .won-trivia-text {
       line-height: 1.5rem;
       font-size: 15px;
-      margin: auto 8vw
+      margin: auto
   }
   #congrats{
-    font-size: 32px;
+    font-size: 29px;
+    margin:auto
   }
 }
