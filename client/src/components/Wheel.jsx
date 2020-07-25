@@ -7,7 +7,6 @@ const Wheel = () => {
       <h1 style={{ fontWeight: "800", marginTop: "5vh", fontSize: "42px" }}>
         SPIN TO WIN!
       </h1>
-
       <WheelFunction />
     </div>
   );
