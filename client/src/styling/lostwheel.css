@@ -1,0 +1,69 @@
+.sad-face-img{
+    height: 80px; 
+}
+.sad-face-img, #privacy-lost-wheel{
+    display: none;
+}
+
+.lost-wheel-text{
+    line-Height: 4rem;
+    font-Size: 25px;
+    margin: auto 17vw 7vh 17vw;
+}
+
+#aw-snap{
+     margin-Top: 7vh;
+}
+
+.h2-lostwheel{
+    font-Weight: 800;
+    font-Size: 30px
+}
+.btn-lost-wheel{
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-Color: #f1bd42;
+    padding: 10px;
+    border-Radius: 20px;
+    display: inline-block;
+    margin-Right: 15px;
+    margin-Top: 2vh; 
+    margin-Bottom: 5vh;
+    width: 120px;
+    font-Weight: bold;
+    font-Size: 20px;
+}
+
+@media  (min-width: 601px) and (max-width: 850px){
+    
+    .h2-lostwheel{
+        font-Weight: 800;
+        font-Size: 30px
+    }
+    .lost-wheel-text{
+        line-Height: 4rem;
+        font-Size: 25px;
+        margin: auto 17vw 7vh 17vw;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .h2-lostwheel{
+        font-Weight: 800;
+        font-Size: 20px
+    }
+    .lost-wheel-text{
+        line-Height: 2rem;
+        font-Size: 16px;
+        margin: auto 8vw 5vh 8vw;
+    }
+    .sad-face-img, #privacy-lost-wheel{
+        display: initial;
+    }
+    #aw-snap {
+        margin-Top: 3vh;
+    }
+}

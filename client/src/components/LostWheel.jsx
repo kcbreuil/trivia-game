@@ -1,51 +1,39 @@
 import React from "react";
+import "../styling/lostwheel.css"
+import "../styling/app.css"
 
 const LostWheel = () => {
   return (
     <div style={{ textAlign: "center" }}>
-      <div>
-        <h1 style={{ textAlign: "center", fontSize: "55px" }}>
-          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+       <div>
+        <h1 className="tech-trivia-name" >
+          <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
+          <span className="with-name" >with</span>
           &nbsp;
-          <span
-            style={{
-              color: "#0072bc",
-              font: "bold",
-              fontSize: "55px",
-              lineHeight: "6rem",
-            }}
-          >
-            NetApp
+          <span className="netapp-name">NetApp
           </span>
         </h1>
       </div>
-      <h2 style={{ fontWeight: "800", marginTop: "7vh", fontSize: "30px" }}>
-        Aw, Snap!
-      </h2>
-      {/* <img
+      <img className="sad-face-img"
         src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png"
         alt=""
-        style={{ height: "100px" }}
-      /> */}
-      <div style={{ marginBottom: "100px" }}>
-        <p
-          style={{
-            lineHeight: "4rem",
-            fontSize: "25px",
-            margin: "auto 17vw 7vh 17vw",
-          }}
-        >
+      />
+      <h2 id="aw-snap" className="h2-lostwheel">
+        Aw, Snap!
+      </h2 >
+      
+      <div >
+        <p className="lost-wheel-text">
           Sorry you didn’t win today, but your name will still be entered into
           our grand prize drawing.
         </p>
-        <h2 style={{ fontWeight: "800", fontSize: "30px" }}>
+        <h2 className="h2-lostwheel">
           Thanks for playing!
         </h2>
       </div>
-      {/* <div className="privacy">
-            <p>
+      <div className="privacy" id="privacy-lost-wheel">
+            {/* <p>
               Please read and understand the &nbsp;
               <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
                 NetApp Privacy Policy
@@ -59,25 +47,9 @@ const LostWheel = () => {
                 communications &nbsp;
               </a>
               at any time or manage your preferences.
-            </p>
-          </div> */}
-      <button
-        style={{
-          border: "none",
-          cursor: "pointer",
-          color: "white",
-          backgroundColor: "#f1bd42",
-          padding: "10px",
-          borderRadius: "20px",
-          display: "inline-block",
-          marginRight: "15px",
-          marginTop: "2vh",
-          marginBottom: "5vh",
-          width: "120px",
-          fontWeight: "bold",
-          fontSize: "20px",
-        }}
-      >
+            </p> */}
+          </div>
+      <button className="btn-lost-wheel">
         CLOSE {"X"}
       </button>
     </div>
