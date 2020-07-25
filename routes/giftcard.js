@@ -60,7 +60,7 @@ router.get("/", async (request, response) => {
 router.post("/campaign", auth, async (req, res) => {
     const expiryDate = "2020-11-01"
     const body = {
-      gift_template: "HRUFIRCFDPRR", //pre defined first? how does this works?
+      gift_template: `${req.body.data.template}`,
       contacts: [
         {
           firstname: `${req.user.firstName}`,
