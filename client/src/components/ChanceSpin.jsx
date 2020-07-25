@@ -10,13 +10,12 @@ const ChanceSpin = () => {
   return (
     <div>
       <div>
-        <h1 className="tech-trivia-name" >
+        <h1 className="tech-trivia-name">
           <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span className="with-name" >with</span>
+          <span className="with-name">with</span>
           &nbsp;
-          <span className="netapp-name">NetApp
-          </span>
+          <span className="netapp-name">NetApp</span>
         </h1>
       </div>
       <div>
@@ -27,17 +26,14 @@ const ChanceSpin = () => {
           You answered&nbsp;
           <span style={{ color: "#0072bc" }}>
             {totalCorrectAnswers}
-          </span> of {totalQuestions}&nbsp; Questions Correctly – nice work!
+          </span> of {totalQuestions}&nbsp;Questions Correctly – nice work!
         </h2>
         <div>
-          <p className="chance-spin-text" >
+          <p className="chance-spin-text">
             You’ve won a chance to <b>“spin the wheel”</b> for a prize!
           </p>
         </div>
-        <button
-         id="button-chance-spin"
-          onClick={() => setStep(2)}
-        >
+        <button id="button-chance-spin" onClick={() => setStep(2)}>
           SPIN {">"}
         </button>
       </div>
