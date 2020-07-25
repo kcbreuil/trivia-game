@@ -12,19 +12,7 @@ const AppContextProvider = ({ children }) => {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [result, setResult] = useState(0);
   const [step, setStep] = useState(0);
-  //
-  //   const token = localStorage.getItem("token");
 
-  //   useEffect(() => {
-  //     if (token) {
-  //       axios
-  //         .get("/users/me", { headers: { Authorization: `Bearer ${token}` } })
-  //         .then(({ data }) => {
-  //           setUser(data);
-  //         })
-  //         .catch((e) => console.log(e.message.toString()));
-  //     }
-  //   }, [token]);
 
   return (
     <AppContext.Provider
