@@ -8,7 +8,7 @@ class WheelFunction extends React.Component {
   static contextType = AppContext;
 
   state = {
-    list: ["😞", "$10", "$50", "$100", "$150"],
+    list: [" ", "$10", "$50", "$100", "$150"],
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
     easeOut: 0, // SECONDS
@@ -19,6 +19,10 @@ class WheelFunction extends React.Component {
     result: null, // INDEX
     spinning: false,
   };
+  
+    
+  
+
 
   componentDidMount() {
     // generate canvas wheel on load
@@ -39,6 +43,8 @@ class WheelFunction extends React.Component {
     // dynamically generate sectors from state list
     let angle = 0;
     const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
+    let img = `<img src='https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png'>`
+    this.state.list[0] = img
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
       this.renderSector(i + 1, text, angle, arcSize, colors[i]);
@@ -85,7 +91,7 @@ class WheelFunction extends React.Component {
     let endAngle = start + arc;
     let angle = index * arc;
     let baseSize = radius * 3.33;
-    let textRadius = baseSize - 150;
+    let textRadius = baseSize - 170;
 
     ctx.beginPath();
     ctx.arc(x, y, radius, startAngle, endAngle, false);
