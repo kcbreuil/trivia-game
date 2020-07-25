@@ -7,8 +7,8 @@ const User = require("../models/user");
 const auth = require("../middleware/auth.js");
 
 const getGiftCards = async () => {
-  return axios.get(`https://api-testbed.giftbit.com/papi/v1/brands`, {
-    headers: { Authorization: `Bearer ${process.env.API_KEY}` },
+  return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
+    headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
   });
 };
 
@@ -58,38 +58,37 @@ router.get("/", async (request, response) => {
 /*Sending a new campaign to giftbit*/
 
 router.post("/campaign", auth, async (req, res) => {
-    const expiryDate = "2020-11-01"
-    const body = {
-      gift_template: "HRUFIRCFDPRR", //pre defined first? how does this works?
-      contacts: [
-        {
-          firstname: `${req.user.firstName}`,
-          lastname: `${req.user.lastName}`,
-          email: `${req.user.email}`,
+  const expiryDate = "2020-11-01";
+  const body = {
+    gift_template: "HRUFIRCFDPRR", //pre defined first? how does this works?
+    contacts: [
+      {
+        firstname: `${req.user.firstName}`,
+        lastname: `${req.user.lastName}`,
+        email: `${req.user.email}`,
+      },
+    ],
+    price_in_cents: req.body.data.result, //should be number
+    brand_codes: ["amazonus"], // pre defined first
+    expiry: `${expiryDate}`,
+    id: `${Math.random().toString(36).substring(2)}`,
+  };
+  try {
+    const { data } = await axios.post(
+      "https://api-testbed.giftbit.com/papi/v1/campaign",
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.API_KEY}`,
         },
-      ],
-      price_in_cents: req.body.data.result, //should be number
-      brand_codes: ["amazonus"], // pre defined first
-      expiry: `${expiryDate}`,
-      id: `${Math.random().toString(36).substring(2)}`,
-    };
-    try {
-      const { data } = await axios.post(
-        "https://api-testbed.giftbit.com/papi/v1/campaign",
-        body,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.API_KEY}`,
-          },
-        }
-      );
-      console.log("Data sent successfully.");
-      console.log("Body: ", body);
-    } catch (err) {
-      console.error(err);
-    }
-  });
-
+      }
+    );
+    console.log("Data sent successfully.");
+    console.log("Body: ", body);
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 module.exports = router;
