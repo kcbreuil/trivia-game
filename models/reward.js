@@ -3,12 +3,15 @@ const mongoose = require("mongoose");
 const rewardSchema = new mongoose.Schema({
   reward: {
     type: String,
+    required: true,
   },
   maxPerWeek: {
     type: Number,
+    required: true,
   },
-  winningDatetime: {
+  winningDateTime: {
     type: Array,
+    required: true,
   },
   lastWon: {
     type: String,

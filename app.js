@@ -10,16 +10,18 @@ const app = express();
 const Reward = require("./models/reward");
 const Campaign = require("./models/campaign");
 const User = require("./models/user");
-const UserRoutes = require("./routes/user");
 const Question = require("./models/question");
+const UserRoutes = require("./routes/user");
 const QuestionRoutes = require("./routes/question");
 const GiftCardRoutes = require("./routes/giftcard");
+const RewardRoutes = require("./routes/reward");
 
 app.use(cors());
 app.use(express.json());
 app.use(UserRoutes);
 app.use(QuestionRoutes);
 app.use(GiftCardRoutes);
+app.use(RewardRoutes);
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files

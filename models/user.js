@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
-
-
-
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -46,15 +43,17 @@ const userSchema = new mongoose.Schema({
         "hpe.com",
         "hitachivantara",
         "nutanix",
-        "ibm"
-      ]
-        notAllowedEmails.forEach(function(word){
-          if (value.includes(word)){
-            throw new Error("Invalid email selection, please use a business email");
-        }})
-    }
-    
-  },         
+        "ibm",
+      ];
+      notAllowedEmails.forEach(function (word) {
+        if (value.includes(word)) {
+          throw new Error(
+            "Invalid email selection, please use a business email"
+          );
+        }
+      });
+    },
+  },
   tokens: [
     {
       token: {
