@@ -58,7 +58,7 @@ router.get("/", async (request, response) => {
 /*Sending a new campaign to giftbit*/
 
 router.post("/campaign", auth, async (req, res) => {
-    const expiryDate = "2020-11-01"
+    const expiryDate = "2020-09-28" 
     const body = {
       gift_template: `${req.body.data.template}`,
       contacts: [
@@ -68,19 +68,19 @@ router.post("/campaign", auth, async (req, res) => {
           email: `${req.user.email}`,
         },
       ],
-      price_in_cents: req.body.data.result, //should be number
-      brand_codes: ["amazonus"], // pre defined first
+      price_in_cents: req.body.data.result, 
+      brand_codes: ["amazonus"], // when production change to ["bestbuy","googleplay"]
       expiry: `${expiryDate}`,
-      id: `${Math.random().toString(36).substring(2)}`,
+      id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
     };
     try {
       const { data } = await axios.post(
-        "https://api-testbed.giftbit.com/papi/v1/campaign",
+        "https://api-testbed.giftbit.com/papi/v1/campaign",// change when production
         body,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.API_KEY}`,
+            Authorization: `Bearer ${process.env.API_KEY}`, //Change key when production
           },
         }
       );
