@@ -54,3 +54,40 @@
 .answerSelection {
   margin-left: 100px;
 }
+
+@media only screen and (max-width: 600px) {
+  .answers > Label {
+    cursor: pointer;
+    color: white;
+    background-color: #4285f4;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    /* margin-right: 15px;
+    margin-top: 5vh; */
+    margin-bottom: 4vh;
+    width: 300px;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .answerSelection {
+    margin-left: 30px;
+  }
+
+  .nextButton {
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #f1bd42;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 8vh;
+    margin-bottom: 0;
+    width: 100px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+}

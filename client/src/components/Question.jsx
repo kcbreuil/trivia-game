@@ -1,6 +1,7 @@
 import React from "react";
 import Answer from "./Answer";
 import decode from "./../utils/decode";
+import "../styling/question.css";
 
 export default (data) => {
   const fieldset = data.visible ? "fieldset" : "fieldset u-hidden";
@@ -47,27 +48,8 @@ export default (data) => {
 
   return (
     <div className={fieldset}>
-      <p
-        style={{
-          fontSize: "30px",
-          fontWeight: "800",
-          textAlign: "start",
-          marginLeft: "10vw",
-        }}
-      >
-        {decode(data.heading)}
-      </p>
-      <p
-        style={{
-          fontSize: "25px",
-          marginBottom: "50px",
-          textAlign: "start",
-          marginLeft: "10vw",
-          marginRight: "8vw",
-        }}
-      >
-        {decode(data.question)}
-      </p>
+      <p className="heading">{decode(data.heading)}</p>
+      <p className="question">{decode(data.question)}</p>
       {answers &&
         shuffle(
           answers.map((data, i) => {
