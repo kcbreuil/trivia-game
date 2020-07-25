@@ -39,12 +39,12 @@
   @media only screen and (max-width: 600px) {
     .h2-chancespin{
         font-weight: 800;
-        margin:2vh 8vw;
+        margin:6vh 8vw;
         font-size: 18px
       }
       .chance-spin-text {
         line-height: 1.5rem;
         font-size: 15px;
-        margin: auto 8vw
+        margin: 8vh 8vw
       }
   }

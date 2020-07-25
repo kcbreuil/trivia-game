@@ -32,9 +32,7 @@ const ChanceSpin = () => {
           </span> of {totalQuestions}&nbsp; Questions Correctly – nice work!
         </h2>
         <div>
-          <p className="chance-spin-text"
-            style={{ lineHeight: "4rem", fontSize: "25px", margin: "8vh 18vw" }}
-          >
+          <p className="chance-spin-text" >
             You’ve won a chance to <b>“spin the wheel”</b> for a prize!
           </p>
         </div>
