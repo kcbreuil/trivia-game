@@ -33,23 +33,29 @@
   z-index: 3;
 }
 
-#result {
-  font-size: 50px;
-  color: rgb(0, 180, 120);
-}
 
 .wheel-buttons {
-  border-radius: 50px;
-  width: 125px;
-  background: #fbbc04;
   border: none;
+  cursor: pointer;
   color: white;
-  height: 25px;
-  font-size: 17px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
+  background-Color: #f1bd42;
+  padding: 10px;
+  border-Radius: 20px;
+  display: inline-block;
+  /* margin-Right: 15px; */
+  margin-Top: 3vh;
+  /* margin-Bottom: 5vh; */
+  width: 113px;
+  font-Weight: bold;
+  font-Size: 20px;
 }
 .wheel-buttons:hover {
   cursor: pointer;
  } 
+
+ @media only screen and (max-width: 600px) {
+ .fix-margin-left-wheel{
+  margin-left: -66px;
+  margin-top: -66px;
+ }  
+}

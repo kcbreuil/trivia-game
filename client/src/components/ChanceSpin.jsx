@@ -19,8 +19,6 @@ const ChanceSpin = () => {
           </span>
         </h1>
       </div>
-      <br></br>
-      <br></br>
       <div>
         <h2 className="h2-chancespin">
           Thank you for playing Next Tech Trivia with NetApp.
