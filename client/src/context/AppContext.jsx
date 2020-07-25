@@ -12,7 +12,7 @@ const AppContextProvider = ({ children }) => {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [result, setResult] = useState(0);
   const [step, setStep] = useState(0);
-  
+
 
   return (
     <AppContext.Provider

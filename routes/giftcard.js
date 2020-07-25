@@ -7,8 +7,8 @@ const User = require("../models/user");
 const auth = require("../middleware/auth.js");
 
 const getGiftCards = async () => {
-  return axios.get(`https://api-testbed.giftbit.com/papi/v1/brands`, {
-    headers: { Authorization: `Bearer ${process.env.API_KEY}` },
+  return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
+    headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
   });
 };
 
@@ -90,6 +90,5 @@ router.post("/campaign", auth, async (req, res) => {
       console.error(err);
     }
   });
-
 
 module.exports = router;
