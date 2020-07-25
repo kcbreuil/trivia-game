@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import "../styling/chancespin.css";
+import "../styling/app.css";
 
 const ChanceSpin = () => {
   const { totalCorrectAnswers, totalQuestions, setStep } = useContext(
@@ -8,58 +10,36 @@ const ChanceSpin = () => {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center", fontSize: "55px" }}>
-          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+        <h1 className="tech-trivia-name" >
+          <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span style={{ fontSize: "33px", fontWeight: "lighter" }}>with</span>
+          <span className="with-name" >with</span>
           &nbsp;
-          <span
-            style={{
-              color: "#0072bc",
-              font: "bold",
-              fontSize: "55px",
-              lineHeight: "6rem",
-            }}
-          >
-            NetApp
+          <span className="netapp-name">NetApp
           </span>
         </h1>
       </div>
       <br></br>
       <br></br>
       <div>
-        <h2 style={{ fontWeight: "800", margin: "4vh auto", fontSize: "30px" }}>
+        <h2 className="h2-chancespin">
           Thank you for playing Next Tech Trivia with NetApp.
         </h2>
-        <h2 style={{ fontWeight: "800", fontSize: "30px" }}>
+        <h2 className="h2-chancespin">
           You answered&nbsp;
           <span style={{ color: "#0072bc" }}>
             {totalCorrectAnswers}
           </span> of {totalQuestions}&nbsp; Questions Correctly – nice work!
         </h2>
         <div>
-          <p
+          <p className="chance-spin-text"
             style={{ lineHeight: "4rem", fontSize: "25px", margin: "8vh 18vw" }}
           >
             You’ve won a chance to <b>“spin the wheel”</b> for a prize!
           </p>
         </div>
         <button
-          style={{
-            border: "none",
-            cursor: "pointer",
-            color: "white",
-            backgroundColor: "#f1bd42",
-            padding: "10px",
-            borderRadius: "20px",
-            display: "inline-block",
-            marginRight: "15px",
-            marginTop: "5vh",
-            marginBottom: "5vh",
-            width: "100px",
-            fontWeight: "bold",
-            fontSize: "20px",
-          }}
+         id="button-chance-spin"
           onClick={() => setStep(2)}
         >
           SPIN {">"}
