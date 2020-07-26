@@ -8,7 +8,7 @@ class WheelFunction extends React.Component {
   static contextType = AppContext;
 
   state = {
-    list: [" ", "$10", "$50", "$100", "$150"],
+    list: ["😞", "$10", "$50", "$100", "$150"],
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
     easeOut: 0, // SECONDS
@@ -19,10 +19,6 @@ class WheelFunction extends React.Component {
     result: null, // INDEX
     spinning: false,
   };
-  
-    
-  
-
 
   componentDidMount() {
     // generate canvas wheel on load
@@ -42,9 +38,7 @@ class WheelFunction extends React.Component {
 
     // dynamically generate sectors from state list
     let angle = 0;
-    const colors = ["#dedfde", "#f9bb04", "#33a752", "#757575", "#4185f4"];
-    let img = `<img src='https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png'>`
-    this.state.list[0] = img
+    const colors = ["#dedfde", "#f9bb04", "#33a752", "#D7503F", "#4185f4"];
     for (let i = 0; i < numOptions; i++) {
       let text = this.state.list[i];
       this.renderSector(i + 1, text, angle, arcSize, colors[i]);
@@ -169,7 +163,7 @@ class WheelFunction extends React.Component {
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
       context.setStep(3);
-      // loser email in sendgrid //
+      // this is where we can send loser email in sendgrid :DDD //
       await axios.post(
         "/sendemail",
         { data: { data: "it doesn't matter but don't erase me" } },
@@ -183,21 +177,20 @@ class WheelFunction extends React.Component {
       context.setStep(4);
       context.setResult(this.state.result);
 
-      // sending data to backend to call GIFTBIT
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
       
       let template_code = ''  
       if(resultState === 1000){
-        template_code = 'OLFXBPGMRETX';// change code when production
+        template_code = 'OLFXBPGMRETX';
       } else if (resultState === 5000){
-        template_code = 'HFCZAGMGGIHH';// change code when production
+        template_code = 'HFCZAGMGGIHH';
       }else if (resultState === 10000){
-        template_code = 'HRUFIRCFDPRR';// change code when production
+        template_code = 'HRUFIRCFDPRR';
       }else if (resultState === 15000){
-        template_code = 'JYAZYNEGORGN';// change code when production
+        template_code = 'JYAZYNEGORGN';
       }
-      
+      console.log(` For ${resultState} the correct template is ${template_code}`)
       await axios.post(
         "/campaign",
         { data: { 
@@ -216,7 +209,7 @@ class WheelFunction extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="fix-margin-left-wheel" style={{ display: "grid", columnCount: "3" }}>
+        <div style={{ display: "grid", columnCount: "3" }}>
           <canvas
             id="wheel"
             width="500"
@@ -233,7 +226,7 @@ class WheelFunction extends React.Component {
           <div
             style={{
               backgroundColor: "transparent",
-              borderColor: "#D7503F",
+              borderColor: "#757575",
               borderWidth: "25px",
               borderStyle: "solid",
               borderRadius: "50%",
@@ -249,7 +242,7 @@ class WheelFunction extends React.Component {
           >
             <img
               src={pointer}
-              style={{ marginTop: "60px", height: "140px", width: "auto" }}
+              style={{ marginTop: "60px", height: "140px", width: "auto", filter: "saturate(0%)" }}
             />
           </div>
         </div>
@@ -268,7 +261,7 @@ class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span> */}
         </div>
-        <button className="wheel-buttons" onClick={this.redirectPage}>
+        <button className="nextButton" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
       </div>

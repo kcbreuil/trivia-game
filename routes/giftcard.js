@@ -56,39 +56,39 @@ const auth = require("../middleware/auth.js");
 
 //=======================================//
 /*Sending a new campaign to giftbit*/
+// when production change to ["bestbuy","googleplay"]
 
 router.post("/campaign", auth, async (req, res) => {
-  const expiryDate = "2020-09-28";
-  const body = {
-    gift_template: `${req.body.data.template}`,
-    contacts: [
-      {
-        firstname: `${req.user.firstName}`,
-        lastname: `${req.user.lastName}`,
-        email: `${req.user.email}`,
-      },
-    ],
-    price_in_cents: req.body.data.result,
-    brand_codes: ["amazonus"], // when production change to ["bestbuy","googleplay"]
-    expiry: `${expiryDate}`,
-    id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
-  };
-  try {
-    const { data } = await axios.post(
-      "https://api-testbed.giftbit.com/papi/v1/campaign", // change when production
-      body,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.API_KEY}`, //Change key when production
+    const expiryDate = "2020-09-28" 
+    const body = {
+      gift_template: `${req.body.data.template}`,
+      contacts: [
+        {
+          firstname: `${req.user.firstName}`,
+          lastname: `${req.user.lastName}`,
+          email: `${req.user.email}`,
         },
-      }
-    );
-    console.log("Data sent successfully.");
-    console.log("Body: ", body);
-  } catch (err) {
-    console.error(err);
-  }
-});
-
+      ],
+      price_in_cents: req.body.data.result, 
+      brand_codes: ["amazonus"], 
+      expiry: `${expiryDate}`,
+      id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
+    };
+    try {
+      const { data } = await axios.post(
+        "https://api-testbed.giftbit.com/papi/v1/campaign",
+        body,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.API_KEY}`, 
+          },
+        }
+      );
+      console.log("Data sent successfully.");
+      console.log("Body: ", body);
+    } catch (err) {
+      console.error(err);
+    }
+  });
 module.exports = router;
