@@ -3,6 +3,10 @@ import "../styling/lostwheel.css"
 import "../styling/app.css"
 
 const LostWheel = () => {
+
+  const closeTab = () =>{
+    window.close();
+  }
   return (
     <div style={{ textAlign: "center" }}>
        <div>
@@ -49,7 +53,7 @@ const LostWheel = () => {
               at any time or manage your preferences.
             </p> */}
           </div>
-      <button className="btn-lost-wheel">
+      <button className="btn-lost-wheel" onClick={closeTab}>
         CLOSE {"X"}
       </button>
     </div>

@@ -7,18 +7,22 @@ import axios from "axios";
 const LostTrivia = () => {
   const { totalCorrectAnswers } = useContext(AppContext);
 
-  // const sendEmail = async () => {
-  //   await axios.post(
-  //     "/sendemail",
-  //     { data: { data: "it doesn't matter but don't erase me" } },
-  //     {
-  //       headers: {
-  //         authorization: localStorage.getItem("token"),
-  //       },
-  //     }
-  //   );
-  // }
-  // sendEmail();
+  const sendEmail = async () => {
+    await axios.post(
+      "/sendemail",
+      { data: { data: "it doesn't matter but don't erase me" } },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      }
+    );
+  };
+  sendEmail();
+
+  const closeTab = () =>{
+    window.close();
+  }
 
   return (
     <div className="lost-trivia">
@@ -48,7 +52,7 @@ const LostTrivia = () => {
       </div>
       <div>
         <a href="http://google.com">
-          <input id="lost-trivia-button" type="button" value="CLOSE X" />
+          <input id="lost-trivia-button" type="button" value="CLOSE X" onClick={closeTab}/>
         </a>
       </div>
     </div>
