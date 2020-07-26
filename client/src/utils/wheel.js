@@ -362,7 +362,7 @@ class WheelFunction extends React.Component {
   render() {
     return (
       <div className="App">
-        <div style={{ display: "grid", columnCount: "3" }}>
+        <div className="entireWheel">
           <canvas
             id="wheel"
             width="500"
@@ -370,38 +370,11 @@ class WheelFunction extends React.Component {
             style={{
               WebkitTransform: `rotate(${this.state.rotate}deg)`,
               WebkitTransition: `-webkit-transform ${this.state.easeOut}s ease-out`,
-              backgroundColor: "transparent",
-              gridColumn: "2",
-              gridRow: "1",
-              zIndex: "-4",
             }}
+            className="canvas"
           ></canvas>
-          <div
-            style={{
-              backgroundColor: "transparent",
-              borderColor: "#757575",
-              borderWidth: "25px",
-              borderStyle: "solid",
-              borderRadius: "50%",
-              gridColumn: "2",
-              gridRow: "1",
-              width: "300px",
-              height: "300px",
-              marginTop: "75px",
-              marginLeft: "75px",
-              boxShadow: "inset 0.5px 0.5px 20px 3px black",
-              zIndex: "200",
-            }}
-          >
-            <img
-              src={pointer}
-              style={{
-                marginTop: "60px",
-                height: "140px",
-                width: "auto",
-                filter: "saturate(0%)",
-              }}
-            />
+          <div className="borderDiv">
+            <img src={pointer} className="pointer" />
           </div>
         </div>
 
@@ -419,7 +392,7 @@ class WheelFunction extends React.Component {
             <span id="result">{this.state.list[this.state.result]}</span>
           </span> */}
         </div>
-        <button className="nextButton" onClick={this.redirectPage}>
+        <button className="nextButtonWheel" onClick={this.redirectPage}>
           NEXT {">"}
         </button>
       </div>

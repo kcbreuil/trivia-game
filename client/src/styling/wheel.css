@@ -6,8 +6,8 @@
 }
 
 #spin:hover {
- cursor: pointer;
-} 
+  cursor: pointer;
+}
 
 #spin:focus,
 #reset:focus {
@@ -33,29 +33,102 @@
   z-index: 3;
 }
 
-
 .wheel-buttons {
   border: none;
   cursor: pointer;
   color: white;
-  background-Color: #f1bd42;
+  background-color: #f1bd42;
   padding: 10px;
-  border-Radius: 20px;
+  border-radius: 20px;
   display: inline-block;
   /* margin-Right: 15px; */
-  margin-Top: 3vh;
+  margin-top: 3vh;
   /* margin-Bottom: 5vh; */
   width: 113px;
-  font-Weight: bold;
-  font-Size: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .wheel-buttons:hover {
   cursor: pointer;
- } 
+}
 
- @media only screen and (max-width: 600px) {
- .fix-margin-left-wheel{
-  margin-left: -66px;
-  margin-top: -66px;
- }  
+.wheelPage {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.wheelHeader {
+  font-weight: 800;
+  margin-top: 5vh;
+  font-size: 42px;
+}
+
+.canvas {
+  background-color: transparent;
+  grid-column: 2;
+  grid-row: 1;
+  z-index: -4;
+}
+
+.borderDiv {
+  background-color: transparent;
+  border-color: #757575;
+  border-width: 25px;
+  border-style: solid;
+  border-radius: 50%;
+  grid-column: 2;
+  grid-row: 1;
+  width: 300px;
+  height: 300px;
+  margin-top: 75px;
+  margin-left: 75px;
+  box-shadow: inset 0.5px 0.5px 20px 3px black;
+  z-index: 200;
+}
+
+.pointer {
+  margin-top: 60px;
+  height: 140px;
+  width: auto;
+  filter: saturate(0%);
+}
+
+.entireWheel {
+  display: grid;
+  column-count: 3;
+}
+
+@media only screen and (max-width: 600px) {
+  .wheelPage {
+    font-family: sans-serif;
+    text-align: center;
+    overflow: hidden;
+  }
+  .wheelHeader {
+    font-weight: 800;
+    margin-top: 5vh;
+    font-size: 42px;
+  }
+  .entireWheel {
+    display: grid;
+    column-count: 3;
+    margin-top: -5vh;
+    margin-left: -5vh;
+  }
+
+  .nextButtonWheel {
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #f1bd42;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+
+    margin-top: 1vh;
+
+    width: 100px;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
