@@ -14,7 +14,7 @@ const AppContextProvider = ({ children }) => {
   const [totalCorrectAnswers, setTotalCorrectAnswers] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [result, setResult] = useState(0);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(0);
   const [prize150, setPrize150] = useState(0);
   const [prize100, setPrize100] = useState(0);
   const [prize50, setPrize50] = useState(0);

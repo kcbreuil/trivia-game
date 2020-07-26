@@ -97,6 +97,21 @@
   display: grid;
   column-count: 3;
 }
+.nextButtonWheel {
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #f1bd42;
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100px;
+  font-weight: bold;
+  font-size: 20px;
+}
 
 @media only screen and (max-width: 600px) {
   .wheelPage {
