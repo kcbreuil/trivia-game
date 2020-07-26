@@ -2,6 +2,7 @@ const express = require("express");
 const Reward = require("../models/reward");
 const router = new express.Router();
 const mongoose = require("mongoose");
+
 router.post("/rewards", async (req, res) => {
   const reward = new Reward({ ...req.body });
   try {
@@ -15,6 +16,7 @@ router.post("/rewards", async (req, res) => {
   }
 });
 //update rewards
+
 router.patch("/rewards/:id", async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ["maxPerWeek"];
@@ -37,6 +39,7 @@ router.patch("/rewards/:id", async (req, res) => {
     res.status(400).send(e);
   }
 });
+
 router.get("/rewards/:id", async (req, res) => {
   const _id = req.params.id;
   if (mongoose.Types.ObjectId.isValid(_id)) {
@@ -53,6 +56,7 @@ router.get("/rewards/:id", async (req, res) => {
     res.status(400).send("Not a valid user id");
   }
 });
+
 router.get("/rewards", async (req, res) => {
   Reward.find({})
     .then((reward) => {
@@ -62,4 +66,5 @@ router.get("/rewards", async (req, res) => {
       res.send(e);
     });
 });
+
 module.exports = router;
