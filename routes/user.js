@@ -20,7 +20,6 @@ router.post("/users", async (req, res) => {
   }
 });
 
-
 // Login a user
 
 router.post("/users/login", async (req, res) => {
@@ -136,26 +135,26 @@ router.delete("/users/me", auth, async (req, res) => {
   }
 });
 
-router.post("/sendemail", auth, async (req, res) =>{
-  const sgMail = require('@sendgrid/mail');
+router.post("/sendemail", auth, async (req, res) => {
+  const sgMail = require("@sendgrid/mail");
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  const msg ={
-    to: `${req.user.email}`,
-    from: {"email":"garcia.marcella@hotmail.com","name":"Next Tech Trivia"},
-    subject: 'Hello !',
+  const msg = {
+    to: "katie@wyncode.co",
+    from: { email: "garcia.marcella@hotmail.com", name: "Next Tech Trivia" },
+    subject: "Hello !",
     text: `Test API call number 8`,
     html: "<strong>testing testing route</strong>",
-  }
+  };
   const sendEmail = () => {
-   try {
+    try {
       sgMail.send(msg);
-      console.log("Email has sent successfully!")
+      console.log("Email has sent successfully!");
     } catch (e) {
       console.log(e);
     }
-  }; 
+  };
   sendEmail();
-});   
+});
 
 module.exports = router;
