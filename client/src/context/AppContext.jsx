@@ -17,7 +17,7 @@ const AppContextProvider = ({ children }) => {
   const [step, setStep] = useState(0);
   const [prize150, setPrize150] = useState(0);
   const [prize100, setPrize100] = useState(0);
-  const [prize50, setPrize50] = useState(0);
+  const [prize50, setPrize50] = useState(1);
   const [prize10, setPrize10] = useState(0);
 
   const currentDate = moment().tz("America/Los_Angeles").format("YYYY-MM-DD");
