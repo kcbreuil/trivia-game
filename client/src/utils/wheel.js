@@ -2,6 +2,8 @@ import React from "react";
 import "../styling/wheel.css";
 import pointer from "../images/pointer.png";
 import axios from "axios";
+import moment from "moment";
+import "moment-timezone";
 import { AppContext } from "../context/AppContext";
 
 class WheelFunction extends React.Component {
@@ -186,25 +188,126 @@ class WheelFunction extends React.Component {
   redirectPage = async () => {
     const context = this.context;
 
+    const currentDate = moment().tz("America/Los_Angeles").format("YYYY-MM-DD");
+    const weekOneStart = moment("2020-07-27").format("YYYY-MM-DD");
+    const weekOneEnd = moment("2020-08-02").format("YYYY-MM-DD");
+    const weekTwoStart = moment("2020-08-03").format("YYYY-MM-DD");
+    const weekTwoEnd = moment("2020-08-09").format("YYYY-MM-DD");
+    const weekThreeStart = moment("2020-08-10").format("YYYY-MM-DD");
+    const weekThreeEnd = moment("2020-08-16").format("YYYY-MM-DD");
+    const weekFourStart = moment("2020-08-17").format("YYYY-MM-DD");
+    const weekFourEnd = moment("2020-08-23").format("YYYY-MM-DD");
+    const weekFiveStart = moment("2020-08-24").format("YYYY-MM-DD");
+    const weekFiveEnd = moment("2020-08-30").format("YYYY-MM-DD");
+
     if (this.state.result === 4) {
-      await axios.patch("/rewards/5f1da928b3aa48070707e683", {
-        maxPerWeek: context.prize150 - 1,
-      });
+      if (weekOneStart <= currentDate && currentDate <= weekOneEnd) {
+        await axios.patch("/rewards/5f1dcf5730b2bf134ccee5ba", {
+          maxPerWeek: context.prize150 - 1,
+        });
+      }
+      if (weekTwoStart <= currentDate && currentDate <= weekTwoEnd) {
+        await axios.patch("/rewards/5f1dce1330b2bf134ccee5aa", {
+          maxPerWeek: context.prize150 - 1,
+        });
+      }
+      if (weekThreeStart <= currentDate && currentDate <= weekThreeEnd) {
+        await axios.patch("/rewards/5f1dce4a30b2bf134ccee5ae", {
+          maxPerWeek: context.prize150 - 1,
+        });
+      }
+      if (weekFourStart <= currentDate && currentDate <= weekFourEnd) {
+        await axios.patch("/rewards/5f1dce9d30b2bf134ccee5b2", {
+          maxPerWeek: context.prize150 - 1,
+        });
+      }
+      if (weekFiveStart <= currentDate && currentDate <= weekFiveEnd) {
+        await axios.patch("/rewards/5f1dcedb30b2bf134ccee5b6", {
+          maxPerWeek: context.prize150 - 1,
+        });
+      }
     }
+
     if (this.state.result === 3) {
-      await axios.patch("/rewards/5f1cd4a300c16e3e683b1959", {
-        maxPerWeek: context.prize100 - 1,
-      });
+      if (weekOneStart <= currentDate && currentDate <= weekOneEnd) {
+        await axios.patch("/rewards/5f1dcf5130b2bf134ccee5b9", {
+          maxPerWeek: context.prize100 - 1,
+        });
+      }
+      if (weekTwoStart <= currentDate && currentDate <= weekTwoEnd) {
+        await axios.patch("/rewards/5f1dce0430b2bf134ccee5a9", {
+          maxPerWeek: context.prize100 - 1,
+        });
+      }
+      if (weekThreeStart <= currentDate && currentDate <= weekThreeEnd) {
+        await axios.patch("/rewards/5f1dce4030b2bf134ccee5ad", {
+          maxPerWeek: context.prize100 - 1,
+        });
+      }
+      if (weekFourStart <= currentDate && currentDate <= weekFourEnd) {
+        await axios.patch("/rewards/5f1dce9030b2bf134ccee5b1", {
+          maxPerWeek: context.prize100 - 1,
+        });
+      }
+      if (weekFiveStart <= currentDate && currentDate <= weekFiveEnd) {
+        await axios.patch("/rewards/5f1dced330b2bf134ccee5b5", {
+          maxPerWeek: context.prize100 - 1,
+        });
+      }
     }
     if (this.state.result === 2) {
-      await axios.patch("/rewards/5f1da954b3aa48070707e684", {
-        maxPerWeek: context.prize50 - 1,
-      });
+      if (weekOneStart <= currentDate && currentDate <= weekOneEnd) {
+        await axios.patch("/rewards/5f1dcf4930b2bf134ccee5b8", {
+          maxPerWeek: context.prize50 - 1,
+        });
+      }
+      if (weekTwoStart <= currentDate && currentDate <= weekTwoEnd) {
+        await axios.patch("/rewards/5f1dcdf130b2bf134ccee5a8", {
+          maxPerWeek: context.prize50 - 1,
+        });
+      }
+      if (weekThreeStart <= currentDate && currentDate <= weekThreeEnd) {
+        await axios.patch("/rewards/5f1dce3130b2bf134ccee5ac", {
+          maxPerWeek: context.prize50 - 1,
+        });
+      }
+      if (weekFourStart <= currentDate && currentDate <= weekFourEnd) {
+        await axios.patch("/rewards/5f1dce8030b2bf134ccee5b0", {
+          maxPerWeek: context.prize50 - 1,
+        });
+      }
+      if (weekFiveStart <= currentDate && currentDate <= weekFiveEnd) {
+        await axios.patch("/rewards/5f1dceca30b2bf134ccee5b4", {
+          maxPerWeek: context.prize50 - 1,
+        });
+      }
     }
     if (this.state.result === 1) {
-      await axios.patch("/rewards/5f1da966b3aa48070707e685", {
-        maxPerWeek: context.prize10 - 1,
-      });
+      if (weekOneStart <= currentDate && currentDate <= weekOneEnd) {
+        await axios.patch("/rewards/5f1dcf4330b2bf134ccee5b7", {
+          maxPerWeek: context.prize10 - 1,
+        });
+      }
+      if (weekTwoStart <= currentDate && currentDate <= weekTwoEnd) {
+        await axios.patch("/rewards/5f1dcde030b2bf134ccee5a7", {
+          maxPerWeek: context.prize10 - 1,
+        });
+      }
+      if (weekThreeStart <= currentDate && currentDate <= weekThreeEnd) {
+        await axios.patch("/rewards/5f1dce2430b2bf134ccee5ab", {
+          maxPerWeek: context.prize10 - 1,
+        });
+      }
+      if (weekFourStart <= currentDate && currentDate <= weekFourEnd) {
+        await axios.patch("/rewards/5f1dce6530b2bf134ccee5af", {
+          maxPerWeek: context.prize10 - 1,
+        });
+      }
+      if (weekFiveStart <= currentDate && currentDate <= weekFiveEnd) {
+        await axios.patch("/rewards/5f1dcebe30b2bf134ccee5b3", {
+          maxPerWeek: context.prize10 - 1,
+        });
+      }
     }
 
     if (this.state.list[this.state.result] == this.state.list[0]) {
