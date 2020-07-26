@@ -109,7 +109,31 @@ class WheelFunction extends React.Component {
   spin = () => {
     // set random spin degree and ease out time
     // set state variables to initiate animation
-    let randomSpin = Math.floor(Math.random() * 2000) + 500;
+    const context = this.context;
+    let outcomes = [1300, 1250, 1200, 1100, 1000];
+
+    if (context.prize150 === 0) {
+      const item = 1000;
+      let index = outcomes.indexOf(item);
+      outcomes.splice(index, 1);
+    }
+    if (context.prize100 === 0) {
+      const item = 1100;
+      let index = outcomes.indexOf(item);
+      outcomes.splice(index, 1);
+    }
+    if (context.prize50 === 0) {
+      const item = 1200;
+      let index = outcomes.indexOf(item);
+      outcomes.splice(index, 1);
+    }
+    if (context.prize10 === 0) {
+      const item = 1250;
+      let index = outcomes.indexOf(item);
+      outcomes.splice(index, 1);
+    }
+
+    let randomSpin = outcomes[Math.floor(Math.random() * outcomes.length)];
     this.setState({
       rotate: randomSpin,
       easeOut: 2,
@@ -122,10 +146,11 @@ class WheelFunction extends React.Component {
     }, 2000);
   };
 
-  getResult = (spin) => {
+  getResult = async (spin) => {
     // find net rotation and add to offset angle
     // repeat substraction of inner angle amount from total distance traversed
     // use count as an index to find value of result from state list
+
     const { angle, top, offset, list } = this.state;
     let netRotation = ((spin % 360) * Math.PI) / 180; // RADIANS
     let travel = netRotation + offset;
@@ -161,6 +186,27 @@ class WheelFunction extends React.Component {
   redirectPage = async () => {
     const context = this.context;
 
+    if (this.state.result === 4) {
+      await axios.patch("/rewards/5f1da928b3aa48070707e683", {
+        maxPerWeek: context.prize150 - 1,
+      });
+    }
+    if (this.state.result === 3) {
+      await axios.patch("/rewards/5f1cd4a300c16e3e683b1959", {
+        maxPerWeek: context.prize100 - 1,
+      });
+    }
+    if (this.state.result === 2) {
+      await axios.patch("/rewards/5f1da954b3aa48070707e684", {
+        maxPerWeek: context.prize50 - 1,
+      });
+    }
+    if (this.state.result === 1) {
+      await axios.patch("/rewards/5f1da966b3aa48070707e685", {
+        maxPerWeek: context.prize10 - 1,
+      });
+    }
+
     if (this.state.list[this.state.result] == this.state.list[0]) {
       context.setStep(3);
       // this is where we can send loser email in sendgrid :DDD //
@@ -179,24 +225,28 @@ class WheelFunction extends React.Component {
 
       let resultState =
         Number(this.state.list[this.state.result].substr(1)) * 100; //CONVERTING RESULT IN CENTS
-      
-      let template_code = ''  
-      if(resultState === 1000){
-        template_code = 'OLFXBPGMRETX';
-      } else if (resultState === 5000){
-        template_code = 'HFCZAGMGGIHH';
-      }else if (resultState === 10000){
-        template_code = 'HRUFIRCFDPRR';
-      }else if (resultState === 15000){
-        template_code = 'JYAZYNEGORGN';
+
+      let template_code = "";
+      if (resultState === 1000) {
+        template_code = "OLFXBPGMRETX";
+      } else if (resultState === 5000) {
+        template_code = "HFCZAGMGGIHH";
+      } else if (resultState === 10000) {
+        template_code = "HRUFIRCFDPRR";
+      } else if (resultState === 15000) {
+        template_code = "JYAZYNEGORGN";
       }
-      console.log(` For ${resultState} the correct template is ${template_code}`)
+      console.log(
+        ` For ${resultState} the correct template is ${template_code}`
+      );
       await axios.post(
         "/campaign",
-        { data: { 
-          result: resultState,
-          template: template_code
-        }},
+        {
+          data: {
+            result: resultState,
+            template: template_code,
+          },
+        },
         {
           headers: {
             authorization: localStorage.getItem("token"),
@@ -242,7 +292,12 @@ class WheelFunction extends React.Component {
           >
             <img
               src={pointer}
-              style={{ marginTop: "60px", height: "140px", width: "auto", filter: "saturate(0%)" }}
+              style={{
+                marginTop: "60px",
+                height: "140px",
+                width: "auto",
+                filter: "saturate(0%)",
+              }}
             />
           </div>
         </div>

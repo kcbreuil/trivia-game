@@ -87,7 +87,6 @@ const Trivia = () => {
       }
     }
     setTotalCorrectAnswers(totalValue);
-    console.log(values);
   };
   const submit = (e) => {
     e.preventDefault();
