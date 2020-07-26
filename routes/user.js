@@ -140,11 +140,10 @@ router.post("/sendemail", auth, async (req, res) => {
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: "katie@wyncode.co",
-    from: { email: "garcia.marcella@hotmail.com", name: "Next Tech Trivia" },
-    subject: "Hello !",
-    text: `Test API call number 8`,
-    html: "<strong>testing testing route</strong>",
+    to: `${req.user.email}`,
+    from: { email: "googlenext20@netapp.com", name: "Next Tech Trivia" },
+    subject: "Thanks for playing!",
+    template_id: "d-be4b9250201b41c79307bdb6720a26c3",
   };
   const sendEmail = () => {
     try {
