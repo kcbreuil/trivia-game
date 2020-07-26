@@ -56,6 +56,7 @@ router.get("/", async (request, response) => {
 
 //=======================================//
 /*Sending a new campaign to giftbit*/
+// when production change to ["bestbuy","googleplay"]
 
 router.post("/campaign", auth, async (req, res) => {
     const expiryDate = "2020-09-28" 
@@ -69,18 +70,18 @@ router.post("/campaign", auth, async (req, res) => {
         },
       ],
       price_in_cents: req.body.data.result, 
-      brand_codes: ["amazonus"], // when production change to ["bestbuy","googleplay"]
+      brand_codes: ["amazonus"], 
       expiry: `${expiryDate}`,
       id: `Next_Tech_Trivia_${Math.random().toString(36).substring(2)}`,
     };
     try {
       const { data } = await axios.post(
-        "https://api-testbed.giftbit.com/papi/v1/campaign",// change when production
+        "https://api-testbed.giftbit.com/papi/v1/campaign",
         body,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.API_KEY}`, //Change key when production
+            Authorization: `Bearer ${process.env.API_KEY}`, 
           },
         }
       );
