@@ -6,21 +6,21 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const auth = require("../middleware/auth.js");
 
-const getGiftCards = async () => {
-  return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
-    headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
-  });
-};
+// const getGiftCards = async () => {
+//   return axios.get(`https://api.giftbit.com/papi/v1/brands`, {
+//     headers: { Authorization: `Bearer ${process.env.PRODUCTION_KEY}` },
+//   });
+// };
 
-router.get("/", async (request, response) => {
-  try {
-    const resp = await getGiftCards();
-    response.send(resp.data);
-  } catch (e) {
-    console.error(e);
-    response.status(500).send({ error: e.message });
-  }
-});
+// router.get("/", async (request, response) => {
+//   try {
+//     const resp = await getGiftCards();
+//     response.send(resp.data);
+//   } catch (e) {
+//     console.error(e);
+//     response.status(500).send({ error: e.message });
+//   }
+// });
 
 /* to add the campaign in to our DB */
 
@@ -91,5 +91,4 @@ router.post("/campaign", auth, async (req, res) => {
       console.error(err);
     }
   });
-
 module.exports = router;
