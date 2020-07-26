@@ -7,6 +7,11 @@ import "../styling/app.css";
 function WonWheel() {
   const { result } = useContext(AppContext);
   const prize = [0, 10, 50, 100, 150];
+
+  const closeTab = () =>{
+    window.close();
+  }
+
   return (
     <div className="winning-background">
       <div>
@@ -38,7 +43,7 @@ function WonWheel() {
           <br></br>
           Now, let’s get back to Google Cloud Next '20: OnAir.
         </h2>
-        <button id="button-wonwheel">
+        <button id="button-wonwheel" onClick={closeTab}>
           CLOSE {"X"}
         </button>
       </div>

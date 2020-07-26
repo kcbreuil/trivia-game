@@ -20,6 +20,10 @@ const LostTrivia = () => {
   };
   sendEmail();
 
+  const closeTab = () =>{
+    window.close();
+  }
+
   return (
     <div className="lost-trivia">
       <div>
@@ -48,7 +52,7 @@ const LostTrivia = () => {
       </div>
       <div>
         <a href="http://google.com">
-          <input id="lost-trivia-button" type="button" value="CLOSE X" />
+          <input id="lost-trivia-button" type="button" value="CLOSE X" onClick={closeTab}/>
         </a>
       </div>
     </div>
