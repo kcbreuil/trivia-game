@@ -7,18 +7,18 @@ import axios from "axios";
 const LostTrivia = () => {
   const { totalCorrectAnswers } = useContext(AppContext);
 
-  // const sendEmail = async () => {
-  //   await axios.post(
-  //     "/sendemail",
-  //     { data: { data: "it doesn't matter but don't erase me" } },
-  //     {
-  //       headers: {
-  //         authorization: localStorage.getItem("token"),
-  //       },
-  //     }
-  //   );
-  // }
-  // sendEmail();
+  const sendEmail = async () => {
+    await axios.post(
+      "/sendemail",
+      { data: { data: "it doesn't matter but don't erase me" } },
+      {
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+      }
+    );
+  };
+  sendEmail();
 
   return (
     <div className="lost-trivia">
