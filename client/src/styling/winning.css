@@ -56,17 +56,6 @@
 
 
 @media only screen and (max-width: 600px) {
-  .next-name, .tech-trivia-name {
-      font-size: 2.5rem
-  }
-  .with-name{
-      font-Size: 26px;
-      font-weight:lighter;
-  }
-  .netapp-name {
-      font-Size: 2.5rem;
-      line-Height: 5rem
-  }
   .h2-wontrivia{
       font-weight: 800;
       margin:2vh 8vw;

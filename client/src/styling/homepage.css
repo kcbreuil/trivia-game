@@ -23,7 +23,7 @@
 }
 
 .privacy {
-  margin: 0;
+  margin-bottom:12px;
   position: bottom;
   font-style: italic;
   font-size: 10px;
@@ -63,7 +63,6 @@
 
 .form-div {
   padding-bottom: 10px;
-  font-style: 20px;
   padding-top: 10px;
 }
 
@@ -97,8 +96,23 @@ button:focus {
 .disable {
   pointer-events: none;
 }
+#hi{
+  text-align: left;
+}
+
+#page-text{
+ line-Height: 2rem;
+  font-Size: 15px
+}
+
 
 @media only screen and (max-width: 600px) {
+  .container {
+    margin: 18px;
+  }
+  #hi{
+    text-align: center;
+  }
   .footer {
     display: flex;
     flex-direction: row;
@@ -118,4 +132,16 @@ button:focus {
     margin: auto;
     padding-left: 15px;
   }
+  .homepage-input {
+    margin-left: 10px;
+    width: 140px;
+}
+.form-div {
+  padding-bottom: 10px;
+  padding-top: 0px;
+}
+#page-text{
+  line-Height: 1.5rem;
+   font-Size: 15px
+ }
 }

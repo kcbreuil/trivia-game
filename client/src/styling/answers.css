@@ -45,15 +45,16 @@
 
 .answerFlex {
   display: flex;
+  justify-content: center;
 }
 
 .letter {
   font-weight: bold;
 }
 
-.answerSelection {
-  margin-left: 100px;
-}
+/* .answerSelection {
+  /* margin-left: 100px; 
+} */
 
 @media only screen and (max-width: 600px) {
   .answers > Label {
@@ -71,9 +72,9 @@
     font-size: 13px;
   }
 
-  .answerSelection {
-    margin-left: 30px;
-  }
+  /* .answerSelection {
+    /* margin-left: 30px; 
+  } */
 
   .nextButton {
     border: none;
