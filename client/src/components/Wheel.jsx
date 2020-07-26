@@ -1,5 +1,6 @@
 import React from "react";
 import WheelFunction from "../utils/wheel";
+import "../styling/app.css";
 
 const Wheel = () => {
   return (

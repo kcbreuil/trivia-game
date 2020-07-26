@@ -18,3 +18,17 @@
     font-Size: 55px;
     line-Height: 6rem
 }
+
+@media only screen and (max-width: 600px) {
+    .next-name, .tech-trivia-name {
+        font-size: 2.2rem;
+    }
+    .with-name{
+        font-Size: 24px;
+        font-weight:lighter;
+    }
+    .netapp-name {
+        font-Size: 2.2rem;
+        line-Height: 4rem
+    }
+}

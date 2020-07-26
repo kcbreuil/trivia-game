@@ -2,6 +2,7 @@ import React from "react";
 import Answer from "./Answer";
 import decode from "./../utils/decode";
 import "../styling/question.css";
+import "../styling/app.css";
 
 export default (data) => {
   const fieldset = data.visible ? "fieldset" : "fieldset u-hidden";

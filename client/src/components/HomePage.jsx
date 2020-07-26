@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
+import "../styling/homepage.css";
+import "../styling/app.css";
 
 const HomePage = () => {
   const {
@@ -39,19 +41,18 @@ const HomePage = () => {
   return (
     <div className="container">
       <div>
-        <h1 style={{ textAlign: "center", fontSize: "42px" }}>
-          <span style={{ fontWeight: "lighter" }}>Next</span>&nbsp;Tech Trivia
+        <h1 className="tech-trivia-name" >
+          <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span style={{ fontSize: "27px", fontWeight: "lighter" }}>with</span>
+          <span className="with-name" >with</span>
           &nbsp;
-          <span style={{ color: "#0072bc", font: "bold", fontSize: "42px" }}>
-            NetApp
+          <span className="netapp-name">NetApp
           </span>
         </h1>
       </div>
 
-      <h2>Hi!</h2>
-      <p style={{ lineHeight: "2rem", fontSize: "16px" }}>
+      <h2 id="hi">Hi!</h2>
+      <p id="page-text">
         Welcome to Next Tech Trivia with NetApp. Answer 5 fun questions, and if
         you get 4 out of 5 correct, you’ll <b>“spin for a chance to win”</b>
         &nbsp; a gift card to buy a coveted Google item of your choice. All

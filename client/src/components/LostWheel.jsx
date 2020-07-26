@@ -24,7 +24,7 @@ const LostWheel = () => {
         alt=""
       />
       <h2 id="aw-snap" className="h2-lostwheel">
-        Aw, Snap!
+        Aw, snap!
       </h2 >
       
       <div >

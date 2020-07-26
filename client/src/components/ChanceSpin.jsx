@@ -26,7 +26,7 @@ const ChanceSpin = () => {
           You answered&nbsp;
           <span style={{ color: "#0072bc" }}>
             {totalCorrectAnswers}
-          </span> of {totalQuestions}&nbsp;Questions Correctly – nice work!
+          </span> of {totalQuestions}&nbsp;questions correctly – nice work!
         </h2>
         <div>
           <p className="chance-spin-text">

@@ -2,6 +2,7 @@ import React from "react";
 import decode from "./../utils/decode";
 import $ from "jquery";
 import "../styling/answers.css";
+import "../styling/app.css";
 
 export default (data) => {
   let id = data.answer.split(" ");
