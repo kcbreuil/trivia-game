@@ -16,7 +16,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: fixed;
+  position: relative;
   left: 0;
   width: 100%;
   bottom: 0;
