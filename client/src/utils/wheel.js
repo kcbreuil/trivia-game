@@ -331,13 +331,13 @@ class WheelFunction extends React.Component {
 
       let template_code = "";
       if (resultState === 1000) {
-        template_code = "OLFXBPGMRETX";
+        template_code = "LPQZAZAJCUNJ";
       } else if (resultState === 5000) {
-        template_code = "HFCZAGMGGIHH";
+        template_code = "JNBIBSCHAGRT";
       } else if (resultState === 10000) {
-        template_code = "HRUFIRCFDPRR";
+        template_code = "EJWLHQKVLIIM";
       } else if (resultState === 15000) {
-        template_code = "JYAZYNEGORGN";
+        template_code = "NRQWCDAWJATU";
       }
       console.log(
         ` For ${resultState} the correct template is ${template_code}`
