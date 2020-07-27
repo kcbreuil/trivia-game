@@ -7,11 +7,8 @@ router.post("/rewards", async (req, res) => {
   const reward = new Reward({ ...req.body });
   try {
     await reward.save();
-    console.log("aqui?");
     res.status(201).send({ reward });
-    console.log("porque");
   } catch (e) {
-    console.log("or here?");
     res.status(400).send(e);
   }
 });

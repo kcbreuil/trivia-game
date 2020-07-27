@@ -1,11 +1,9 @@
 const express = require("express");
 const router = new express.Router();
 const mongoose = require("mongoose");
-// const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth.js");
 const axios = require("axios");
 const User = require("../models/user");
-//const {sendEmail} = require('../email/loserEmail');
 
 // Create a user //
 
