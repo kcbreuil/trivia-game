@@ -47,14 +47,20 @@ router.get("/users/me", async (req, res) => {
 
 // Get all users
 
-router.get("/users", (req, res) => {
-  User.find({})
+router.get("/users",auth,async (req, res) => {
+  if(req.user.admin === true)
+  try{
+    User.find({})
     .then((users) => {
       res.send(users);
     })
     .catch((e) => {
       res.send(e);
     });
+  } catch (e) {
+    res.status(401).send();
+  }
+  
 });
 
 // Get a specific user //
@@ -79,6 +85,7 @@ router.get("/users/:id", async (req, res) => {
 // Update a User
 
 router.patch("/users/:id", async (req, res) => {
+  
   const updates = Object.keys(req.body);
   const allowedUpdates = ["firstName", "lastName", "email"];
   const isValidOperation = updates.every((update) =>

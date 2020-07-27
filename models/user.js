@@ -54,6 +54,11 @@ const userSchema = new mongoose.Schema({
       });
     },
   },
+  admin:{
+    type: Boolean,
+    required: false,
+    default: false,
+  },
   tokens: [
     {
       token: {

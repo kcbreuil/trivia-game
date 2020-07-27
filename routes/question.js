@@ -14,7 +14,7 @@ router.get("/questions", auth, async (req, res) => {
     });
 });
 
-router.post("/questions", async (req, res) => {
+router.post("/questions", auth, async (req, res) => {
   const question = new Question({
     ...req.body,
   });

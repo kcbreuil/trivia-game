@@ -2,8 +2,9 @@ const express = require("express");
 const Reward = require("../models/reward");
 const router = new express.Router();
 const mongoose = require("mongoose");
+const auth = require("../middleware/auth.js");
 
-router.post("/rewards", async (req, res) => {
+router.post("/rewards", auth, async (req, res) => {
   const reward = new Reward({ ...req.body });
   try {
     await reward.save();
@@ -17,7 +18,7 @@ router.post("/rewards", async (req, res) => {
 });
 //update rewards
 
-router.patch("/rewards/:id", async (req, res) => {
+router.patch("/rewards/:id", auth, async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ["maxPerWeek"];
   const isValidOperation = updates.every((update) =>
@@ -40,7 +41,7 @@ router.patch("/rewards/:id", async (req, res) => {
   }
 });
 
-router.get("/rewards/:id", async (req, res) => {
+router.get("/rewards/:id", auth, async (req, res) => {
   const _id = req.params.id;
   if (mongoose.Types.ObjectId.isValid(_id)) {
     try {
@@ -57,7 +58,7 @@ router.get("/rewards/:id", async (req, res) => {
   }
 });
 
-router.get("/rewards", async (req, res) => {
+router.get("/rewards", auth, async (req, res) => {
   Reward.find({})
     .then((reward) => {
       res.send(reward);
