@@ -18,7 +18,7 @@ const AppContextProvider = ({ children }) => {
   const [prize150, setPrize150] = useState(0);
   const [prize100, setPrize100] = useState(0);
   const [prize50, setPrize50] = useState(0);
-  const [prize10, setPrize10] = useState(1);
+  const [prize10, setPrize10] = useState(0);
 
   const currentDate = moment().tz("America/Los_Angeles").format("YYYY-MM-DD");
   const weekOneStart = moment("2020-07-27").format("YYYY-MM-DD");
