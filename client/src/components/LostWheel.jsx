@@ -1,43 +1,40 @@
 import React from "react";
-import "../styling/lostwheel.css"
-import "../styling/app.css"
+import "../styling/lostwheel.css";
+import "../styling/app.css";
 
 const LostWheel = () => {
-
-  const closeTab = () =>{
+  const closeTab = () => {
     window.close();
-  }
+  };
   return (
     <div style={{ textAlign: "center" }}>
-       <div>
-        <h1 className="tech-trivia-name" >
+      <div>
+        <h1 className="tech-trivia-name">
           <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
-          <span className="with-name" >with</span>
+          <span className="with-name">with</span>
           &nbsp;
-          <span className="netapp-name">NetApp
-          </span>
+          <span className="netapp-name">NetApp</span>
         </h1>
       </div>
-      <img className="sad-face-img"
+      <img
+        className="sad-face-img"
         src="https://res.cloudinary.com/farmersmarket/image/upload/v1595185391/Asset_77_usmr2y.png"
         alt=""
       />
       <h2 id="aw-snap" className="h2-lostwheel">
         Aw, snap!
-      </h2 >
-      
-      <div >
+      </h2>
+
+      <div>
         <p className="lost-wheel-text">
           Sorry you didn’t win today, but your name will still be entered into
           our grand prize drawing.
         </p>
-        <h2 className="h2-lostwheel">
-          Thanks for playing!
-        </h2>
+        <h2 className="h2-lostwheel">Thanks for playing!</h2>
       </div>
       <div className="privacy" id="privacy-lost-wheel">
-            {/* <p>
+        {/* <p>
               Please read and understand the &nbsp;
               <a href="https://www.netapp.com/us/legal/privacypolicy/index.aspx">
                 NetApp Privacy Policy
@@ -52,7 +49,7 @@ const LostWheel = () => {
               </a>
               at any time or manage your preferences.
             </p> */}
-          </div>
+      </div>
       <button className="btn-lost-wheel" onClick={closeTab}>
         CLOSE {"X"}
       </button>
