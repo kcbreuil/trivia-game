@@ -23,7 +23,7 @@
 }
 
 .privacy {
-  margin-bottom:12px;
+  margin-bottom: 12px;
   position: bottom;
   font-style: italic;
   font-size: 10px;
@@ -96,21 +96,20 @@ button:focus {
 .disable {
   pointer-events: none;
 }
-#hi{
+#hi {
   text-align: left;
 }
 
-#page-text{
- line-Height: 2rem;
-  font-Size: 15px
+#page-text {
+  line-height: 2rem;
+  font-size: 15px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .container {
     margin: 18px;
   }
-  #hi{
+  #hi {
     text-align: center;
     margin: 5px;
   }
@@ -119,7 +118,7 @@ button:focus {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: fixed;
+    position: absolute;
     left: 0;
     width: 100%;
     bottom: 0;
@@ -136,22 +135,22 @@ button:focus {
   .homepage-input {
     margin-left: 10px;
     width: 140px;
-}
-.form-div {
-  padding-bottom: 10px;
-  padding-top: 0px;
-}
-#page-text{
-  line-Height: 1.5rem;
-   font-Size: 15px
- }
- #tech-trivia-name-hp{
-  margin-bottom:0px
- }
- .privacy {
-  margin-bottom:12px;
-  position: bottom;
-  font-style: italic;
-  font-size: 8px;
-}
+  }
+  .form-div {
+    padding-bottom: 10px;
+    padding-top: 0px;
+  }
+  #page-text {
+    line-height: 1.5rem;
+    font-size: 15px;
+  }
+  #tech-trivia-name-hp {
+    margin-bottom: 0px;
+  }
+  .privacy {
+    margin-bottom: 12px;
+    position: bottom;
+    font-style: italic;
+    font-size: 8px;
+  }
 }
