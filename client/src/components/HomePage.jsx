@@ -41,7 +41,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <div>
-        <h1 className="tech-trivia-name" >
+        <h1 className="tech-trivia-name" id="tech-trivia-name-hp">
           <span className="next-name">Next</span>&nbsp;Tech Trivia
           <br></br>
           <span className="with-name" >with</span>
@@ -50,7 +50,6 @@ const HomePage = () => {
           </span>
         </h1>
       </div>
-
       <h2 id="hi">Hi!</h2>
       <p id="page-text">
         Welcome to Next Tech Trivia with NetApp. Answer 5 fun questions, and if
