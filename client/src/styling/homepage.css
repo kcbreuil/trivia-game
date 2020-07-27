@@ -112,6 +112,7 @@ button:focus {
   }
   #hi{
     text-align: center;
+    margin: 5px;
   }
   .footer {
     display: flex;
@@ -144,4 +145,13 @@ button:focus {
   line-Height: 1.5rem;
    font-Size: 15px
  }
+ #tech-trivia-name-hp{
+  margin-bottom:0px
+ }
+ .privacy {
+  margin-bottom:12px;
+  position: bottom;
+  font-style: italic;
+  font-size: 8px;
+}
 }
