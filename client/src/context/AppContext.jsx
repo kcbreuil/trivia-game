@@ -34,42 +34,42 @@ const AppContextProvider = ({ children }) => {
 
   if (weekOneStart <= currentDate && currentDate <= weekOneEnd) {
     axios.get("/rewards").then(function (response) {
-      setPrize150(response.data[25].maxPerWeek);
-      setPrize100(response.data[24].maxPerWeek);
-      setPrize50(response.data[23].maxPerWeek);
-      setPrize10(response.data[22].maxPerWeek);
+      setPrize150(response.data[19].maxPerWeek);
+      setPrize100(response.data[18].maxPerWeek);
+      setPrize50(response.data[17].maxPerWeek);
+      setPrize10(response.data[16].maxPerWeek);
     });
   }
   if (weekTwoStart <= currentDate && currentDate <= weekTwoEnd) {
     axios.get("/rewards").then(function (response) {
-      setPrize150(response.data[9].maxPerWeek);
-      setPrize100(response.data[8].maxPerWeek);
-      setPrize50(response.data[7].maxPerWeek);
-      setPrize10(response.data[6].maxPerWeek);
+      setPrize150(response.data[3].maxPerWeek);
+      setPrize100(response.data[2].maxPerWeek);
+      setPrize50(response.data[1].maxPerWeek);
+      setPrize10(response.data[0].maxPerWeek);
     });
   }
   if (weekThreeStart <= currentDate && currentDate <= weekThreeEnd) {
     axios.get("/rewards").then(function (response) {
-      setPrize150(response.data[13].maxPerWeek);
-      setPrize100(response.data[12].maxPerWeek);
-      setPrize50(response.data[11].maxPerWeek);
-      setPrize10(response.data[10].maxPerWeek);
+      setPrize150(response.data[7].maxPerWeek);
+      setPrize100(response.data[6].maxPerWeek);
+      setPrize50(response.data[5].maxPerWeek);
+      setPrize10(response.data[4].maxPerWeek);
     });
   }
   if (weekFourStart <= currentDate && currentDate <= weekFourEnd) {
     axios.get("/rewards").then(function (response) {
-      setPrize150(response.data[17].maxPerWeek);
-      setPrize100(response.data[16].maxPerWeek);
-      setPrize50(response.data[15].maxPerWeek);
-      setPrize10(response.data[14].maxPerWeek);
+      setPrize150(response.data[11].maxPerWeek);
+      setPrize100(response.data[10].maxPerWeek);
+      setPrize50(response.data[9].maxPerWeek);
+      setPrize10(response.data[8].maxPerWeek);
     });
   }
   if (weekFiveStart <= currentDate && currentDate <= weekFiveEnd) {
     axios.get("/rewards").then(function (response) {
-      setPrize150(response.data[21].maxPerWeek);
-      setPrize100(response.data[20].maxPerWeek);
-      setPrize50(response.data[19].maxPerWeek);
-      setPrize10(response.data[18].maxPerWeek);
+      setPrize150(response.data[15].maxPerWeek);
+      setPrize100(response.data[14].maxPerWeek);
+      setPrize50(response.data[13].maxPerWeek);
+      setPrize10(response.data[12].maxPerWeek);
     });
   }
 
