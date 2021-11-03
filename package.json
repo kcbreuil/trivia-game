@@ -24,7 +24,7 @@
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.22",
     "react-random-selection-wheel": "^0.1.2",
-    "validator": "^13.1.1"
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start": "node server.js",
